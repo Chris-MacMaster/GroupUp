@@ -1,4 +1,4 @@
-# GroupUp
+# Website Name: GroupUp
 
 # User Stories
  * See UserStories.md
