@@ -15,5 +15,15 @@ class EventImage(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    event_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shops.id")))
+    # One to Many
+    event_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("events.id")))
     events = db.relationship('Event', back_populates='event_images')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'url': self.url,
+            'eventId': self.event_id,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
+    }

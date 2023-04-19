@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from app.models import user_interests
 
 
 class User(db.Model, UserMixin):
@@ -15,7 +16,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     # INSERTED MANY TO MANY
-    interests = db.relationship("Interest", secondary="user_interests")
+    interests = db.relationship("Interest", secondary=user_interests)
 
     @property
     def password(self):
