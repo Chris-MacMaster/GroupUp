@@ -1,33 +1,54 @@
-from app.models import db, Group, environment, SCHEMA
+from app.models import db, Event, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
-def seed_groups():
-    group1 = Group(
-        name='Tank Lovers',
-        description='More people play our role please.',
-        img_url='tank_url@tanks.com/tank.png',
-        organizer="Demo",
-        num_members=1,
+def seed_events():
+    event1 = Event(
+        name='Meet and Greet',
+        details='A meetup, introductions.',
+        num_going=3,
+        group_limit=5,
+        host='Tank Lovers',
+        format='Intros, then food, then adjourned.',
+        description='A chance to meet as a team before playing. Still need another 2',
+        date='11/20/23',
+        public=True,
+        online=False,
+        group_id=1,
+        saved=False
     )
 
-    group2 = Group(
-        name='Doctors that No One Guards',
-        description='They always need healing.',
-        img_url='healer_url@supports.com/medic.png',
-        organizer="marnie",
-        num_members=2,
+    event2 = Event(
+        name='Casual Comp',
+        details='Comp without the yelling.',
+        num_going=3,
+        group_limit=5,
+        host='Tank Lovers',
+        format='Gameplay session for the team from our last event, "Meet and Greet".',
+        description='We go win.',
+        date='11/21/23',
+        public=False,
+        online=True,
+        group_id=1,
+        saved=False
     )
 
-    group3 = Group(
-        name='Just Heal Us',
-        description='I dont know how to swap or peel.',
-        img_url='dpsl@throwers.com/damage.png',
-        organizer="marnie",
-        num_members=3,
+    event3 = Event(
+        name='Park Visit',
+        details='A chance to touch grass.',
+        num_going=1,
+        group_limit=10,
+        host='Doctors that No One Guards',
+        format='A walk in the local park',
+        description='About a 15 minute stroll around the park as a change of pace.',
+        date='08/12/23',
+        public=True,
+        online=True,
+        group_id=2,
+        saved=False
     )
 
-    db.session.add_all([group1, group2, group3])
+    db.session.add_all([event1, event2, event3])
 
     db.session.commit()
 
@@ -39,11 +60,11 @@ def seed_groups():
 # it will reset the primary keys for you as well.
 
 
-def undo_groups():
+def undo_events():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.groups RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.events RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM groups"))
+        db.session.execute(text("DELETE FROM events"))
 
     db.session.commit()
