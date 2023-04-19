@@ -3,5 +3,5 @@ from sqlalchemy.sql import func
 
 
 group_categories = db.Table("group_categories",
-    db.Column('group_id', db.Integer, db.ForeignKey(add_prefix_for_prod('groups.group_id')),
-    db.Column('category_id', db.Integer, db.ForeignKey(add_prefix_for_prod('categories.category_id')))))
+    db.Column('group_id', db.Integer, db.ForeignKey(add_prefix_for_prod('groups.id')),
+    db.Column('category_id', db.Integer, db.ForeignKey(add_prefix_for_prod('categories.id')))))
