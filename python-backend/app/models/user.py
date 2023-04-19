@@ -14,6 +14,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    # INSERTED MANY TO MANY
+    interests = db.relationship("Interest", secondary="user_interests")
+
     @property
     def password(self):
         return self.hashed_password

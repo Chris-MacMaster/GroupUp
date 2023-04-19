@@ -11,3 +11,5 @@ class Interest(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     interest = db.Column(db.String, nullable=False)
+
+    users = db.relationship("User", secondary="user_interests")

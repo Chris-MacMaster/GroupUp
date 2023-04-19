@@ -11,3 +11,5 @@ class Category(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String, nullable=False)
+
+    groups = db.relationship("Group", secondary="group_categories")

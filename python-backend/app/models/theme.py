@@ -11,3 +11,6 @@ class Theme(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     theme = db.Column(db.String, nullable=False)
+
+    events = db.relationship("Event", secondary="event_themes")
+    
