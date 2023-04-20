@@ -40,7 +40,7 @@ def seed_interests():
 # it will reset the primary keys for you as well.
 
 
-def undo_event_images():
+def undo_interests():
     if environment == "production":
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.interests RESTART IDENTITY CASCADE;")

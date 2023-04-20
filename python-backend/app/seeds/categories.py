@@ -40,7 +40,7 @@ def seed_categories():
 # it will reset the primary keys for you as well.
 
 
-def undo_event_images():
+def undo_categories():
     if environment == "production":
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.categories RESTART IDENTITY CASCADE;")

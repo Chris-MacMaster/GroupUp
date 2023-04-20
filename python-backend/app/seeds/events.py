@@ -12,7 +12,7 @@ def seed_events():
         format='Intros, then food, then adjourned.',
         description='A chance to meet as a team before playing. Still need another 2',
         date='11/20/23',
-        public=True,
+        strangers=True,
         online=False,
         group_id=1,
         saved=False
@@ -27,7 +27,7 @@ def seed_events():
         format='Gameplay session for the team from our last event, "Meet and Greet".',
         description='We go win.',
         date='11/21/23',
-        public=False,
+        strangers=False,
         online=True,
         group_id=1,
         saved=False
@@ -42,7 +42,7 @@ def seed_events():
         format='A walk in the local park',
         description='About a 15 minute stroll around the park as a change of pace.',
         date='08/12/23',
-        public=True,
+        strangers=True,
         online=True,
         group_id=2,
         saved=False
