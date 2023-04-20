@@ -18,7 +18,7 @@ class Event(db.Model):
     format = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=False)
     date = db.Column(db.String(10)) # custom validate on front end
-    public = db.Column(db.Boolean, default=True)
+    strangers = db.Column(db.Boolean, default=True)
     online = db.Column(db.Boolean, nullable=False)
     saved = db.Column(db.Boolean, default=False)
 
@@ -43,7 +43,7 @@ class Event(db.Model):
             'format': self.format,
             'description': self.description,
             'date': self.date,
-            'public': self.public,
+            'strangers': self.strangers,
             'online': self.online,
             'saved': self.online,
             'createdAt': self.created_at,
