@@ -14,7 +14,7 @@ class Interest(db.Model):
     interest = db.Column(db.String, nullable=False)
 
     # many to many
-    users = db.relationship("User", secondary=user_interests)
+    users = db.relationship("Interest", secondary=user_interests, back_populates='interests')
 
 
     def to_dict(self):

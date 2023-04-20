@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     # INSERTED MANY TO MANY
-    interests = db.relationship("Interest", secondary=user_interests)
+    interests = db.relationship("User", secondary=user_interests, back_populates="users")
 
     @property
     def password(self):

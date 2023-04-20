@@ -70,10 +70,12 @@ def upgrade():
     sa.ForeignKeyConstraint(['group_id'], ['groups.id'], )
     )
     op.create_table('user_interests',
-    sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.Column('interest_id', sa.Integer(), nullable=True),
+    #MADE NULLABLE FALSE
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('interest_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['interest_id'], ['interests.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], )
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+
     )
     op.create_table('event_images',
     sa.Column('id', sa.Integer(), nullable=False),
