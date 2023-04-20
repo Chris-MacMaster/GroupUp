@@ -13,12 +13,12 @@ const GroupIndexItem = ({ group }) => {
     }
 
     return (
-        <li onClick={handleClick} className='groupIndexItem'>
+        <div onClick={handleClick} className='groupIndexItem'>
 
             <div title={group.name} className='group-card-div' >
                 {group.name}
             </div>
-        </li>
+        </div>
     );
 };
 

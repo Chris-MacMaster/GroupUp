@@ -44,6 +44,35 @@ export const actionDeleteGroup = (id) => {
 
 //**Thunks */
 
+//FOR TESTING ONLY!!! SCRAP WHEN DB SEEDS
+const groups = [{
+    id: 1,
+    name: 'Tank Lovers',
+    description: 'More people play our role please.',
+    imgUrl: 'tank_url@tanks.com/tank.png',
+    organizer: "Demo",
+    num_members: 1,
+},
+{
+    id: 2,
+    name: 'Doctors that No One Guards',
+    description: 'They always need healing.',
+    imgUrl: 'healer_url@supports.com/medic.png',
+    organizer: "marnie",
+    num_members: 2,
+
+},
+{
+    id: 3,
+    name: 'Just Heal Us',
+    description: 'I dont know how to swap or peel.',
+    img_url: 'dpsl@throwers.com/damage.png',
+    organizer: "marnie",
+    num_members: 3,
+}
+]
+
+
 //PRODUCTS HOME PAGE
 export const fetchGroups = () => async dispatch => {
     const response = await fetch('/api/groups/')
@@ -56,12 +85,17 @@ export const fetchGroups = () => async dispatch => {
 }
 
 export const fetchOneGroup = (id) => async dispatch => {
-    const response = await fetch(`/api/groups/${id}/`)
-    if (response.ok) {
-        const group = await response.json()
-        dispatch(actionLoadGroup(group))
-        return group
-    }
+    //**Code For Backend */
+    // const response = await fetch(`/api/groups/${id}/`)
+    // if (response.ok) {
+    //     const group = await response.json()
+    //     dispatch(actionLoadGroup(group))
+    //     return group
+    // }
+
+    //FOR TESTING ONLY!
+    return groups[id-1]
+
 }
 
 // export const fetchUserGroups = () => async dispatch => {
