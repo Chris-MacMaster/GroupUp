@@ -5,6 +5,8 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 
+import "./ProfileButton.css"
+
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -39,7 +41,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="fa-user-button" onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
@@ -52,11 +54,12 @@ function ProfileButton({ user }) {
             </li>
           </>
         ) : (
+          // <div className="log-signup-div">
           <>
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
+              modalComponent={<LoginFormModal className="login-form-modal" />}
             />
 
             <OpenModalButton
@@ -65,6 +68,7 @@ function ProfileButton({ user }) {
               modalComponent={<SignupFormModal />}
             />
           </>
+          // </div>
         )}
       </ul>
     </>

@@ -7,6 +7,13 @@ from .interests import seed_interests, undo_interests
 from .themes import seed_themes, undo_themes
 from .categories import seed_categories, undo_categories
 
+from .user_interests import seed_user_interests, undo_user_interests
+from .user_groups import seed_user_groups, undo_user_groups
+from .user_events import seed_user_events, undo_user_events
+
+from .group_categories import seed_group_categories, undo_group_categories
+from .event_themes import seed_event_themes, undo_event_themes
+
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -29,6 +36,11 @@ def seed():
         undo_interests()
         undo_categories()
         undo_themes()
+        undo_user_groups()
+        undo_user_events()
+        undo_user_interests()
+        undo_group_categories()
+        undo_event_themes()
     seed_users()
     seed_groups()
     seed_events()
@@ -36,6 +48,12 @@ def seed():
     seed_interests()
     seed_categories()
     seed_themes()
+    seed_user_groups()
+    seed_user_events()
+    seed_user_interests()
+    seed_group_categories()
+    seed_event_themes()
+    
     # Add other seed functions here
 
 
@@ -49,4 +67,9 @@ def undo():
     undo_interests()
     undo_categories()
     undo_themes()
+    undo_user_groups()
+    undo_user_events()
+    undo_user_interests()
+    undo_group_categories()
+    undo_event_themes()
     # Add other undo functions here

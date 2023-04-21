@@ -1,23 +1,53 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
+
+import * as sessionActions from "../../store/session"
+// import {useDispatch} from "react-redux"
+
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
+	const dispatch = useDispatch()
+	const history = useHistory()
+
+	const demoLogin = (e) => {
+		
+
+		// return dispatch(sessionActions.login({
+		// 	credential: "demo@aa.io",
+		// 	password: "password"
+		// }))
+		// 	.then(closeModal)
+		// 	.catch(
+		// 		async (res) => {
+		// 			const data = await res.json();
+		// 			if (data && data.errors) setErrors(data.errors);
+		// 		}
+		// 	);
+	}
+
+	const handleHomeRedirect = (e) => {
+		e.preventDefault()
+		history.push('/')
+	}
+
+
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
+		<div className='nav-div'>
+			<div>
+				<i onClick={handleHomeRedirect} className="fas fa-gamepad nav-gamepad" />
+				{/* <NavLink exact to="/">Home</NavLink> */}
+			</div>
 			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+				<div>
+					<ProfileButton className="profile-button" user={sessionUser} />
+				</div>
 			)}
-		</ul>
+		</div>
 	);
 }
 

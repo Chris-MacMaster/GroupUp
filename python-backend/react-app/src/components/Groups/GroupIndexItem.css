@@ -1,0 +1,9 @@
+.groupIndexItem:hover {
+    cursor: pointer;
+}
+
+/* adjust width and continue styling */
+.groupIndexItem {
+    display: block;
+    width: fit-content;
+}

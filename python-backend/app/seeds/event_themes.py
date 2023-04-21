@@ -2,7 +2,7 @@ from app.models import db, environment, SCHEMA, Event, Theme
 from sqlalchemy.sql import text
 
 
-def seed_group_events():
+def seed_event_themes():
 
     event1 = Event.query.get(1)
     event2 = Event.query.get(2)
