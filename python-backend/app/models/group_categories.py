@@ -6,3 +6,7 @@ group_categories = db.Table("group_categories",
     db.Model.metadata,
     db.Column('group_id', db.Integer, db.ForeignKey(add_prefix_for_prod('groups.id'))),
     db.Column('category_id', db.Integer, db.ForeignKey(add_prefix_for_prod('categories.id'))))
+
+
+if environment == "production":
+    group_categories.schema = SCHEMA

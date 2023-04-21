@@ -32,7 +32,8 @@ class Event(db.Model):
 
     # One to Many
     event_images = db.relationship('EventImage', back_populates='events', cascade="all, delete")
-
+    
+    # Many to Many
     users = db.relationship('User', secondary=user_events, back_populates="events")
     themes = db.relationship("Theme", secondary=event_themes, back_populates="events")
 

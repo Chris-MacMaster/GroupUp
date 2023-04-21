@@ -9,6 +9,11 @@ from alembic import op
 import sqlalchemy as sa
 
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
+
+
 # revision identifiers, used by Alembic.
 revision = 'cad178bcdb72'
 down_revision = None
@@ -23,6 +28,9 @@ def upgrade():
     sa.Column('category', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE categories SET SCHEMA {SCHEMA};")
+
     op.create_table('groups',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
@@ -34,16 +42,25 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE groups SET SCHEMA {SCHEMA};")
+
     op.create_table('interests',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('interest', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE interests SET SCHEMA {SCHEMA};")
+
     op.create_table('themes',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('theme', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE themes SET SCHEMA {SCHEMA};")
+
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
@@ -53,6 +70,9 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
     op.create_table('events',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
@@ -72,18 +92,27 @@ def upgrade():
     sa.ForeignKeyConstraint(['group_id'], ['groups.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE events SET SCHEMA {SCHEMA};")
+
     op.create_table('group_categories',
     sa.Column('group_id', sa.Integer(), nullable=True),
     sa.Column('category_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['category_id'], ['categories.id'], ),
     sa.ForeignKeyConstraint(['group_id'], ['groups.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE group_categories SET SCHEMA {SCHEMA};")
+
     op.create_table('user_groups',
     sa.Column('group_id', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['group_id'], ['groups.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE user_groups SET SCHEMA {SCHEMA};")
+
     op.create_table('user_interests',
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('interest_id', sa.Integer(), nullable=False),
@@ -91,6 +120,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('user_id', 'interest_id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE user_interests SET SCHEMA {SCHEMA};")
+
     op.create_table('event_images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('url', sa.String(), nullable=False),
@@ -100,18 +132,27 @@ def upgrade():
     sa.ForeignKeyConstraint(['event_id'], ['events.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE event_images SET SCHEMA {SCHEMA};")
+
     op.create_table('event_themes',
     sa.Column('event_id', sa.Integer(), nullable=True),
     sa.Column('theme_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['event_id'], ['events.id'], ),
     sa.ForeignKeyConstraint(['theme_id'], ['themes.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE event_themes SET SCHEMA {SCHEMA};")
+
     op.create_table('user_events',
     sa.Column('event_id', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['event_id'], ['events.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE user_events SET SCHEMA {SCHEMA};")
+
     # ### end Alembic commands ###
 
 

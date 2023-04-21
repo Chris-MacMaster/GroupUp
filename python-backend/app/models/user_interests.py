@@ -7,3 +7,5 @@ user_interests = db.Table("user_interests", db.Model.metadata,
     db.Column('interest_id', db.Integer, db.ForeignKey(add_prefix_for_prod('interests.id')), primary_key=True))
 
     
+if environment == "production":
+    user_interests.schema = SCHEMA
