@@ -39,10 +39,7 @@ def get_one_group(group_id):
     # print("made to get one group -----------------------------")
     # dummy data
 
-    return groups_dummy[group_id-1]
-
-
-
+    # return groups_dummy[group_id-1]
     if request.method == 'GET':
         group = Group.query.get(group_id)
         if group == None:
