@@ -15,13 +15,13 @@ def seed_group_categories():
     tank = Category.query.get(5)
     flex = Category.query.get(6)
 
-    group1.category.append(casual)
-    group1.category.append(tank)
+    group1.categories.append(casual)
+    group1.categories.append(tank)
 
-    group2.category.append(competitive)
-    group2.category.append(support)
+    group2.categories.append(competitive)
+    group2.categories.append(support)
 
-    group3.category.append(casual)
+    group3.categories.append(casual)
 
     db.session.commit()
 

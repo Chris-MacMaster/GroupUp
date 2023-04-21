@@ -15,14 +15,14 @@ def seed_event_themes():
     tank = Theme.query.get(5)
     flex = Theme.query.get(6)
 
-    event1.theme.append(casual)
+    event1.themes.append(casual)
 
-    event2.theme.append(dps)
-    event2.theme.append(support)
-    event2.theme.append(tank)
-    event2.theme.append(flex)
+    event2.themes.append(dps)
+    event2.themes.append(support)
+    event2.themes.append(tank)
+    event2.themes.append(flex)
 
-    event3.theme.append(casual)
+    event3.themes.append(casual)
 
     db.session.commit()
 

@@ -13,10 +13,10 @@ def seed_user_events():
     event3 = Event.query.get(3)
    
 
-    demo.event.append(event1)
-    demo.event.append(event2)
+    demo.events.append(event1)
+    demo.events.append(event2)
 
-    marnie.event.append(event3)
+    marnie.events.append(event3)
 
     db.session.commit()
 

@@ -13,14 +13,14 @@ def seed_user_groups():
     group3 = Group.query.get(3)
   
 
-    demo.group.append(group1)
-    demo.group.append(group2)
-    demo.group.append(group3)
+    demo.groups.append(group1)
+    demo.groups.append(group2)
+    demo.groups.append(group3)
 
-    marnie.group.append(group2)
-    marnie.group.append(group3)
+    marnie.groups.append(group2)
+    marnie.groups.append(group3)
 
-    bobbie.group.append(group3)
+    bobbie.groups.append(group3)
 
     db.session.commit()
 

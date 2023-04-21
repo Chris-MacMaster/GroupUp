@@ -16,13 +16,13 @@ def seed_user_interests():
     flex = Interest.query.get(6)
 
 
-    demo.interest.append(casual)
-    demo.interest.append(support)
+    demo.interests.append(casual)
+    demo.interests.append(support)
 
-    marnie.interest.append(competitive)
-    marnie.interest.append(tank)
+    marnie.interests.append(competitive)
+    marnie.interests.append(tank)
 
-    bobbie.interest.append(flex)
+    bobbie.interests.append(flex)
 
     db.session.commit()
 
