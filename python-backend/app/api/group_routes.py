@@ -69,29 +69,44 @@ def get_all_groups():
     """returns all groups regardless of session"""
     # get groups
     if request.method == "GET":
+        # dummy data for now
+        groups_dummy = [{
+            "id": 1,
+            "name": 'Tank Lovers',
+            "description": 'More people play our role please.',
+            "imgUrl": 'tank_url@tanks.com/tank.png',
+            "organizer": "Demo",
+            "num_members": 1, },
+            {
+            "id": 2,
+            "name": 'Doctors that No One Guards',
+            "description": 'They always need healing.',
+            "imgUrl": 'healer_url@supports.com/medic.png',
+            "organizer": "marnie",
+            "num_members": 2,
+
+        },
+            {
+            "id": 3,
+            "name": 'Just Heal Us',
+            "description": 'I dont know how to swap or peel.',
+            "img_url": 'dpsl@throwers.com/damage.png',
+            "organizer": "marnie",
+            "num_members": 3,
+        }
+        ]
+
+        return groups_dummy
+
         groups = Group.query.all()
 
-        productcopy = copy.deepcopy(products)
-        # helper function to get associated images of each product
+        groups_copy = copy.deepcopy(groups)
 
-        def get_images(id):
-            return ProductImage.query.filter(ProductImage.product_id == id).all()
+        
 
-        def get_reviews(id):
-            return ProductReview.query.filter(ProductReview.product_id == id).all()
-        payload = {product.id: product.to_dict() for product in productcopy}
+        return groups_copy, 200
 
-        for product in payload.values():
-            product_images = get_images(product['id'])
-            product['ProductImages'] = [image.to_dict()
-                                        for image in product_images]
-            review_sum = 0
-            reviews = get_reviews(product['id'])
-            for review in reviews:
-                review_sum += review.stars
-            product['avgRating'] = round(
-                review_sum / len(reviews), 1) if len(reviews) > 0 else 'New!'
-        return payload, 200
+
     # POSTS NEW PRODUCT
     elif request.method == "POST":
         # print('PAST METHOD CHECKER ------------------------------')
