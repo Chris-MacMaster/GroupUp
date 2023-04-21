@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from .db import db, SCHEMA, environment, add_prefix_for_prod
 # from sqlalchemy.orm import validates
 from sqlalchemy.sql import func
-from app.models import event_themes
+from .event_themes import event_themes
 
 
 class Theme(db.Model):
@@ -15,7 +15,7 @@ class Theme(db.Model):
     theme = db.Column(db.String, nullable=False)
 
     #many to many
-    events = db.relationship("Event", secondary=event_themes)
+    events = db.relationship("Event", secondary=event_themes, back_populates='themes')
 
     def to_dict(self):
         return {

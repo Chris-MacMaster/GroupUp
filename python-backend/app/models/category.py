@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from .db import db, SCHEMA, environment, add_prefix_for_prod
 # from sqlalchemy.orm import validates
 from sqlalchemy.sql import func
-from app.models import group_categories
+from .group_categories import group_categories
 
 class Category(db.Model):
     __tablename__ = "categories"
@@ -14,7 +14,7 @@ class Category(db.Model):
     category = db.Column(db.String, nullable=False)
 
     # Many to Many
-    groups = db.relationship("Group", secondary=group_categories)
+    groups = db.relationship("Group", secondary=group_categories, back_populates="categories")
 
 
     def to_dict(self):

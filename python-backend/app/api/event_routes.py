@@ -3,54 +3,66 @@ from app.models import db, Group
 from flask_login import current_user, login_required
 import copy
 from datetime import datetime
-##from app.forms import CreateProductForm
+# from app.forms import CreateProductForm
 
-group_routes = Blueprint('/groups', __name__)
+event_routes = Blueprint('/events', __name__)
 
-groups_dummy = [{
-    "id": 1,
-    "name": 'Tank Lovers',
-    "description": 'More people play our role please.',
-    "imgUrl": 'tank_url@tanks.com/tank.png',
-    "organizer": "Demo",
-    "numMembers": 1, },
-    {
-    "id": 2,
-    "name": 'Doctors that No One Guards',
-    "description": 'They always need healing.',
-    "imgUrl": 'healer_url@supports.com/medic.png',
-    "organizer": "marnie",
-    "numMembers": 2,
 
-},
-    {
-    "id": 3,
-    "name": 'Just Heal Us',
-    "description": 'I dont know how to swap or peel.',
-    "imgUrl": 'dpsl@throwers.com/damage.png',
-    "organizer": "marnie",
-    "numMembers": 3,
-}
-]
+events_dummy = [{"name":'Meet and Greet',
+    "details":'A meetup, introductions.',
+    "numGoing":3,
+    "groupLimit":5,
+    "host":'Tank Lovers',
+    "format":'Intros, then food, then adjourned.',
+    "description":'A chance to meet as a team before playing. Still need another 2',
+    "date":'11/20/23',
+    "strangers":True,
+    "online":False,
+    "groupId":1,
+    "saved":False},
 
-@group_routes.route('/<int:group_id>/', methods=['GET', 'DELETE', 'PUT'])
-def get_one_group(group_id):
+    {"name":'Casual Comp',
+    "details":'Comp without the yelling.',
+    "numGoing":3,
+    "groupLimit":5,
+    "host":'Tank Lovers',
+    "format":'Gameplay session for the team from our last event, "Meet and Greet".',
+    "description":'We go win.',
+    "date":'11/21/23',
+    "strangers":False,
+    "online":True,
+    "groupId":1,
+    "saved":False},
+
+    {"name":'Park Visit',
+    "details":'A chance to touch grass.',
+    "numGoing":1,
+    "groupLimit":10,
+    "host":'Doctors that No One Guards',
+    "format":'A walk in the local park',
+    "description":'About a 15 minute stroll around the park as a change of pace.',
+    "date":'08/12/23',
+    "strangers":True,
+    "online":True,
+    "groupId":2,
+    "saved":False}]
+
+
+@event_routes.route('/<int:event_id>/', methods=['GET', 'DELETE', 'PUT'])
+def get_one_event(event_id):
     """returns one group with the specified id"""
     # print("made to get one group -----------------------------")
     # dummy data
-
-    return groups_dummy[group_id-1]
-
-
+ 
+    return events_dummy[event_id-1]
 
     if request.method == 'GET':
         group = Group.query.get(group_id)
         if group == None:
             return {'errors': "Cannot find group with specified id"}
-        else: 
+        else:
             group_dict = group.to_dict()
-            return group_dict ##insert code
- 
+            return group_dict  # insert code
 
     # this delete isn't getting hit because of route above right?
     elif request.method == 'DELETE':
@@ -69,7 +81,7 @@ def get_one_group(group_id):
         if current_user.is_authenticated:
             pass
 
-            ##ADAPT LATER 
+            # ADAPT LATER
             # group = Group.query.get(group_id)
             # # form = CreateProductForm()  # make edit form
             # # form['csrf_token'].data = request.cookies['csrf_token']
@@ -95,22 +107,19 @@ def get_one_group(group_id):
             #     return product.to_dict(), 201
 
 
-@group_routes.route('/', methods=['GET', 'POST'])
-def get_all_groups():
+@event_routes.route('/', methods=['GET', 'POST'])
+def get_all_events():
     """returns all groups regardless of session"""
     # get groups
     if request.method == "GET":
         # dummy data for now
-        return groups_dummy
+        return events_dummy
 
         groups = Group.query.all()
 
         groups_copy = copy.deepcopy(groups)
 
-        
-
         return groups_copy, 200
-
 
     # POSTS NEW PRODUCT
     elif request.method == "POST":

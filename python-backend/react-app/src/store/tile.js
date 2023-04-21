@@ -47,9 +47,15 @@ export const actionDeleteGroup = (id) => {
 //FOR TESTING ONLY!!! SCRAP WHEN DB SEEDS
 
 //PRODUCTS HOME PAGE
-export const fetchGroups = () => async dispatch => {
+export const fetchTiles = () => async dispatch => {
     const response = await fetch('/api/groups/')
-
+    const tiles = [
+        {
+            url: "tile1",
+            title: "title1",
+            
+        }
+    ]
     if (response.ok) {
         const groups = await response.json()
         dispatch(actionLoadGroups(groups))
@@ -90,7 +96,7 @@ export const makeGroup = (groupBody) => async dispatch => {
     })
     const options = { method, headers, body }
     const response = await fetch('/api/groups/', options)
-    
+
     if (response.ok) {
         const product = await response.json()
         return product
@@ -123,7 +129,7 @@ export const deleteGroup = (id) => async dispatch => {
     const headers = { "Content-Type": "application/json" }
     const options = { method, headers }
     const response = await fetch(`/api/groups/${id}/`, options)
-    
+
     if (response.ok) {
         const deleteData = await response.json()
         dispatch(actionDeleteGroup(id))

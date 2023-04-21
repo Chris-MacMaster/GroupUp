@@ -2,6 +2,9 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
 
 
+from .user_groups import user_groups
+from .group_categories import group_categories
+
 
 class Group(db.Model):
     __tablename__ = 'groups'
@@ -20,6 +23,10 @@ class Group(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     events = db.relationship('Event', back_populates='groups')
+    
+    users = db.relationship('User', secondary=user_groups, back_populates="groups")
+    categories = db.relationship("Category", secondary=group_categories, back_populates="groups")
+
 
     def to_dict(self):
         return {

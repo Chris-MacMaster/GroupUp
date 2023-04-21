@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from .db import db, SCHEMA, environment, add_prefix_for_prod
 # from sqlalchemy.orm import validates
 from sqlalchemy.sql import func
-from app.models import user_interests
+from .user_interests import user_interests
 
 class Interest(db.Model):
     __tablename__ = "interests"
@@ -14,7 +14,7 @@ class Interest(db.Model):
     interest = db.Column(db.String, nullable=False)
 
     # many to many
-    users = db.relationship("Interest", secondary=user_interests, back_populates='interests')
+    users = db.relationship("User", secondary=user_interests, back_populates='interests')
 
 
     def to_dict(self):

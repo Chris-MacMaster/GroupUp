@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
-
+from .event_themes import event_themes
+from .user_events import user_events
 
 class Event(db.Model): 
     __tablename__ = 'events'
@@ -31,6 +32,9 @@ class Event(db.Model):
 
     # One to Many
     event_images = db.relationship('EventImage', back_populates='events', cascade="all, delete")
+
+    users = db.relationship('User', secondary=user_events, back_populates="events")
+    themes = db.relationship("Theme", secondary=event_themes, back_populates="events")
 
     def to_dict(self):
         return {
