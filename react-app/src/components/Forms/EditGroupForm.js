@@ -4,14 +4,17 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 
-import { makeGroup } from '../../store/group';
+import { fetchOneGroup, editGroup } from '../../store/group';
 import "./CreateGroupForm.css"
 
-export default function CreateGroupForm() {
+export default function EditGroupForm() {
     const history = useHistory();
     const dispatch = useDispatch()
-    
+
     const user = useSelector(state => state.session.user)
+    const groupState = useSelector(state => state.groups.singleGroup)
+
+    const group = groupState
 
 
     const { groupId } = useParams()
@@ -39,29 +42,49 @@ export default function CreateGroupForm() {
         // assign defaults to img_url and num_members
     }, [name, description])
 
+
+    useEffect(() => {
+        dispatch(fetchOneGroup(groupId))
+    }, [dispatch, groupId])
+
+    // prepopulate form
+    useEffect(() => {
+        setName(groupState?.name || "")
+        setDescription(groupState?.description || "")
+        setNumMembers(groupState?.num_members || 1)
+    }, [groupState])
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log("SUBMITTED")
         setHasSubmitted(true)
-        // console.log("ERRORS", errors)
         if (Object.values(errors).length) {
             return
         }
-        const newGroup = {
+        const editedGroup = {
             name,
             description,
             img_url: "healer_url@supports.com/medic.png",
             organizer: user.username,
-            // can proabaly simplify this....jeez 
-            num_members: num_members === 0 ? 1 : num_members + 1,
+            num_members: num_members === 0 ? 1 : num_members + 1
         }
-        dispatch(makeGroup(newGroup))
+        dispatch(editGroup(editedGroup, groupId))
+        dispatch(fetchOneGroup(groupId))
+        reset()
         history.push(`/group-details/${groupId}`)
     };
 
+    const reset = () => {
+        setName("")
+        setDescription("")
+        setNumMembers(0)
+    }
+
+
+    if (!Object.values(group).length) return null
+
     return (
         <div className='cp-container'>
-            <h1 className='cp-title form-title'>Create a Group</h1>
+            <h1 className='cp-title form-title'>Edit a Group</h1>
             {/* <p className='cp-grey-text sub-q-text form-sub'>Tell the world all about your item and why they'll love it</p> */}
             <form className='sp-form' onSubmit={handleSubmit} >
 
@@ -126,7 +149,7 @@ export default function CreateGroupForm() {
                         </p>
                     </div>
                     <div className='cp-form-field'>
-                        <input className='product-input input-field' type="number"
+                        <input className='proudct-input input-field' type="number"
                             value={num_members}
                             onChange={(e) => setNumMembers(e.target.value)}
                             placeholder='Number of members' />
@@ -134,7 +157,7 @@ export default function CreateGroupForm() {
                 </div>
             </form>
 
-            <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
+            <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Edit group" />
 
         </div>
     );

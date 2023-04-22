@@ -2,43 +2,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 // import { fetchProducts } from "../../store/product";
 import GroupIndexItem from "./GroupIndexItem";
+import { fetchGroups } from "../../store/group";
 
 
 
 function GroupsIndex() {
     const dispatch = useDispatch()
 
-    //COMMENTED OUT FOR TESTING
-    // const groupState = useSelector(state => state.groups.allGroups)
-    // const groups = Object.values(groupState)
-    const groups = [{
-        id:1,
-        name:'Tank Lovers',
-        description:'More people play our role please.',
-        imgUrl:'tank_url@tanks.com/tank.png',
-        organizer:"Demo",
-        num_members:1,},
-        {
-        id:2,
-        name:'Doctors that No One Guards',
-        description:'They always need healing.',
-        imgUrl:'healer_url@supports.com/medic.png',
-        organizer:"marnie",
-        num_members:2,
-
-        },
-        {
-        id:3,
-        name:'Just Heal Us',
-        description:'I dont know how to swap or peel.',
-        img_url:'dpsl@throwers.com/damage.png',
-        organizer:"marnie",
-        num_members:3, 
-        }
-     ]
+    const groupState = useSelector(state => state.groups.allGroups)
+    const groups = Object.values(groupState)
 
     useEffect(() => {
-        // dispatch(fetchProducts())
+        dispatch(fetchGroups())
     }, [dispatch])
 
     if (!groups.length) {

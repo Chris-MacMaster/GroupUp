@@ -61,8 +61,8 @@ def get_all_groups():
     if request.method == "GET":
         groups = Group.query.all()
         groups_copy = copy.deepcopy(groups)
-        return groups_copy, 200
-
+        payload = { group.id: group.to_dict() for group in groups_copy}
+        return payload, 200
 
     elif request.method == "POST":
         """Posts a new group"""

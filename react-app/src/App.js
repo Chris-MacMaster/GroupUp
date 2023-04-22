@@ -7,6 +7,8 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GroupsIndex from "./components/Groups/GroupsIndex";
 import GroupDetail from "./components/Groups/GroupDetail";
+import CreateGroupForm from "./components/Forms/CreateGroupForm";
+import EditGroupForm from "./components/Forms/EditGroupForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +37,15 @@ function App() {
           <Route path="/group-details/:groupId" exact={true} >
             <GroupDetail />
           </Route>
+
+          <Route path='/forms/create-group/:groupId' exact={true} >
+            <CreateGroupForm />
+          </Route>
+
+          <Route path='/forms/edit-group/:groupId' exact={true} >
+            <EditGroupForm />
+          </Route>
+
 
 
           <Route path="/">

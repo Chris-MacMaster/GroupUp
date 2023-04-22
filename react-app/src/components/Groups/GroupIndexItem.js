@@ -10,7 +10,7 @@ const GroupIndexItem = ({ group }) => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        console.log("group ID", group.id)
+        // console.log("group ID", group.id)
         history.push(`/group-details/${group.id}`)
     }
 

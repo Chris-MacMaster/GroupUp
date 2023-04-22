@@ -48,7 +48,7 @@ export const actionDeleteGroup = (id) => {
 
 //PRODUCTS HOME PAGE
 export const fetchGroups = () => async dispatch => {
-    const response = await fetch('/api/groups/')
+    const response = await fetch('/api/all-groups/')
 
     if (response.ok) {
         const groups = await response.json()
@@ -59,7 +59,7 @@ export const fetchGroups = () => async dispatch => {
 
 export const fetchOneGroup = (id) => async dispatch => {
     //**Code For Backend */
-    const response = await fetch(`/api/groups/${id}/`)
+    const response = await fetch(`/api/all-groups/${id}/`)
     if (response.ok) {
         const group = await response.json()
         dispatch(actionLoadGroup(group))
@@ -89,7 +89,7 @@ export const makeGroup = (groupBody) => async dispatch => {
         num_members,
     })
     const options = { method, headers, body }
-    const response = await fetch('/api/groups/', options)
+    const response = await fetch('/api/all-groups/', options)
     
     if (response.ok) {
         const product = await response.json()
@@ -109,7 +109,7 @@ export const editGroup = (groupBody, groupId) => async dispatch => {
         num_members,
     })
     const options = { method, headers, body }
-    const response = await fetch(`/api/groups/${groupId}/`, options)
+    const response = await fetch(`/api/all-groups/${groupId}/`, options)
     //testing
     if (response.ok) {
         const product = await response.json()
@@ -122,7 +122,7 @@ export const deleteGroup = (id) => async dispatch => {
     const method = "DELETE"
     const headers = { "Content-Type": "application/json" }
     const options = { method, headers }
-    const response = await fetch(`/api/groups/${id}/`, options)
+    const response = await fetch(`/api/all-groups/${id}/`, options)
     
     if (response.ok) {
         const deleteData = await response.json()
