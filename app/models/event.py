@@ -20,7 +20,7 @@ class Event(db.Model):
     description = db.Column(db.Text, nullable=False)
     date = db.Column(db.String(10)) # custom validate on front end
     strangers = db.Column(db.Boolean, default=True)
-    online = db.Column(db.Boolean, nullable=False)
+    online = db.Column(db.Boolean, default=False)
     saved = db.Column(db.Boolean, default=False)
 
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())

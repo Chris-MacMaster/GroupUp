@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../../store/session";
+import { logout, login } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
@@ -36,6 +36,10 @@ function ProfileButton({ user }) {
     dispatch(logout());
   };
 
+  const handleDemoLogin = (e) => {
+    e.preventDefault()
+    dispatch(login("demo@aa.io", "password"))
+  }
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
@@ -54,8 +58,8 @@ function ProfileButton({ user }) {
             </li>
           </>
         ) : (
-          // <div className="log-signup-div">
-          <>
+          <div className="log-signup-div">
+          
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
@@ -67,8 +71,11 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
-          </>
-          // </div>
+
+            <div onClick={handleDemoLogin} className='button'>
+              Demo User
+            </div>
+          </div>
         )}
       </ul>
     </>
