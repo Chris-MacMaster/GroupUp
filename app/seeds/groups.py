@@ -6,7 +6,7 @@ def seed_groups():
     group1 = Group(
         name='Tank Lovers',
         description='More people play our role please.',
-        img_url='tank_url@tanks.com/tank.png',
+        img_url='tank',
         organizer="Demo",
         num_members=1,
     )
@@ -14,7 +14,7 @@ def seed_groups():
     group2 = Group(
         name='Doctors that No One Guards',
         description='They always need healing.',
-        img_url='healer_url@supports.com/medic.png',
+        img_url='healer',
         organizer="marnie",
         num_members=2,
     )
@@ -22,7 +22,7 @@ def seed_groups():
     group3 = Group(
         name='Just Heal Us',
         description='I dont know how to swap or peel.',
-        img_url='dpsl@throwers.com/damage.png',
+        img_url='dps',
         organizer="marnie",
         num_members=3, 
     )

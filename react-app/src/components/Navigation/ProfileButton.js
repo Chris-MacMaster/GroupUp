@@ -56,6 +56,12 @@ function ProfileButton({ user }) {
     history.push(`/user-events`)
   }
 
+  const handleUserDetails = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    history.push(`/user-details`)
+  }
+
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
@@ -72,6 +78,7 @@ function ProfileButton({ user }) {
               <div>{user.email}</div>
               <div className="your-links" onClick={handleYourGroups}>Your Groups</div>
               <div className="your-links" onClick={handleYourEvents}>Your Events</div>
+              <div className="your-links" onClick={handleUserDetails}>User-Details</div>
               <div>
                 <button onClick={handleLogout}>Log Out</button>
               </div>

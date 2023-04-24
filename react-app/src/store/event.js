@@ -1,5 +1,3 @@
-import EventsIndex from "../components/Events/EventsIndex"
-
 const LOAD_EVENTS = "events/LOAD"
 const LOAD_USER_EVENTS = "events/USERS/LOAD"
 const LOAD_EVENT = "event/LOAD"
@@ -65,7 +63,7 @@ export const fetchEvents = () => async dispatch => {
 }
 
 export const fetchOneEvent = (id) => async dispatch => {
-    const response = await fetch(`/api/events/${id}/`)
+    const response = await fetch(`/api/all-events/${id}/`)
     if (response.ok) {
         const event = await response.json()
         dispatch(actionLoadEvent(event))
