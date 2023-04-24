@@ -10,7 +10,7 @@ const EventIndexItem = ({ event, buttons }) => {
     const handleClick = (e) => {
         e.preventDefault()
         // console.log("group ID", group.id)
-        history.push(`/group-details/${event.id}`)
+        history.push(`/event-details/${event.id}`)
     }
 
     const handleUpdate = (e) => {

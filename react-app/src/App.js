@@ -13,6 +13,8 @@ import CreateEventForm from "./components/Forms/CreateEventForm";
 import EditGroupForm from "./components/Forms/EditGroupForm";
 import EventsIndex from "./components/Events/EventsIndex";
 import CurrentEventsIndex from "./components/Events/CurrentEventsIndex";
+import EditEventForm from "./components/Forms/EditEventForm";
+import EventDetail from "./components/Events/EventDetail";
 
 
 function App() {
@@ -52,6 +54,10 @@ function App() {
             <GroupDetail />
           </Route>
 
+          <Route path="/event-details/:eventId" exact={true} >
+            <EventDetail />
+          </Route>
+
           <Route path='/forms/create-group' exact={true} >
             <CreateGroupForm />
           </Route>
@@ -62,6 +68,11 @@ function App() {
 
           <Route path='/forms/edit-group/:groupId' exact={true} >
             <EditGroupForm />
+          </Route>
+
+
+          <Route path='/forms/edit-event/:groupId' exact={true} >
+            <EditEventForm />
           </Route>
 
 
