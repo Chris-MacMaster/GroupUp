@@ -1,14 +1,21 @@
 // import { csrfFetch } from './csrf'
 const LOAD_GROUPS = "groups/LOAD"
+const LOAD_USER_GROUPS = "groups/USERS/LOAD"
 const LOAD_GROUP = "group/LOAD"
 const POST_GROUP = "groups/POST"
 const DELETE_GROUP = "groups/DELETE"
-// const LOAD_USER_GROUPS = 'groups/LOAD_USER_GROUPS'
 
 //**Actions */
 export const actionLoadGroups = (groups) => {
     return {
         type: LOAD_GROUPS,
+        payload: groups
+    }
+}
+
+export const actionLoadUserGroups = (groups) => {
+    return {
+        type: LOAD_USER_GROUPS,
         payload: groups
     }
 }
@@ -57,6 +64,17 @@ export const fetchGroups = () => async dispatch => {
     }
 }
 
+
+export const fetchUserGroups = () => async dispatch => {
+    const response = await fetch(`/api/all-groups/current/user-groups`)
+
+    if (response.ok) {
+        const groups = await response.json()
+        return dispatch(actionLoadUserGroups(groups))
+    }
+}
+
+
 export const fetchOneGroup = (id) => async dispatch => {
     //**Code For Backend */
     const response = await fetch(`/api/all-groups/${id}/`)
@@ -68,14 +86,6 @@ export const fetchOneGroup = (id) => async dispatch => {
 
 }
 
-// export const fetchUserGroups = () => async dispatch => {
-//     const response = await fetch(`/api/groups/current/`)
-
-//     if (response.ok) {
-//         const groups = await response.json()
-//          return dispatch(loaduserGroups(groups))
-//     }
-// }
 
 export const makeGroup = (groupBody) => async dispatch => {
     const { name, description, img_url, organizer, num_members } = groupBody
@@ -149,17 +159,20 @@ export default function groupReducer(state = initialState, action) {
             newState.singleGroup = {}
             return newState
         }
+
+        case LOAD_USER_GROUPS: {
+            const newState = { ...state }
+            newState.userGroups = action.payload
+            // resets other state
+            newState.allGroups = {}
+            return newState
+        }
         case LOAD_GROUP: {
             let newState = { ...state, singleGroup: { ...state.singleGroup } }
             newState.singleGroup = { ...action.payload }
             return newState
         }
-        // case LOAD_USER_PRODUCTS: {
-        //     const newState = { ...state }
-        //     // console.log("FDASFDSAFAD", action.payload)
-        //     newState.userProducts = { ...action.payload }
-        //     return newState
-        // }
+
         case POST_GROUP: {
             const newState = { ...state }
             newState.allGroups[action.payload.id] = action.payload

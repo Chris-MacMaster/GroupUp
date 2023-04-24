@@ -1,0 +1,8 @@
+.product-shipping-div {
+    display: flex;
+}
+
+.public-check-div {
+    display: flex;
+    justify-content: center;
+}

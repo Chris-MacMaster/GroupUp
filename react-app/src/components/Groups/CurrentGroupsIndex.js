@@ -1,19 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-// import { fetchProducts } from "../../store/product";
 import GroupIndexItem from "./GroupIndexItem";
-import { fetchGroups } from "../../store/group";
+import { fetchUserGroups } from "../../store/group";
 
 
 
-function GroupsIndex() {
+export default function CurrentGroupsIndex() {
     const dispatch = useDispatch()
 
-    const groupState = useSelector(state => state.groups.allGroups)
+    const groupState = useSelector(state => state.groups.userGroups)
     const groups = Object.values(groupState)
 
     useEffect(() => {
-        dispatch(fetchGroups())
+        dispatch(fetchUserGroups())
     }, [dispatch])
 
     if (!groups.length) {
@@ -23,15 +22,14 @@ function GroupsIndex() {
     return (
         <div className="groups-index">
             <h1 >
-                All Groups
+                Your Groups
             </h1>
             <div className="groupIndex">
                 {Object.values(groups).map(group => (
-                    <GroupIndexItem title={group.name} group={group} key={group.id} buttons={false} />
+                    <GroupIndexItem title={group.name} group={group} key={group.id} buttons={true} />
                 ))}
             </div>
         </div>
     )
 }
 
-export default GroupsIndex;

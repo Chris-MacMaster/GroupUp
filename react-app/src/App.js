@@ -6,9 +6,14 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GroupsIndex from "./components/Groups/GroupsIndex";
+import CurrentGroupsIndex from "./components/Groups/CurrentGroupsIndex";
 import GroupDetail from "./components/Groups/GroupDetail";
 import CreateGroupForm from "./components/Forms/CreateGroupForm";
+import CreateEventForm from "./components/Forms/CreateEventForm";
 import EditGroupForm from "./components/Forms/EditGroupForm";
+import EventsIndex from "./components/Events/EventsIndex";
+import CurrentEventsIndex from "./components/Events/CurrentEventsIndex";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -32,14 +37,27 @@ function App() {
 
           <Route path="/" exact={true} >
             <GroupsIndex />
+            <EventsIndex />
+          </Route>
+
+          <Route path="/user-groups" exact={true} >
+            <CurrentGroupsIndex />
+          </Route>
+
+          <Route path="/user-events" exact={true} >
+            <CurrentEventsIndex />
           </Route>
           
           <Route path="/group-details/:groupId" exact={true} >
             <GroupDetail />
           </Route>
 
-          <Route path='/forms/create-group/:groupId' exact={true} >
+          <Route path='/forms/create-group' exact={true} >
             <CreateGroupForm />
+          </Route>
+
+          <Route path='/forms/create-event/:groupId' >
+            <CreateEventForm />
           </Route>
 
           <Route path='/forms/edit-group/:groupId' exact={true} >

@@ -1,13 +1,23 @@
+import EventsIndex from "../components/Events/EventsIndex"
+
 const LOAD_EVENTS = "events/LOAD"
+const LOAD_USER_EVENTS = "events/USERS/LOAD"
 const LOAD_EVENT = "event/LOAD"
 const POST_EVENT = "events/POST"
 const DELETE_EVENT = "events/DELETE"
-// const LOAD_USER_GROUPS = 'groups/LOAD_USER_GROUPS'
+
 
 //**Actions */
 export const actionLoadEvents = (events) => {
     return {
         type: LOAD_EVENTS,
+        payload: events
+    }
+}
+
+export const actionLoadUserEvents = (events) => {
+    return {
+        type: LOAD_USER_EVENTS,
         payload: events
     }
 }
@@ -45,7 +55,7 @@ export const actionDeleteEvent = (id) => {
 
 //PRODUCTS HOME PAGE
 export const fetchEvents = () => async dispatch => {
-    const response = await fetch('/api/events/')
+    const response = await fetch('/api/all-events/')
 
     if (response.ok) {
         const events = await response.json()
@@ -63,14 +73,14 @@ export const fetchOneEvent = (id) => async dispatch => {
     }
 }
 
-// export const fetchUserGroups = () => async dispatch => {
-//     const response = await fetch(`/api/groups/current/`)
+export const fetchUserEvents = () => async dispatch => {
+    const response = await fetch(`/api/all-events/current/user-events`)
 
-//     if (response.ok) {
-//         const groups = await response.json()
-//          return dispatch(loaduserGroups(groups))
-//     }
-// }
+    if (response.ok) {
+        const events = await response.json()
+        dispatch(actionLoadUserEvents(events))
+    }
+}
 
 export const makeEvent = (eventBody) => async dispatch => {
     const { name, details, num_going, group_limit, host, format, description, date, strangers, online, saved, group_id } = eventBody
@@ -158,17 +168,19 @@ export default function eventReducer(state = initialState, action) {
             newState.singleEvent = {}
             return newState
         }
+
+        case LOAD_USER_EVENTS: {
+            const newState = { ...state }
+            newState.userEvents = action.payload
+            // resets other state
+            newState.allEvents = {}
+            return newState
+        }
         case LOAD_EVENT: {
             let newState = { ...state, singleEvent: { ...state.singleEvent } }
             newState.singleEvent = { ...action.payload }
             return newState
         }
-        // case LOAD_USER_PRODUCTS: {
-        //     const newState = { ...state }
-        //     // console.log("FDASFDSAFAD", action.payload)
-        //     newState.userProducts = { ...action.payload }
-        //     return newState
-        // }
         case POST_EVENT: {
             const newState = { ...state }
             newState.allEvents[action.payload.id] = action.payload

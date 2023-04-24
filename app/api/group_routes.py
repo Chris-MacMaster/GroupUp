@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, redirect, request
-from app.models import db, Group
+from app.models import db, Group, user_groups, User
 from flask_login import current_user, login_required
 import copy
 from datetime import datetime
@@ -84,3 +84,15 @@ def get_all_groups():
 
             return new_group.to_dict(), 201
         return {'errors': 'Not authenticated'}
+
+
+@group_routes.route('/current/user-groups', methods=['GET'])
+def get_current_groups():
+    """Returns all groups user is a member of"""
+    if request.method == "GET":
+        owned_groups = Group.query.join(user_groups).filter(user_groups.c.user_id == current_user.id).all()
+        # return owned_groups.to_dict()
+        groups_copy = copy.deepcopy(owned_groups)
+        payload = {group.id: group.to_dict() for group in groups_copy}
+        # return owned_groups
+        return payload, 200

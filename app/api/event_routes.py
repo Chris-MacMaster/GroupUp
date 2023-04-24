@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify, redirect, request
-from app.models import db, Event
+from app.models import db, Event, user_events
 from flask_login import current_user, login_required
 import copy
 from datetime import datetime
 from app.forms import CreateEventForm
 
-event_routes = Blueprint('/groups', __name__)
+event_routes = Blueprint('/all-events', __name__)
 
 
 @event_routes.route('/<int:event_id>/', methods=['GET', 'DELETE', 'PUT'])
@@ -58,7 +58,8 @@ def get_all_events():
     if request.method == "GET":
         events = Event.query.all()
         events_copy = copy.deepcopy(events)
-        return events_copy, 200
+        payload = {event.id: event.to_dict() for event in events_copy}
+        return payload, 200
 
     elif request.method == "POST":
         """Posts a new event"""
@@ -86,3 +87,16 @@ def get_all_events():
 
             return new_event.to_dict(), 201
         return {'errors': 'Not authenticated'}
+
+
+@event_routes.route('/current/user-events', methods=['GET'])
+def get_current_events():
+    """Returns all groups user is a member of"""
+    if request.method == "GET":
+        associated_events = Event.query.join(user_events).filter(
+            user_events.c.user_id == current_user.id).all()
+        # return owned_groups.to_dict()
+        events_copy = copy.deepcopy(associated_events)
+        payload = {event.id: event.to_dict() for event in events_copy}
+        # return owned_groups
+        return payload, 200

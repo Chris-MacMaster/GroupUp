@@ -5,12 +5,15 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 
+import { useHistory } from "react-router-dom";
+
 import "./ProfileButton.css"
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const history = useHistory()
 
   const openMenu = () => {
     if (showMenu) return;
@@ -40,6 +43,20 @@ function ProfileButton({ user }) {
     e.preventDefault()
     dispatch(login("demo@aa.io", "password"))
   }
+
+  const handleYourGroups = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    history.push(`/user-groups`)
+  }
+
+  const handleYourEvents = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    history.push(`/user-events`)
+  }
+
+
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
@@ -50,13 +67,15 @@ function ProfileButton({ user }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
-          </>
+          <div >
+              <div>{user.username}</div>
+              <div>{user.email}</div>
+              <div className="your-links" onClick={handleYourGroups}>Your Groups</div>
+              <div className="your-links" onClick={handleYourEvents}>Your Events</div>
+              <div>
+                <button onClick={handleLogout}>Log Out</button>
+              </div>
+          </div>
         ) : (
           <div className="log-signup-div">
           

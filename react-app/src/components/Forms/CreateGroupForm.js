@@ -39,7 +39,7 @@ export default function CreateGroupForm() {
         // assign defaults to img_url and num_members
     }, [name, description])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // console.log("SUBMITTED")
         setHasSubmitted(true)
@@ -55,8 +55,12 @@ export default function CreateGroupForm() {
             // can proabaly simplify this....jeez 
             num_members: num_members === 0 ? 1 : num_members + 1,
         }
-        dispatch(makeGroup(newGroup))
-        history.push(`/group-details/${groupId}`)
+        const groupResponse = dispatch(makeGroup(newGroup))
+        const groupData = await Promise.resolve(groupResponse)
+        if (groupData) {
+            history.push(`/group-details/${groupData.id}`)
+        }
+
     };
 
     return (
