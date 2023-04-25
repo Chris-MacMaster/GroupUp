@@ -62,6 +62,12 @@ function ProfileButton({ user }) {
     history.push(`/user-details`)
   }
 
+  const handleCreateGroup = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    history.push(`/forms/create-group`)
+  }
+
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
@@ -73,12 +79,13 @@ function ProfileButton({ user }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <div >
+          <div className="prof-button-div">
               <div>{user.username}</div>
               <div>{user.email}</div>
               <div className="your-links" onClick={handleYourGroups}>Your Groups</div>
               <div className="your-links" onClick={handleYourEvents}>Your Events</div>
               <div className="your-links" onClick={handleUserDetails}>User-Details</div>
+              <div className="your-links" onClick={handleCreateGroup}>Create a Group</div>
               <div>
                 <button onClick={handleLogout}>Log Out</button>
               </div>

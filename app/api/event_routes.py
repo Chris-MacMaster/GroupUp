@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, redirect, request
-from app.models import db, Event, user_events, event_themes, User, Theme, EventImage
+from app.models import db, Event, user_events, event_themes, User, Theme, EventImage, Group
 from flask_login import current_user, login_required
 import copy
 from datetime import datetime
@@ -21,6 +21,7 @@ def get_one_event(event_id):
             themes = Theme.query.join(event_themes).filter(event_themes.c.event_id == event_id).all()
             users = User.query.join(user_events).filter(user_events.c.event_id == event_id).all()
             event_images = EventImage.query.filter(EventImage.event_id == event_id).all()
+            group = Group.query.get(event.group_id)
 
             themes_copy = copy.deepcopy(themes)
             payload = {theme.id: theme.to_dict() for theme in themes_copy}
@@ -35,6 +36,7 @@ def get_one_event(event_id):
             event_dict["Users"] = payload_users
             # later can refactor to include multiple images, you're not even using images yet
             event_dict["EventImage"] = payload_event_image
+            event_dict["Group"] = group.to_dict()
 
             return event_dict, 200
 

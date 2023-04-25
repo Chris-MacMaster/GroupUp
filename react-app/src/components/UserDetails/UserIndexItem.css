@@ -1,0 +1,19 @@
+.user-card-div {
+    width: 170px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-card-div:hover {
+    border-color: white
+}
+
+.user-card-name {
+    font-size: x-large;
+}
+
+.userIndexItem:hover {
+    cursor: auto;
+}

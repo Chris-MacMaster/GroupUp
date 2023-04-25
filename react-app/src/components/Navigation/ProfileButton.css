@@ -6,3 +6,14 @@
 .your-links:hover {
     cursor: pointer;
 }
+
+.prof-button-div {
+    background-color:rgb(220, 94, 28);
+}
+
+.prof-button-div > div {
+    color: black;
+    font-size: 1em;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}

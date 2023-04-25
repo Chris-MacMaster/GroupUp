@@ -1,0 +1,37 @@
+.e-hosted-div {
+    font-size: .6em;
+    margin-left: 0px;
+}
+
+.e-top-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-e-info-div {
+    display: flex;
+    
+}
+
+.e-title {
+    font-size: 1.2em;
+    color: white;
+}
+
+.e-subinfo-div {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 25px;
+    max-width: 380px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.e-format-div {
+    color: white;
+    font-size: .5em;
+}
+
+.format-title {
+    font-size: .7em;
+}

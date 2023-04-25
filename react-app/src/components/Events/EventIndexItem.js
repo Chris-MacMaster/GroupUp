@@ -40,8 +40,7 @@ const EventIndexItem = ({ event, buttons }) => {
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
-                        {/* {group.num_members} members  */}
-                        {/* - {group.strangers === true ? "Public" : "Private"} */}
+                        Date: {event.date} 
                     </div>
                     {buttons === true && 
                         <div className='buttons-div'>

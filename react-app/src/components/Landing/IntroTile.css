@@ -1,0 +1,21 @@
+.introTile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-intro-div {
+    display: flex;
+    justify-content: center;
+    margin-left: none;
+}
+
+#title-intro-tile {
+    margin-left: none;
+}
+
+#text-intro-tile {
+    padding-left: 10%;
+    padding-right: 10%;
+}

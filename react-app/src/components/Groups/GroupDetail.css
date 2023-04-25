@@ -1,0 +1,36 @@
+.g-detail-img-div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.g-subinfo-div, .g-name-div {
+    margin-left: 15px;
+}
+
+
+.g-detail-img {
+    object-fit: cover;
+    max-height: 340px;
+    max-width: 600px;
+}
+
+.upcoming-events {
+    font-size: 2em;
+}
+
+.g-description {
+    margin-bottom: 10px;
+}
+
+.g-name-div {
+    font-size: 2em;
+    color: rgb(220, 94, 28)
+}
+
+.g-subinfo-div {
+    font-size: 1em;
+}
+
+.g-info-2 {
+    height: fit-content;
+}

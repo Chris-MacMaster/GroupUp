@@ -1,0 +1,8 @@
+.how-g-works {
+    font-size: 3em;
+}
+
+.tiles-index {
+    display: flex;
+    flex-wrap: normal;
+}

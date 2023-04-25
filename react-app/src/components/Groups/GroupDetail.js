@@ -5,6 +5,11 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { fetchOneGroup } from '../../store/group';
 
+import EventIndexItem from "../Events/EventIndexItem"
+import UserIndexItem from '../UserDetails/UserIndexItem';
+
+import './GroupDetail.css'
+
 
 const GroupDetail = () => {
     const dispatch = useDispatch()
@@ -21,24 +26,60 @@ const GroupDetail = () => {
     const group = useSelector(state => state.groups.singleGroup)
 
 
-    if (!group.id) {
-        return null
-    }
+    if (!group.id) return null
+
+    if (!Object.values(group.Events).length) return null
 
 
 
     return (
         <div  className='group-detail-div'>
-            <div title={group.name} className='group-name-div' >
-                Name: {group.name}
+            <div className='g-detail-img-div'>
+                <img className='g-detail-img' src='https://images.pexels.com/photos/35992/gorilla-monkey-ape-zoo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='alt' />
+                <div className='g-info-div e-subinfo-div g-info-2'>
+                    <div className='g-name-div'>
+                        {group.name}
+                    </div>
+                    <div className='g-subinfo-div'>
+                        <div className='g-num-members'>
+                            {group.num_members} {group.num_members === 1 ? "member" : "members"}
+                        </div>
+                        <div className='g-organizer'>
+                            Organized by {group.organizer}
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div title={group.description} className='group-description-div' >
-                Description: {group.description}
-            </div>
 
-            <div title={group.organizer} className='group-organizer-div' >
-                Organizer: {group.organizer}
+            <div className='description-events-members-div'>
+                <div className='g-description-div'>
+                    <p className='upcoming-events g-description'>
+                        Description
+                    </p>
+                    {group.description}
+                </div>
+
+                <div className='g-description-div'>
+                    <p className='upcoming-events'>
+                        Upcoming Events
+                    </p>        
+                    {Object.values(group?.Events).map(event => (
+                        <EventIndexItem title={event.name} event={event} key={event.id} />
+                    ))}
+                </div>
+
+                <div className='g-description-div'>
+                    <p className='upcoming-events associated-users'>
+                        Members
+                    </p>
+                    {Object.values(group?.Users).map(user => (
+                        <UserIndexItem title={user.username} user={user} key={user.id} />
+                    ))}
+                </div>
+
+              
+              
             </div>
         </div>
     );
