@@ -16,7 +16,7 @@ import CurrentEventsIndex from "./components/Events/CurrentEventsIndex";
 import EditEventForm from "./components/Forms/EditEventForm";
 import EventDetail from "./components/Events/EventDetail";
 import Footer from "./components/Footer/Footer";
-import UserDetails from "./components/UserDetails/UserDetails";
+import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
 
 
 function App() {
@@ -54,9 +54,9 @@ function App() {
           </Route>
 
           <Route path="/user-details" exact={true} >
-            <UserDetails />
             <CurrentGroupsIndex />
             <CurrentEventsIndex />
+            <CurrentInterestIndex />
           </Route>
 
           

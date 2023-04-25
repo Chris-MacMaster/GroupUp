@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, redirect, request
-from app.models import db, Event, user_events
+from app.models import db, Event, user_events, event_themes, User, Theme, EventImage
 from flask_login import current_user, login_required
 import copy
 from datetime import datetime
@@ -16,7 +16,27 @@ def get_one_event(event_id):
         if event == None:
             return {'errors': "Cannot find event with specified id"}
         else:
-            return event.to_dict(), 200
+            event_dict = event.to_dict()
+
+            themes = Theme.query.join(event_themes).filter(event_themes.c.event_id == event_id).all()
+            users = User.query.join(user_events).filter(user_events.c.event_id == event_id).all()
+            event_images = EventImage.query.filter(EventImage.event_id == event_id).all()
+
+            themes_copy = copy.deepcopy(themes)
+            payload = {theme.id: theme.to_dict() for theme in themes_copy}
+
+            users_copy = copy.deepcopy(users)
+            payload_users = {user.id: user.to_dict() for user in users_copy}
+
+            event_images_copy = copy.deepcopy(event_images)
+            payload_event_image = {event_image.id: event_image.to_dict() for event_image in event_images_copy}
+
+            event_dict["Themes"] = payload
+            event_dict["Users"] = payload_users
+            # later can refactor to include multiple images, you're not even using images yet
+            event_dict["EventImage"] = payload_event_image
+
+            return event_dict, 200
 
     # this delete isn't getting hit because of route above right?
     elif request.method == 'DELETE':

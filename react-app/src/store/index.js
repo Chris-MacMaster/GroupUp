@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import groupReducer from './group';
 import eventReducer from './event';
+import interestReducer from './interest';
 
 const rootReducer = combineReducers({
   session,
   groups: groupReducer,
-  events: eventReducer
+  events: eventReducer,
+  interests: interestReducer
 });
 
 
