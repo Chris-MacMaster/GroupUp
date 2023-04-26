@@ -127,10 +127,22 @@ def get_current_groups():
 @group_routes.route('/current/user-groups/join/<int:group_id>/', methods=['GET', 'POST'])
 def join_group(group_id):
     """Joins a Group"""
-    if current_user.is_authenticated:
-        user = User.query.get(current_user.id)
-        group = Group.query.get(group_id)
+    # if current_user.is_authenticated:
+    user = User.query.get(current_user.id)
+    group = Group.query.get(group_id)
+    user.groups.append(group)
+    db.session.commit()
+    return user.to_dict()
+    # return {'errors': 'Not authenticated'}
 
-        user.groups.append(group)
-        db.session.commit()
-    return {'errors': 'Not authenticated'}
+
+@group_routes.route('/current/user-groups/remove/<int:group_id>/', methods=['GET', 'POST'])
+def leave_group(group_id):
+    """Leaves a Group"""
+    # if current_user.is_authenticated:
+    user = User.query.get(current_user.id)
+    group = Group.query.get(group_id)
+    user.groups.remove(group)
+    db.session.commit()
+    return user.to_dict()
+    # return {'errors': 'Not authenticated'}

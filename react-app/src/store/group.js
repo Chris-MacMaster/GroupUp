@@ -146,7 +146,21 @@ export const joinGroup = (id) => async dispatch => {
     const headers = { "Content-Type": "application/json" }
     const options = { method, headers }
 
-    const response = await fetch(`/api/all-groups/current/user-groups/join/${id}`, options)
+    const response = await fetch(`/api/all-groups/current/user-groups/join/${id}/`, options)
+    if (response.ok) {
+        const group = await response.json()
+        dispatch(actionLoadGroup(group))
+        return group
+    }
+}
+
+
+export const leaveGroup = (id) => async dispatch => {
+    const method = "POST"
+    const headers = { "Content-Type": "application/json" }
+    const options = { method, headers }
+
+    const response = await fetch(`/api/all-groups/current/user-groups/remove/${id}/`, options)
     if (response.ok) {
         const group = await response.json()
         dispatch(actionLoadGroup(group))

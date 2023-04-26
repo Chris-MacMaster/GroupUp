@@ -154,7 +154,21 @@ export const joinEvent = (id) => async dispatch => {
     const headers = { "Content-Type": "application/json" }
     const options = { method, headers }
 
-    const response = await fetch(`/api/all-events/current/user-events/join/${id}`, options)
+    const response = await fetch(`/api/all-events/current/user-events/join/${id}/`, options)
+    if (response.ok) {
+        const event = await response.json()
+        dispatch(actionLoadEvent(event))
+        return event
+    }
+}
+
+
+export const leaveEvent = (id) => async dispatch => {
+    const method = "POST"
+    const headers = { "Content-Type": "application/json" }
+    const options = { method, headers }
+
+    const response = await fetch(`/api/all-events/current/user-events/remove/${id}/`, options)
     if (response.ok) {
         const event = await response.json()
         dispatch(actionLoadEvent(event))

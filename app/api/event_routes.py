@@ -125,12 +125,24 @@ def get_current_events():
 
 
 @event_routes.route('/current/user-events/join/<int:event_id>/', methods=['GET', 'POST'])
-def join_group(event_id):
+def join_event(event_id):
     """Joins an Event"""
     if current_user.is_authenticated:
         user = User.query.get(current_user.id)
         event = Event.query.get(event_id)
-
         user.events.append(event)
         db.session.commit()
+        return user.to_dict()
+    return {'errors': 'Not authenticated'}
+
+
+@event_routes.route('/current/user-events/remove/<int:event_id>/', methods=['GET', 'POST'])
+def leave_event(event_id):
+    """Leaves an Event"""
+    if current_user.is_authenticated:
+        user = User.query.get(current_user.id)
+        event = Event.query.get(event_id)
+        user.events.remove(event)
+        db.session.commit()
+        return user.to_dict()
     return {'errors': 'Not authenticated'}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
-import { deleteEvent, joinEvent } from '../../store/event';
+import { deleteEvent, joinEvent, leaveEvent } from '../../store/event';
 
 
 const EventIndexItem = ({ event, buttons }) => {
@@ -33,6 +33,13 @@ const EventIndexItem = ({ event, buttons }) => {
         history.push(`/event-details/${event.id}`)
     }
 
+    const handleLeave = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch(leaveEvent(event.id))
+        history.push(`/event-details/${event.id}`)
+    }
+
     return (
         <div onClick={handleClick} className='groupIndexItem'>
 
@@ -57,6 +64,7 @@ const EventIndexItem = ({ event, buttons }) => {
                         </div>
                     } 
                     <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Event</button>
+                    <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Event</button>
                     <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>
                 </div>
                 

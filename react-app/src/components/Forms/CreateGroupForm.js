@@ -12,19 +12,11 @@ export default function CreateGroupForm() {
     const dispatch = useDispatch()
     
     const user = useSelector(state => state.session.user)
-
-
     const { groupId } = useParams()
-
-
-    // const { closeModal } = useModal()
-
 
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [num_members, setNumMembers] = useState(0)
-    // const [img_url, setImgUrl] = useState("")
-
 
     //validation
     const [errors, setErrors] = useState({})
@@ -62,19 +54,6 @@ export default function CreateGroupForm() {
 
         
     };
-    const testCreate = async (e) => {
-        // TEST WORKS 
-        e.preventDefault()
-        const testGroup = {
-            name: "Posted Group",
-            description: "This is the description for the posted group.",
-            img_url: "post_url",
-            organizer: "Demo",
-            num_members: 1
-        }
-        const testResponse = dispatch(makeGroup(testGroup))
-    
-    }
 
     return (
         <div className='cp-container'>
@@ -156,11 +135,11 @@ export default function CreateGroupForm() {
 }
 
 
-export const urlCheck = (url) => {
-    return url.endsWith("jpeg") ||
-        url.endsWith("jpg") ||
-        url.endsWith("svg") ||
-        url.endsWith("png") ||
-        url.endsWith('gif') ||
-        url.endsWith("bmp")
-}
+// export const urlCheck = (url) => {
+//     return url.endsWith("jpeg") ||
+//         url.endsWith("jpg") ||
+//         url.endsWith("svg") ||
+//         url.endsWith("png") ||
+//         url.endsWith('gif') ||
+//         url.endsWith("bmp")
+// }

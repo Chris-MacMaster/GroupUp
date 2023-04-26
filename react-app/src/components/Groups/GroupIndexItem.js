@@ -5,7 +5,7 @@ import "./GroupIndexItem.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import GroupsIndex from './GroupsIndex';
-import { deleteGroup, fetchGroups, joinGroup } from '../../store/group';
+import { deleteGroup, fetchGroups, joinGroup, leaveGroup } from '../../store/group';
 
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
@@ -47,6 +47,13 @@ const GroupIndexItem = ({ group, buttons }) => {
         history.push(`/group-details/${group.id}`)
     }
 
+    const handleLeave = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch(leaveGroup(group.id))
+        history.push(`/group-details/${group.id}`)
+    }
+
     return (
         <div onClick={handleClick} className='groupIndexItem'>
 
@@ -73,6 +80,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                         </div>
                     } 
                     <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>
+                    <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                     <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>
                 </div>
                 

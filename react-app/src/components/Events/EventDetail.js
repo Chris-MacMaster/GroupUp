@@ -107,7 +107,7 @@ const GroupDetail = () => {
                     <p className='upcoming-events associated-users'>
                         Attendees ({Object.values(event?.Users).length})
                     </p>
-                    {Object.values(event?.Users).map(user => (
+                    {Object.values(event.Users).length && Object.values(event.Users).map(user => (
                         <UserIndexItem title={user.username} user={user} key={user.id} />
                     ))}
                 </div>

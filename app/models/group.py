@@ -5,6 +5,8 @@ from sqlalchemy.sql import func
 from .user_groups import user_groups
 from .group_categories import group_categories
 
+from .db import environment, SCHEMA
+
 
 class Group(db.Model):
     __tablename__ = 'groups'
