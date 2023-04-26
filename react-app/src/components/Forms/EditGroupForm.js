@@ -63,7 +63,7 @@ export default function EditGroupForm() {
         const editedGroup = {
             name,
             description,
-            img_url: "edit_test",
+            img_url: "edit",
             organizer: user.username,
             num_members: 1
         }

@@ -139,9 +139,6 @@ export default function CreateEventForm() {
                         <p className='cp-grey-text sub-q-text create-shop-grey'>
                             Start with a brief overview of your event. Feel free to mention details such as membership requirements or ground rules!
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text create-shop-grey'>
-                            Not sure what else to say? Shoppers also like hearing about your process, and the story behind the item!
-                        </p> */}
                     </div>
                     <div className='cp-field-div description-text'>
                         <textarea className='product-input input-field description-input' type="text-area"
@@ -292,7 +289,7 @@ export default function CreateEventForm() {
                         </p>
                         <div className='input-div '>
                             <button onClick={handleCheckOnline} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Online</button>
-                            {strangers === 'true' &&
+                            {online === 'true' &&
                                 <i className="fas fa-check" />
                             }
                         </div>        
