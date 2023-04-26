@@ -27,6 +27,9 @@ const GroupDetail = () => {
 
 
     if (!event.id) return null
+    // if (!event?.Group) return null
+    const eventGroupExists = event.Group.length
+    
 
     return (
         <div className='group-detail-div'>
@@ -85,10 +88,6 @@ const GroupDetail = () => {
                                     {event.strangers === true ? "Public" : "Private"} event - {event.online === true ? "online" : "In Person"}
                                 </div>
                             </div>
-
-                     
-
-                         
                         </div>
                     </div>
                 </div>
@@ -105,7 +104,7 @@ const GroupDetail = () => {
 
                 <div className='g-description-div'>
                     <p className='upcoming-events associated-users'>
-                        Attendees ({Object.values(event?.Users).length})
+                        Attendees ({Object.values(event?.Users).length && Object.values(event.Users).length})
                     </p>
                     {Object.values(event.Users).length && Object.values(event.Users).map(user => (
                         <UserIndexItem title={user.username} user={user} key={user.id} />

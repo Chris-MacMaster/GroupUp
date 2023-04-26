@@ -12,6 +12,19 @@ event_routes = Blueprint('/all-events', __name__)
 def get_one_event(event_id):
     """Returns one event with the specified id"""
     if request.method == 'GET':
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
+        print(event_id)
         event = Event.query.get(event_id)
         if event == None:
             return {'errors': "Cannot find event with specified id"}
@@ -103,6 +116,7 @@ def get_all_events():
                 strangers=form.data["strangers"],
                 online=form.data["online"],
                 saved=form.data["saved"],
+                group_id=form.data['group_id']
             )
             db.session.add(new_event)
             db.session.commit()

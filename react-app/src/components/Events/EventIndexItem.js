@@ -30,14 +30,14 @@ const EventIndexItem = ({ event, buttons }) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(joinEvent(event.id))
-        history.push(`/event-details/${event.id}`)
+        history.push(`/`)
     }
 
     const handleLeave = (e) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(leaveEvent(event.id))
-        history.push(`/event-details/${event.id}`)
+        history.push(`/`)
     }
 
     return (

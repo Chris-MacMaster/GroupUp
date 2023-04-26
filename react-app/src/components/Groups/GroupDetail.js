@@ -28,13 +28,8 @@ const GroupDetail = () => {
 
     if (!group.id) return null
 
-    const eventsLength = group.Events.length
-    // if (!Object.values(group?.Events).length) return null
-
-    // if (!Object.values(group.Events).length) return null
-
-
-
+    // const eventsLength = group.Events.length
+    // const usersLength = group.Users.length
     return (
         <div  className='group-detail-div'>
             <div className='g-detail-img-div'>
@@ -67,7 +62,7 @@ const GroupDetail = () => {
                     <p className='upcoming-events'>
                         Upcoming Events
                     </p>        
-                    {eventsLength && Object.values(group?.Events).map(event => (
+                    {Object.values(group?.Events).length && Object.values(group?.Events).map(event => (
                         <EventIndexItem title={event.name} event={event} key={event.id} />
                     ))}
                 </div>

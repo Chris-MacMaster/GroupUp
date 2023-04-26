@@ -73,9 +73,9 @@ export default function CreateEventForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("SUBMITTED")
+        // console.log("SUBMITTED")
         setHasSubmitted(true)
-        console.log("ERRORS", errors)
+        // console.log("ERRORS", errors)
         if (Object.values(errors).length) {
             return
         }
@@ -88,7 +88,7 @@ export default function CreateEventForm() {
             format,
             description,
             date,
-            strangers,
+            strangers: strangers === true ? true : false,
             online: online === true ? true : false,
             saved,
             group_id: groupId,
@@ -103,10 +103,14 @@ export default function CreateEventForm() {
 
 
     const handleCheckStrangers = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
         strangers === true ? setStrangers(false) : setStrangers(true)
     }
 
     const handleCheckOnline = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
         online === true ? setOnline(false) : setOnline(true)
     }
 

@@ -2,9 +2,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
-
-
-import { makeGroup } from '../../store/group';
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
 import { editEvent, fetchOneEvent } from '../../store/event';
@@ -19,8 +16,6 @@ export default function EditEventForm() {
 
     const event = eventState
 
-
-
     const { eventId } = useParams()
 
 
@@ -29,14 +24,13 @@ export default function EditEventForm() {
 
     const [name, setName] = useState("")
     const [details, setDetails] = useState("")
-    const [group_limit, setGroupLimit] = useState(0)
-    const [num_going, setNumGoing] = useState(0)
+    const [groupLimit, setGroupLimit] = useState(0)
+    const [numGoing, setNumGoing] = useState(0)
     const [format, setFormat] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
     const [strangers, setStrangers] = useState(true)
     const [online, setOnline] = useState(true)
-
 
     //validation
     const [errors, setErrors] = useState({})
@@ -49,7 +43,6 @@ export default function EditEventForm() {
         if (!details) e.details = "Must submit details"
         if (!format) e.format = "Must submit a format"
         if (!description) e.description = "Must submit a description"
-        if (!strangers) e.strangers = "Must submit a value for online"
 
         if (!date) e.date = "Must submit a date"
         if (date.length !== 10) e.dateLength = "Date must be written in following format, 'mm/dd/yyyy'"
@@ -66,35 +59,37 @@ export default function EditEventForm() {
         setDetails(eventState?.details || "")
         setFormat(eventState?.format || "")
         setDescription(eventState?.description || "")
-        setStrangers(eventState?.strangers || true)
         setDate(eventState?.date || "")
+        setStrangers(eventState?.strangers || false)
         setOnline(eventState?.online || false)
+        
+        setGroupLimit(eventState?.groupLimit || 0)
+        setNumGoing(eventState?.numGoing || 0)
 
     }, [eventState])
+    // console.log("GROUP ID", event?.Group.id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("SUBMITTED")
         setHasSubmitted(true)
-        // console.log("ERRORS", errors)
         if (Object.values(errors).length) {
             return
         }
         const editedEvent = {
             name,
             details,
-            num_going,
-            group_limit,
+            num_going: numGoing,
+            group_limit: groupLimit,
             host,
             format,
             description,
             date,
-            strangers,
-            // make sure you wire your create event to specific groups
+            strangers: strangers === true ? true : false,
+            online: online === true ? true : false,
             group_id: 1,
             saved: false
         }
-        const eventResponse = dispatch(editEvent(editedEvent))
+        const eventResponse = dispatch(editEvent(editedEvent, eventId))
         const eventData = await Promise.resolve(eventResponse)
         if (eventData) {
             history.push(`/event-details/${eventId}`)
@@ -110,6 +105,10 @@ export default function EditEventForm() {
     const handleCheckOnline = (e) => {
         online === true ? setOnline(false) : setOnline(true)
     }
+
+
+    // if (!Object.values(event).length) return null
+
 
 
     return (
@@ -201,7 +200,7 @@ export default function EditEventForm() {
                     </div>
                     <div className='cp-form-field'>
                         <input className='product-input input-field' type="number"
-                            value={num_going}
+                            value={numGoing}
                             onChange={(e) => setNumGoing(e.target.value)}
                             placeholder='Number of attendees' />
                     </div>
@@ -219,7 +218,7 @@ export default function EditEventForm() {
                     </div>
                     <div className='cp-form-field'>
                         <input className='product-input input-field' type="number"
-                            value={group_limit}
+                            value={groupLimit}
                             onChange={(e) => setGroupLimit(e.target.value)}
                             placeholder='Number of attendees' />
                     </div>
@@ -308,7 +307,7 @@ export default function EditEventForm() {
 
 
             </form>
-            <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Schedule event" />
+            <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Edit event" />
         </div>
     );
 }

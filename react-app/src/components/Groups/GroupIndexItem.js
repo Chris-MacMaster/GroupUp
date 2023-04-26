@@ -44,14 +44,14 @@ const GroupIndexItem = ({ group, buttons }) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(joinGroup(group.id))
-        history.push(`/group-details/${group.id}`)
+        history.push(`/`)
     }
 
     const handleLeave = (e) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(leaveGroup(group.id))
-        history.push(`/group-details/${group.id}`)
+        history.push(`/`)
     }
 
     return (

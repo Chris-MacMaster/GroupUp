@@ -83,7 +83,7 @@ function App() {
           </Route>
 
 
-          <Route path='/forms/edit-event/:groupId' exact={true} >
+          <Route path='/forms/edit-event/:eventId' exact={true} >
             <EditEventForm />
           </Route>
 

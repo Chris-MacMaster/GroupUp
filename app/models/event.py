@@ -51,6 +51,7 @@ class Event(db.Model):
             'strangers': self.strangers,
             'online': self.online,
             'saved': self.online,
+            'groupId': self.group_id,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
     }
