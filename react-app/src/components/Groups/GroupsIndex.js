@@ -20,6 +20,7 @@ function GroupsIndex() {
         return null
     }
 
+
     return (
         <div className="groups-index">
             <h1 >

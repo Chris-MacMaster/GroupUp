@@ -38,8 +38,6 @@ def get_one_group(group_id):
             return group_dict, 200
         
 
-
-    # this delete isn't getting hit because of route above right?
     elif request.method == 'DELETE':
         if current_user.is_authenticated:
             group = Group.query.get(group_id)
@@ -58,6 +56,14 @@ def get_one_group(group_id):
             form = CreateGroupForm()
 
             form['csrf_token'].data = request.cookies['csrf_token']
+            # print('FORM DATA', form.data)
+            # print('FORM DATA', form.data)
+            # print('FORM DATA', form.data)
+            # print('FORM DATA', form.data)
+            # print('FORM DATA', form.data)
+            # print('FORM DATA', form.data)
+            # print('FORM DATA', form.data)
+
             if form.validate_on_submit():
                 group.name = form.data['name']
                 group.description = form.data['description']
@@ -87,6 +93,7 @@ def get_all_groups():
         """Posts a new group"""
         form = CreateGroupForm()
         form['csrf_token'].data = request.cookies['csrf_token']
+
         # if not form.validate_on_submit():
         #     # pass
         #     raise ValueError("Failed flask form validation")

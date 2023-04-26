@@ -1,13 +1,18 @@
 import React from 'react';
 import "./GroupIndexItem.css"
 
-// import { useDispatch } from "react-redux"
+
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import GroupsIndex from './GroupsIndex';
+import { deleteGroup, fetchGroups } from '../../store/group';
 
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
+
+    const groupState = useSelector(state => state.groups.allGroups)
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -24,8 +29,8 @@ const GroupIndexItem = ({ group, buttons }) => {
     const handleDelete = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        window.alert('Delete Incoming Once Wired and Tested')
-        // history.push(`/forms/edit-group/${group.id}`)
+        dispatch(deleteGroup(group.id))
+        // .then(dispatch(fetchGroups()))
     }
 
     const handleCreateEvent = (e) => {
@@ -54,11 +59,12 @@ const GroupIndexItem = ({ group, buttons }) => {
                     {buttons === true && 
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
-                            <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete</button>
+                            <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Create Event</button>
                             <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Create Event</button>
                             {/* <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type='button' >Delete</button> */}
                         </div>
                     } 
+                    <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>
                 </div>
                 
             </div>

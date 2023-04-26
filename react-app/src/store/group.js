@@ -180,7 +180,7 @@ export default function groupReducer(state = initialState, action) {
         }
 
         case DELETE_GROUP: {
-            const newState = { ...state }
+            const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             delete newState.allGroups[action.payload]
             return newState
         }

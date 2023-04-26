@@ -61,7 +61,21 @@ export default function CreateGroupForm() {
             history.push(`/group-details/${groupData.id}`)
         }
 
+        
     };
+    const testCreate = async (e) => {
+        // TEST WORKS 
+        e.preventDefault()
+        const testGroup = {
+            name: "Posted Group",
+            description: "This is the description for the posted group.",
+            img_url: "post_url",
+            organizer: "Demo",
+            num_members: 1
+        }
+        const testResponse = dispatch(makeGroup(testGroup))
+    
+    }
 
     return (
         <div className='cp-container'>
@@ -138,7 +152,7 @@ export default function CreateGroupForm() {
                 </div>
             </form>
 
-            <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
+            <input onClick={testCreate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
 
         </div>
     );

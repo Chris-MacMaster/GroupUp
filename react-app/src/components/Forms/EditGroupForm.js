@@ -63,9 +63,9 @@ export default function EditGroupForm() {
         const editedGroup = {
             name,
             description,
-            img_url: "healer_url@supports.com/medic.png",
+            img_url: "edit_test",
             organizer: user.username,
-            num_members: num_members === 0 ? 1 : num_members + 1
+            num_members: 1
         }
         dispatch(editGroup(editedGroup, groupId))
         dispatch(fetchOneGroup(groupId))
