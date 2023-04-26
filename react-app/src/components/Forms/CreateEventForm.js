@@ -34,8 +34,8 @@ export default function CreateEventForm() {
     const [format, setFormat] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
-    const [strangers, setStrangers] = useState('true')
-    const [online, setOnline] = useState('true')
+    const [strangers, setStrangers] = useState('false')
+    const [online, setOnline] = useState('false')
     
     // need this?
     const [num_members, setNumMembers] = useState(0)
@@ -277,7 +277,7 @@ export default function CreateEventForm() {
                         <div className='input-div '>
                         <button onClick={handleCheckStrangers} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Public</button>
                         {strangers === 'true' && 
-                        <i className="fas fa-user-circle" />
+                        <i className="fas fa-check" />
                         }
                         </div>                    
                     </div>
@@ -290,6 +290,12 @@ export default function CreateEventForm() {
                         <p className='cp-form-label sub-q-text create-shop-grey check-box-text'>
                             Check the box to indicate whether or not your event is online or in person.
                         </p>
+                        <div className='input-div '>
+                            <button onClick={handleCheckOnline} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Online</button>
+                            {strangers === 'true' &&
+                                <i className="fas fa-check" />
+                            }
+                        </div>        
 
                     </div>
    

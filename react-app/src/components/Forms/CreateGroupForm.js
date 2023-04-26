@@ -33,8 +33,8 @@ export default function CreateGroupForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-\        setHasSubmitted(true)
-\        if (Object.values(errors).length) {
+        setHasSubmitted(true)
+        if (Object.values(errors).length) {
             return
         }
         const newGroup = {
