@@ -12,8 +12,10 @@ class CreateEventForm(FlaskForm):
     format = StringField('format', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     date = StringField('date', validators=[DataRequired()])
-    strangers = BooleanField('strangers')
-    online = BooleanField('online')
-    saved = BooleanField('saved')
+
+
+    strangers = StringField('strangers', validators=[DataRequired()])
+    online = StringField('online', validators=[DataRequired()])
+    saved = StringField('saved', validators=[DataRequired()])
 
     group_id = IntegerField('group_id', validators=[DataRequired()])

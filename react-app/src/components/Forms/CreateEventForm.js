@@ -34,14 +34,10 @@ export default function CreateEventForm() {
     const [format, setFormat] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
-    const [strangers, setStrangers] = useState(true)
-    const [online, setOnline] = useState(true)
+    const [strangers, setStrangers] = useState('true')
+    const [online, setOnline] = useState('true')
     
     // need this?
-    const [saved, setSaved] = useState(false)
-
-
-
     const [num_members, setNumMembers] = useState(0)
     // const [img_url, setImgUrl] = useState("")
 
@@ -60,22 +56,11 @@ export default function CreateEventForm() {
 
         if (!date) e.date = "Must submit a date"
         if (date.length !== 10) e.dateLength = "Date must be written in following format, 'mm/dd/yyyy'"
-
-
-        
-        //dont need to require a num going if not known
-        //dont need to require a group limit if not known
-        //host is taken from user
-
-        // if (!num_members) e.num_members = "Must submit a description"
-        // assign defaults to img_url and num_members
     }, [name, details, format, description, strangers, date])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("SUBMITTED")
         setHasSubmitted(true)
-        // console.log("ERRORS", errors)
         if (Object.values(errors).length) {
             return
         }
@@ -88,9 +73,9 @@ export default function CreateEventForm() {
             format,
             description,
             date,
-            strangers: strangers === true ? true : false,
-            online: online === true ? true : false,
-            saved,
+            strangers: strangers === 'true' ? 'true' : 'false',
+            online: online === 'true' ? 'true' : 'false',
+            saved: 'false',
             group_id: groupId,
         }
         const eventResponse = dispatch(makeEvent(newEvent))
@@ -105,13 +90,13 @@ export default function CreateEventForm() {
     const handleCheckStrangers = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        strangers === true ? setStrangers(false) : setStrangers(true)
+        strangers === 'true' ? setStrangers('false') : setStrangers('true')
     }
 
     const handleCheckOnline = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        online === true ? setOnline(false) : setOnline(true)
+        online === 'true' ? setOnline('false') : setOnline('true')
     }
 
 
@@ -289,17 +274,12 @@ export default function CreateEventForm() {
                                 Check the box to indicate whether or not your event is open to anyone or just group members.
                             </p>
                         </div>
-                        <div className='cp-field-div public-check-div'>
-                            <input className='product-input input-field check-box' type="checkbox"
-                                value={strangers}
-                                onChange={handleCheckStrangers}
-                                placeholder='Description' />
-                            {hasSubmitted && errors.strangers && (
-                                <div className='error'>
-                                    * {errors.strangers}
-                                </div>
-                            )}
-                        </div>
+                        <div className='input-div '>
+                        <button onClick={handleCheckStrangers} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Public</button>
+                        {strangers === 'true' && 
+                        <i className="fas fa-user-circle" />
+                        }
+                        </div>                    
                     </div>
 
                 <div className='product-shipping-div'>
@@ -312,18 +292,7 @@ export default function CreateEventForm() {
                         </p>
 
                     </div>
-                    {/* <p className='cp-grey-text'>Either true or false</p> */}
-                    <div className='cp-field-div'>
-                        <input className='product-input input-field check-box public-check' type="checkbox"
-                            value={online}
-                            onChange={handleCheckOnline}
-                            placeholder='Description' />
-                        {hasSubmitted && errors.online && (
-                            <div className='error'>
-                                * {errors.online}
-                            </div>
-                        )}
-                    </div>
+   
                 </div>
             </form>
             <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Schedule event" />

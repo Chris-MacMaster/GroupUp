@@ -75,7 +75,7 @@ const GroupDetail = () => {
                                     {event.format}
                                 </div>
                                 <div className='e-format-div'>
-                                    {event.strangers === true ? "public" : "private"} event
+                                    {event.strangers === 'true' ? "public" : "private"} event
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@ const GroupDetail = () => {
                                     Permissions
                                 </div>
                                 <div className='e-format-div'>
-                                    {event.strangers === true ? "Public" : "Private"} event - {event.online === true ? "online" : "In Person"}
+                                    {event.strangers === 'true' ? "Public" : "Private"} event - {event.online === true ? "online" : "In Person"}
                                 </div>
                             </div>
                         </div>

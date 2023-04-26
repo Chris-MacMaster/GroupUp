@@ -33,16 +33,14 @@ export default function CreateGroupForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("SUBMITTED")
-        setHasSubmitted(true)
-        // console.log("ERRORS", errors)
-        if (Object.values(errors).length) {
+\        setHasSubmitted(true)
+\        if (Object.values(errors).length) {
             return
         }
         const newGroup = {
             name,
             description,
-            img_url: "newGroupURL",
+            img_url: "urltest",
             organizer: user.username,
             num_members: num_members === 0 ? 1 : num_members,
         }
