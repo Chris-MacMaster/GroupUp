@@ -40,7 +40,7 @@ export default function CreateGroupForm() {
         const newGroup = {
             name,
             description,
-            img_url: "urltest",
+            img_url: "lur",
             organizer: user.username,
             num_members: num_members === 0 ? 1 : num_members,
         }
