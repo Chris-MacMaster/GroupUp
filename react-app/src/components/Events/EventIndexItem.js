@@ -1,11 +1,12 @@
 import React from 'react';
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
+import { deleteEvent, joinEvent } from '../../store/event';
 
 
 const EventIndexItem = ({ event, buttons }) => {
     const history = useHistory()
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -22,8 +23,14 @@ const EventIndexItem = ({ event, buttons }) => {
     const handleDelete = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        window.alert('Delete Incoming Once Wired and Tested')
-        // history.push(`/forms/edit-group/${group.id}`)
+        dispatch(deleteEvent(event.id))
+    }
+
+    const handleJoin = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch(joinEvent(event.id))
+        history.push(`/event-details/${event.id}`)
     }
 
     return (
@@ -49,6 +56,8 @@ const EventIndexItem = ({ event, buttons }) => {
                             {/* <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type='button' >Delete</button> */}
                         </div>
                     } 
+                    <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Event</button>
+                    <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>
                 </div>
                 
             </div>

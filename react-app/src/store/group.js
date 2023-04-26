@@ -41,7 +41,6 @@ export const actionDeleteGroup = (id) => {
     }
 }
 
-
 // export const userProducts = products => ({
 //     type: LOAD_USER_PRODUCTS,
 //     payload: products
@@ -140,6 +139,19 @@ export const deleteGroup = (id) => async dispatch => {
         return deleteData
     }
 
+}
+
+export const joinGroup = (id) => async dispatch => {
+    const method = "POST"
+    const headers = { "Content-Type": "application/json" }
+    const options = { method, headers }
+
+    const response = await fetch(`/api/all-groups/current/user-groups/join/${id}`, options)
+    if (response.ok) {
+        const group = await response.json()
+        dispatch(actionLoadGroup(group))
+        return group
+    }
 }
 
 const initialState = {

@@ -53,20 +53,11 @@ export default function EditEventForm() {
 
         if (!date) e.date = "Must submit a date"
         if (date.length !== 10) e.dateLength = "Date must be written in following format, 'mm/dd/yyyy'"
-
-
-
-        //dont need to require a num going if not known
-        //dont need to require a group limit if not known
-        //host is taken from user
-
-        // if (!num_members) e.num_members = "Must submit a description"
-        // assign defaults to img_url and num_members
     }, [name, details, format, description, strangers, date])
 
 
     useEffect(() => {
-        // dispatch(fetchOneEvent(3))
+        dispatch(fetchOneEvent(eventId))
     }, [dispatch, eventId])
 
 
@@ -79,7 +70,7 @@ export default function EditEventForm() {
         setDate(eventState?.date || "")
         setOnline(eventState?.online || false)
 
-    }, [eventState, name, details])
+    }, [eventState])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

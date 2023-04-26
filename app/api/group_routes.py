@@ -123,3 +123,14 @@ def get_current_groups():
         # return owned_groups
         return payload, 200
 
+
+@group_routes.route('/current/user-groups/join/<int:group_id>/', methods=['GET', 'POST'])
+def join_group(group_id):
+    """Joins a Group"""
+    if current_user.is_authenticated:
+        user = User.query.get(current_user.id)
+        group = Group.query.get(group_id)
+
+        user.groups.append(group)
+        db.session.commit()
+    return {'errors': 'Not authenticated'}

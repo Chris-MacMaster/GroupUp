@@ -57,7 +57,6 @@ export default function CreateEventForm() {
         if (!details) e.details = "Must submit details"
         if (!format) e.format = "Must submit a format"
         if (!description) e.description = "Must submit a description"
-        if (!strangers) e.strangers = "Must submit a value for online"
 
         if (!date) e.date = "Must submit a date"
         if (date.length !== 10) e.dateLength = "Date must be written in following format, 'mm/dd/yyyy'"
@@ -74,9 +73,9 @@ export default function CreateEventForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("SUBMITTED")
+        console.log("SUBMITTED")
         setHasSubmitted(true)
-        // console.log("ERRORS", errors)
+        console.log("ERRORS", errors)
         if (Object.values(errors).length) {
             return
         }
@@ -90,9 +89,9 @@ export default function CreateEventForm() {
             description,
             date,
             strangers,
-            //make sure you wire your create event to specific groups
+            online: online === true ? true : false,
+            saved,
             group_id: groupId,
-            saved: false
         }
         const eventResponse = dispatch(makeEvent(newEvent))
         const eventData = await Promise.resolve(eventResponse)
@@ -185,6 +184,28 @@ export default function CreateEventForm() {
                         {hasSubmitted && errors.details && (
                             <div className='error'>
                                 * {errors.details}
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className='product-description-div'>
+                    <div className='description-title-sub-text'>
+                        <label className='cp-form-label cp-description q-text' >
+                            Format
+                        </label>
+                        <p className='cp-grey-text sub-q-text create-shop-grey'>
+                            Describe the format of the event.
+                        </p>
+                    </div>
+                    <div className='cp-field-div description-text'>
+                        <textarea className='product-input input-field description-input' type="text-area"
+                            value={format}
+                            onChange={(e) => setFormat(e.target.value)}
+                            placeholder='' />
+                        {hasSubmitted && errors.format && (
+                            <div className='error'>
+                                * {errors.format}
                             </div>
                         )}
                     </div>
@@ -300,13 +321,6 @@ export default function CreateEventForm() {
                         )}
                     </div>
                 </div>
-
-
-
-                
-
-
-
             </form>
             <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Schedule event" />
         </div>

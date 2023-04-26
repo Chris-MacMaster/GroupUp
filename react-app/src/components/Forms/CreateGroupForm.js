@@ -50,10 +50,9 @@ export default function CreateGroupForm() {
         const newGroup = {
             name,
             description,
-            img_url: "healer_url@supports.com/medic.png",
+            img_url: "newGroupURL",
             organizer: user.username,
-            // can proabaly simplify this....jeez 
-            num_members: num_members === 0 ? 1 : num_members + 1,
+            num_members: num_members === 0 ? 1 : num_members,
         }
         const groupResponse = dispatch(makeGroup(newGroup))
         const groupData = await Promise.resolve(groupResponse)
@@ -151,9 +150,7 @@ export default function CreateGroupForm() {
                     </div>
                 </div>
             </form>
-
-            <input onClick={testCreate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
-
+            <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
         </div>
     );
 }

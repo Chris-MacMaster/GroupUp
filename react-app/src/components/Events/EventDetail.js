@@ -28,11 +28,6 @@ const GroupDetail = () => {
 
     if (!event.id) return null
 
-    
-
-    
-
-
     return (
         <div className='group-detail-div'>
             <div className='g-detail-img-div g-name-div e-top-div'>

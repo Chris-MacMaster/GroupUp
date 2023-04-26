@@ -99,7 +99,7 @@ export const makeEvent = (eventBody) => async dispatch => {
         group_id
     })
     const options = { method, headers, body }
-    const response = await fetch('/api/events/', options)
+    const response = await fetch('/api/all-events/', options)
 
     if (response.ok) {
         const event = await response.json()
@@ -126,7 +126,7 @@ export const editEvent = (eventBody, eventId) => async dispatch => {
         group_id
     })
     const options = { method, headers, body }
-    const response = await fetch(`/api/events/${eventId}/`, options)
+    const response = await fetch(`/api/all-events/${eventId}/`, options)
     //testing
     if (response.ok) {
         const event = await response.json()
@@ -139,7 +139,7 @@ export const deleteEvent = (id) => async dispatch => {
     const method = "DELETE"
     const headers = { "Content-Type": "application/json" }
     const options = { method, headers }
-    const response = await fetch(`/api/events/${id}/`, options)
+    const response = await fetch(`/api/all-events/${id}/`, options)
 
     if (response.ok) {
         const deleteData = await response.json()
@@ -147,6 +147,19 @@ export const deleteEvent = (id) => async dispatch => {
         return deleteData
     }
 
+}
+
+export const joinEvent = (id) => async dispatch => {
+    const method = "POST"
+    const headers = { "Content-Type": "application/json" }
+    const options = { method, headers }
+
+    const response = await fetch(`/api/all-events/current/user-events/join/${id}`, options)
+    if (response.ok) {
+        const event = await response.json()
+        dispatch(actionLoadEvent(event))
+        return event
+    }
 }
 
 const initialState = {
@@ -186,7 +199,7 @@ export default function eventReducer(state = initialState, action) {
         }
 
         case DELETE_EVENT: {
-            const newState = { ...state }
+            const newState = { allEvents: { ...state.allEvents }, singleEvent: { ...state.singleEvent }, userEvents: { ...state.userEvents } }
             delete newState.allEvents[action.payload]
             return newState
         }
