@@ -12,6 +12,8 @@ const GroupIndexItem = ({ group, buttons }) => {
     const dispatch = useDispatch()
 
     const groupState = useSelector(state => state.groups.allGroups)
+    const user = useSelector(state => state.session.user)
+
 
 
     const handleClick = (e) => {
@@ -65,6 +67,9 @@ const GroupIndexItem = ({ group, buttons }) => {
                     <div className='group-description-div'>
                         {group.description}
                     </div>
+                    <div className='group-name-div'>
+                        {user?.username === group.oranizer && "You are Organizer"}
+                    </div>
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
@@ -75,13 +80,11 @@ const GroupIndexItem = ({ group, buttons }) => {
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
                             <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Create Event</button>
-                            {/* <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Create Event</button> */}
-                            {/* <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type='button' >Delete</button> */}
+                            <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>
+                            <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 
-                    <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>
-                    <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
-                    <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>
+                    {buttons !== true && <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
                 </div>
                 
             </div>

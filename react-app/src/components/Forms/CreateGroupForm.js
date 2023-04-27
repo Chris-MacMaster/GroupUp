@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 
-import { makeGroup } from '../../store/group';
+import { joinGroup, makeGroup } from '../../store/group';
 import "./CreateGroupForm.css"
 
 export default function CreateGroupForm() {
@@ -47,7 +47,8 @@ export default function CreateGroupForm() {
         const groupResponse = dispatch(makeGroup(newGroup))
         const groupData = await Promise.resolve(groupResponse)
         if (groupData) {
-            history.push(`/group-details/${groupData.id}`)
+            dispatch(joinGroup(groupData.id))
+            history.push(`/`)
         }
 
         

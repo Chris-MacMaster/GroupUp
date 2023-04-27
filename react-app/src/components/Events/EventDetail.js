@@ -4,10 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { fetchOneEvent } from '../../store/event';
-
-import EventIndexItem from "../Events/EventIndexItem"
 import UserIndexItem from '../UserDetails/UserIndexItem';
-
 import './EventDetail.css'
 
 
@@ -15,9 +12,7 @@ const GroupDetail = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-
     let { eventId } = useParams()
-
 
     useEffect(() => {
         dispatch(fetchOneEvent(eventId))
@@ -25,12 +20,10 @@ const GroupDetail = () => {
 
     const event = useSelector(state => state.events.singleEvent)
 
-
     if (!event.id) return null
     // if (!event?.Group) return null
     const eventGroupExists = event.Group.length
     
-
     return (
         <div className='group-detail-div'>
             <div className='g-detail-img-div g-name-div e-top-div'>
@@ -104,7 +97,7 @@ const GroupDetail = () => {
 
                 <div className='g-description-div'>
                     <p className='upcoming-events associated-users'>
-                        Attendees ({Object.values(event?.Users).length && Object.values(event.Users).length})
+                        Attendees ({Object.values(event.Users).length && Object.values(event.Users).length})
                     </p>
                     {Object.values(event.Users).length && Object.values(event.Users).map(user => (
                         <UserIndexItem title={user.username} user={user} key={user.id} />

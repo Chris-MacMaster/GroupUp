@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { makeGroup } from '../../store/group';
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
-import { makeEvent } from '../../store/event';
+import { joinEvent, makeEvent } from '../../store/event';
 
 export default function CreateEventForm() {
     const history = useHistory();
@@ -81,7 +81,8 @@ export default function CreateEventForm() {
         const eventResponse = dispatch(makeEvent(newEvent))
         const eventData = await Promise.resolve(eventResponse)
         if (eventData) {
-            history.push(`/event-details/${eventData.id}`)
+            dispatch(joinEvent(eventData.id))
+            history.push(`/user-events`)
         }
 
     };

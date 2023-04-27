@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { deleteEvent, joinEvent, leaveEvent } from '../../store/event';
 
@@ -7,6 +7,10 @@ import { deleteEvent, joinEvent, leaveEvent } from '../../store/event';
 const EventIndexItem = ({ event, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
+
+    // const user = useSelector(state => state.session.user)
+    // const username = user?.username
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -40,6 +44,7 @@ const EventIndexItem = ({ event, buttons }) => {
         history.push(`/`)
     }
 
+
     return (
         <div onClick={handleClick} className='groupIndexItem'>
 
@@ -51,6 +56,9 @@ const EventIndexItem = ({ event, buttons }) => {
                     <div className='group-description-div'>
                         {event.description}
                     </div>
+                    {/* <div className='group-name-div'>
+                        {isOrganizer === true ? "You are Organizer" : ""}
+                    </div> */}
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
@@ -59,13 +67,11 @@ const EventIndexItem = ({ event, buttons }) => {
                     {buttons === true && 
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
-                            <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete</button>
-                            {/* <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type='button' >Delete</button> */}
+                            <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>
+                            <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Event</button>
                         </div>
                     } 
-                    <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Event</button>
-                    <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Event</button>
-                    <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>
+                    {buttons !== true && <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Event</button>}
                 </div>
                 
             </div>

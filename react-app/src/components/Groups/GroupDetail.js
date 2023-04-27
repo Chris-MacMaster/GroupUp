@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -62,7 +62,7 @@ const GroupDetail = () => {
                     <p className='upcoming-events'>
                         Upcoming Events
                     </p>        
-                    {Object.values(group?.Events).length && Object.values(group?.Events).map(event => (
+                    {Object.values(group.Events).length && Object.values(group?.Events).map(event => (
                         <EventIndexItem title={event.name} event={event} key={event.id} />
                     ))}
                 </div>

@@ -187,7 +187,7 @@ export default function eventReducer(state = initialState, action) {
 
     switch (action.type) {
         case LOAD_EVENTS: {
-            const newState = { ...state }
+            const newState = { allEvents: { ...state.allEvents }, singleEvent: { ...state.singleEvent }, userEvents: { ...state.userEvents } }
             newState.allEvents = action.payload
             // resets group details when going to allProducts page
             newState.singleEvent = {}
