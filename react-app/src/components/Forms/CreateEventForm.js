@@ -82,7 +82,7 @@ export default function CreateEventForm() {
         const eventData = await Promise.resolve(eventResponse)
         if (eventData) {
             dispatch(joinEvent(eventData.id))
-            history.push(`/user-events`)
+            history.push(`/`)
         }
 
     };

@@ -23,7 +23,7 @@ const GroupIndexItem = ({ group, buttons }) => {
     }
 
     const handleUpdate = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         e.stopPropagation()
         history.push(`/forms/edit-group/${group.id}`)
     }
@@ -67,8 +67,8 @@ const GroupIndexItem = ({ group, buttons }) => {
                     <div className='group-description-div'>
                         {group.description}
                     </div>
-                    <div className='group-name-div'>
-                        {user?.username === group.oranizer && "You are Organizer"}
+                    <div className='group-description-div group-organizer-div'>
+                        {user?.username === group.organizer && "*You are Organizer"}
                     </div>
                 </div>
                 <div className='bottom-row'>
@@ -80,7 +80,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
                             <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Create Event</button>
-                            <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>
+                            {user?.username === group.organizer && <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>}
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 

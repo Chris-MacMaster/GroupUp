@@ -8,8 +8,9 @@ const EventIndexItem = ({ event, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    // const user = useSelector(state => state.session.user)
-    // const username = user?.username
+
+    const user = useSelector(state => state.session.user)
+
 
 
     const handleClick = (e) => {
@@ -56,9 +57,9 @@ const EventIndexItem = ({ event, buttons }) => {
                     <div className='group-description-div'>
                         {event.description}
                     </div>
-                    {/* <div className='group-name-div'>
-                        {isOrganizer === true ? "You are Organizer" : ""}
-                    </div> */}
+                    <div className='group-description-div group-organizer-div'>
+                        {user?.username === event.host && "*You are Host"}
+                    </div>
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
@@ -67,7 +68,7 @@ const EventIndexItem = ({ event, buttons }) => {
                     {buttons === true && 
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
-                            <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>
+                            {user?.username === event.host && <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>}
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Event</button>
                         </div>
                     } 

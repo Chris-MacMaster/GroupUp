@@ -214,7 +214,7 @@ export default function eventReducer(state = initialState, action) {
 
         case DELETE_EVENT: {
             const newState = { allEvents: { ...state.allEvents }, singleEvent: { ...state.singleEvent }, userEvents: { ...state.userEvents } }
-            delete newState.allEvents[action.payload]
+            delete newState.userEvents[action.payload]
             return newState
         }
         default: return state
