@@ -21,6 +21,13 @@ def get_one_event(event_id):
             themes = Theme.query.join(event_themes).filter(event_themes.c.event_id == event_id).all()
             users = User.query.join(user_events).filter(user_events.c.event_id == event_id).all()
             event_images = EventImage.query.filter(EventImage.event_id == event_id).all()
+            print(event.group_id)
+            print(event.group_id)
+            print(event.group_id)
+            print(event.group_id)
+            print(event.group_id)
+            print(event.group_id)
+            print(event.group_id)
             group = Group.query.get(event.group_id)
 
             themes_copy = copy.deepcopy(themes)
@@ -36,6 +43,14 @@ def get_one_event(event_id):
             event_dict["Users"] = payload_users
             # later can refactor to include multiple images, you're not even using images yet
             event_dict["EventImage"] = payload_event_image
+            print(event_dict)
+            print(event_dict)
+            print(event_dict)
+            print(event_dict)
+            print(event_dict)
+            print(event_dict)
+            print(event_dict)
+            print(event_dict)
             event_dict["Group"] = group.to_dict()
 
             return event_dict, 200

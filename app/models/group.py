@@ -24,7 +24,7 @@ class Group(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
-    events = db.relationship('Event', back_populates='groups')
+    events = db.relationship('Event', back_populates='groups', cascade="all, delete-orphan")
     
     users = db.relationship('User', secondary=user_groups, back_populates="groups")
     categories = db.relationship("Category", secondary=group_categories, back_populates="groups")
