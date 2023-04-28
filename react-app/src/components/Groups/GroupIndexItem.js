@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./GroupIndexItem.css"
-
-
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
-import GroupsIndex from './GroupsIndex';
-import { deleteGroup, fetchGroups, joinGroup, leaveGroup } from '../../store/group';
+import { deleteGroup, joinGroup, leaveGroup } from '../../store/group';
 
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
-
-
-
 
 
 
@@ -28,18 +22,20 @@ const GroupIndexItem = ({ group, buttons }) => {
         }
         return false
     }
-    const isUserGroup = checkIsUserGroup(userGroups, group)
+    let isUserGroup = checkIsUserGroup(userGroups, group)
 
+    useEffect(() => {
+        if (userGroups) {
+            checkIsUserGroup(userGroups, group)
+        }
+    }, [userGroups, group, isUserGroup])
 
 
     const handleJoin = async (e) => {
         e.preventDefault()
         e.stopPropagation()
+
         dispatch(joinGroup(group.id))
-
-        // checkIsUserGroup()
-
-
         history.push(`/`)
     }
    
@@ -79,6 +75,13 @@ const GroupIndexItem = ({ group, buttons }) => {
         history.push(`/`)
     }
 
+
+    // const joinButton = document.getElementById('join-gr-button')
+    // joinButton.addEventListener('click', () => {
+    //     joinButton.classList.add('joined')
+    //     joinButton.innerText = "Joined!"
+    // })
+
     return (
         <div onClick={handleClick} className='groupIndexItem'>
 
@@ -107,8 +110,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 
-                    {}
-                    {buttons !== true && <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
+                    {!isUserGroup && buttons !== true && <button id='join-gr-button' onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
                 </div>
                 
             </div>
