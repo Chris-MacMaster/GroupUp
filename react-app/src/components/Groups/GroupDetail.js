@@ -25,6 +25,8 @@ const GroupDetail = () => {
 
     const group = useSelector(state => state.groups.singleGroup)
 
+    console.log("GROUP", group)
+
 
     if (!group.id) return null
 
@@ -62,7 +64,7 @@ const GroupDetail = () => {
                     <p className='upcoming-events'>
                         Upcoming Events
                     </p>        
-                    {Object.values(group.Events).length && Object.values(group?.Events).map(event => (
+                    {Object.values(group?.Events).length && Object.values(group?.Events).map(event => (
                         <EventIndexItem title={event.name} event={event} key={event.id} />
                     ))}
                 </div>

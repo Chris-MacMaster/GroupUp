@@ -37,7 +37,7 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setHasSubmitted(true)
-		console.log("OBJ ERRORS", objErrors)
+		// console.log("OBJ ERRORS", objErrors)
 		if (Object.values(objErrors).length) return
 
 		if (password === confirmPassword) {

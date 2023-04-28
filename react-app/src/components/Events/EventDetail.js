@@ -21,7 +21,6 @@ const GroupDetail = () => {
     const event = useSelector(state => state.events.singleEvent)
 
     if (!event.id) return null
-    // if (!event?.Group) return null
     const eventGroupExists = event.Group.length
     
     return (

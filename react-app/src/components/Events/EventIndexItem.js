@@ -35,7 +35,8 @@ const EventIndexItem = ({ event, buttons }) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(joinEvent(event.id))
-        history.push(`/`)
+        window.alert(`Success! You've joined event ${event.name}`)
+        history.push(`/user-events`)
     }
 
     const handleLeave = (e) => {
@@ -44,6 +45,7 @@ const EventIndexItem = ({ event, buttons }) => {
         dispatch(leaveEvent(event.id))
         history.push(`/`)
     }
+
 
 
     return (

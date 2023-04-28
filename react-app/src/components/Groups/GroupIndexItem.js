@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import "./GroupIndexItem.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
-import { deleteGroup, joinGroup, leaveGroup } from '../../store/group';
+import { deleteGroup, fetchOneGroup, joinGroup, leaveGroup } from '../../store/group';
 
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
@@ -43,6 +43,7 @@ const GroupIndexItem = ({ group, buttons }) => {
     const handleClick = (e) => {
         e.preventDefault()
         // console.log("group ID", group.id)
+        // fetchOneGroup(group.id)
         history.push(`/group-details/${group.id}`)
     }
 
@@ -110,7 +111,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 
-                    {!isUserGroup && buttons !== true && <button id='join-gr-button' onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
+                    {buttons !== true && <button id='join-gr-button' onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
                 </div>
                 
             </div>
