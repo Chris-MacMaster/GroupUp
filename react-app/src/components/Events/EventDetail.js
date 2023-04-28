@@ -8,7 +8,7 @@ import UserIndexItem from '../UserDetails/UserIndexItem';
 import './EventDetail.css'
 
 
-const GroupDetail = () => {
+const EventDetail = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -19,9 +19,10 @@ const GroupDetail = () => {
     }, [dispatch, eventId])
 
     const event = useSelector(state => state.events.singleEvent)
+    const eventGroup = event.Group
 
     if (!event.id) return null
-    const eventGroupExists = event.Group.length
+    if (!eventGroup) return null
     
     return (
         <div className='group-detail-div'>
@@ -110,4 +111,4 @@ const GroupDetail = () => {
     );
 };
 
-export default GroupDetail;
+export default EventDetail;

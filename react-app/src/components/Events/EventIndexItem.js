@@ -35,7 +35,6 @@ const EventIndexItem = ({ event, buttons }) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(joinEvent(event.id))
-        window.alert(`Success! You've joined event ${event.name}`)
         history.push(`/user-events`)
     }
 

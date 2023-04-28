@@ -36,7 +36,7 @@ const GroupIndexItem = ({ group, buttons }) => {
         e.stopPropagation()
 
         dispatch(joinGroup(group.id))
-        history.push(`/`)
+        history.push(`/user-groups`)
     }
    
 

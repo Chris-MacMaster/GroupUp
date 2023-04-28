@@ -24,11 +24,13 @@ const GroupDetail = () => {
     }, [dispatch, groupId])
 
     const group = useSelector(state => state.groups.singleGroup)
+    const groupEvents = group.Events
 
     console.log("GROUP", group)
 
 
     if (!group.id) return null
+    if (!groupEvents) return null
 
     // const eventsLength = group.Events.length
     // const usersLength = group.Users.length
