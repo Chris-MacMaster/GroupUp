@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 // import { fetchProducts } from "../../store/product";
 import GroupIndexItem from "./GroupIndexItem";
-import { fetchGroups } from "../../store/group";
+import { fetchGroups, fetchUserGroups } from "../../store/group";
 
 
 
@@ -12,8 +12,11 @@ function GroupsIndex() {
     const groupState = useSelector(state => state.groups.allGroups)
     const groups = Object.values(groupState)
 
+    // const userGroupState = useSelector(state => state.groups.userGroups)
+
     useEffect(() => {
         dispatch(fetchGroups())
+        dispatch(fetchUserGroups())
     }, [dispatch])
 
     if (!groups.length) {

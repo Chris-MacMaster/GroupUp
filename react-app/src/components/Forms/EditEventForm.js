@@ -77,7 +77,6 @@ export default function EditEventForm() {
         if (Object.values(errors).length) {
             return
         }
-        console.log("EVENT STATE GROUP ID", eventState.group_id)
         const editedEvent = {
             name,
             details,
@@ -197,6 +196,28 @@ export default function EditEventForm() {
                         {hasSubmitted && errors.details && (
                             <div className='error'>
                                 * {errors.details}
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className='product-description-div'>
+                    <div className='description-title-sub-text'>
+                        <label className='cp-form-label cp-description q-text' >
+                            Format
+                        </label>
+                        <p className='cp-grey-text sub-q-text create-shop-grey'>
+                            Describe the format of the event.
+                        </p>
+                    </div>
+                    <div className='cp-field-div description-text'>
+                        <textarea className='product-input input-field description-input' type="text-area"
+                            value={format}
+                            onChange={(e) => setFormat(e.target.value)}
+                            placeholder='' />
+                        {hasSubmitted && errors.format && (
+                            <div className='error'>
+                                * {errors.format}
                             </div>
                         )}
                     </div>

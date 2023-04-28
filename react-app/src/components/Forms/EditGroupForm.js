@@ -13,6 +13,7 @@ export default function EditGroupForm() {
 
     const user = useSelector(state => state.session.user)
     const groupState = useSelector(state => state.groups.singleGroup)
+    // const userGroupState = useSelector(state => state.groups.userGroups)
 
     const group = groupState
 

@@ -190,7 +190,7 @@ export default function groupReducer(state = initialState, action) {
             const newState = { ...state }
             newState.userGroups = action.payload
             // resets other state
-            newState.allGroups = {}
+            // newState.allGroups = {}
             return newState
         }
         case LOAD_GROUP: {

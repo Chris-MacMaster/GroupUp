@@ -21,13 +21,7 @@ def get_one_event(event_id):
             themes = Theme.query.join(event_themes).filter(event_themes.c.event_id == event_id).all()
             users = User.query.join(user_events).filter(user_events.c.event_id == event_id).all()
             event_images = EventImage.query.filter(EventImage.event_id == event_id).all()
-            # print(event.group_id)
-            # print(event.group_id)
-            # print(event.group_id)
-            # print(event.group_id)
-            # print(event.group_id)
-            # print(event.group_id)
-            # print(event.group_id)
+
             group = Group.query.get(event.group_id)
 
             themes_copy = copy.deepcopy(themes)
@@ -65,30 +59,23 @@ def get_one_event(event_id):
             event = Event.query.get(event_id)
             form = CreateEventForm()
             form['csrf_token'].data = request.cookies['csrf_token']
-            print('form data')
-            print(form.data)
+            # print('form data')
+            # print(form.data)
 
             if form.validate_on_submit():
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                print("SUCESS AUTH")
-                event.name = form.data["name"],
-                event.details = form.data["details"],
-                event.num_going = form.data["num_going"],
-                event.group_limit = form.data["group_limit"],
-                event.host = form.data["host"],
-                event.format = form.data["format"],
-                event.description = form.data["description"],
-                event.date = form.data["date"],
-                event.strangers = form.data["strangers"],
-                event.online = form.data["online"],
-                event.saved = form.data["saved"],
-                print(event.to_dict())
+                event.name = form.data['name']
+                event.details = form.data["details"]
+                event.num_going = form.data["num_going"]
+                event.group_limit = form.data["group_limit"]
+                event.host = form.data["host"]
+                event.format = form.data["format"]
+                event.description = form.data["description"]
+                event.date = form.data["date"]
+                event.strangers = form.data["strangers"]
+                event.online = form.data["online"]
+                event.saved = form.data["saved"]
+
+                # print(event.to_dict())
                 db.session.commit()
                 return event.to_dict(), 201
         return {'errors': 'Not authenticated'}

@@ -11,10 +11,38 @@ const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    const groupState = useSelector(state => state.groups.allGroups)
+
+
+
+
+
     const user = useSelector(state => state.session.user)
+    const userGroupState = useSelector(state => state.groups?.userGroups)
+    const userGroups = Object.values(userGroupState).length && Object.values(userGroupState)
+    const checkIsUserGroup = (userGroups, group) => {
+        for (let i = 0; i < userGroups.length; i++) {
+            let userGroup = userGroups[i]
+            if (group.id === userGroup.id) {
+                return true
+            }
+        }
+        return false
+    }
+    const isUserGroup = checkIsUserGroup(userGroups, group)
 
 
+
+    const handleJoin = async (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch(joinGroup(group.id))
+
+        // checkIsUserGroup()
+
+
+        history.push(`/`)
+    }
+   
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -42,12 +70,7 @@ const GroupIndexItem = ({ group, buttons }) => {
     }
 
 
-    const handleJoin = (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        dispatch(joinGroup(group.id))
-        history.push(`/`)
-    }
+
 
     const handleLeave = (e) => {
         e.preventDefault()
@@ -84,6 +107,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 
+                    {}
                     {buttons !== true && <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
                 </div>
                 
