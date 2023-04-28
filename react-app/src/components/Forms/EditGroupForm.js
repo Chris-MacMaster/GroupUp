@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 
-import { fetchOneGroup, editGroup } from '../../store/group';
+import { fetchOneGroup, editGroup, fetchUserGroups } from '../../store/group';
 import "./CreateGroupForm.css"
 
 export default function EditGroupForm() {
@@ -37,6 +37,7 @@ export default function EditGroupForm() {
         let e = {}
         setErrors(e)
         if (!name) e.name = "Must submit a name"
+        if (name.length > 50) e.nameLength = "Name cannot be greater than 50 characters"
         if (!description) e.description = "Must submit a description"
         // if (!num_members) e.num_members = "Must submit a description"
         // assign defaults to img_url and num_members
@@ -68,9 +69,9 @@ export default function EditGroupForm() {
             num_members: 1
         }
         dispatch(editGroup(editedGroup, groupId))
-        dispatch(fetchOneGroup(groupId))
+        dispatch(fetchUserGroups(groupId))
         reset()
-        history.push(`/group-details/${groupId}`)
+        history.push(`/user-groups`)
     };
 
     const reset = () => {
@@ -107,6 +108,11 @@ export default function EditGroupForm() {
                             {hasSubmitted && errors.name && (
                                 <div className='error'>
                                     * {errors.name}
+                                </div>
+                            )}
+                            {hasSubmitted && errors.nameLength && (
+                                <div className='error'>
+                                    * {errors.nameLength}
                                 </div>
                             )}
                         </div>

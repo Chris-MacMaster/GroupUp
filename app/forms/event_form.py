@@ -18,4 +18,4 @@ class CreateEventForm(FlaskForm):
     online = StringField('online', validators=[DataRequired()])
     saved = StringField('saved', validators=[DataRequired()])
 
-    group_id = IntegerField('group_id', validators=[DataRequired()])
+    group_id = IntegerField('group_id')

@@ -56,13 +56,6 @@ def get_one_group(group_id):
             form = CreateGroupForm()
 
             form['csrf_token'].data = request.cookies['csrf_token']
-            # print('FORM DATA', form.data)
-            # print('FORM DATA', form.data)
-            # print('FORM DATA', form.data)
-            # print('FORM DATA', form.data)
-            # print('FORM DATA', form.data)
-            # print('FORM DATA', form.data)
-            # print('FORM DATA', form.data)
 
             if form.validate_on_submit():
                 group.name = form.data['name']

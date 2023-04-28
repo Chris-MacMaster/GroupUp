@@ -37,11 +37,6 @@ export default function CreateEventForm() {
     const [strangers, setStrangers] = useState('false')
     const [online, setOnline] = useState('false')
     
-    // need this?
-    const [num_members, setNumMembers] = useState(0)
-    // const [img_url, setImgUrl] = useState("")
-
-
     //validation
     const [errors, setErrors] = useState({})
     const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -50,6 +45,7 @@ export default function CreateEventForm() {
         let e = {}
         setErrors(e)
         if (!name) e.name = "Must submit a name"
+        if (name.length > 50) e.nameLength = "Name cannot be greater than 50 characters"
         if (!details) e.details = "Must submit details"
         if (!format) e.format = "Must submit a format"
         if (!description) e.description = "Must submit a description"
@@ -126,6 +122,11 @@ export default function CreateEventForm() {
                             {hasSubmitted && errors.name && (
                                 <div className='error'>
                                     * {errors.name}
+                                </div>
+                            )}
+                            {hasSubmitted && errors.nameLength && (
+                                <div className='error'>
+                                    * {errors.nameLength}
                                 </div>
                             )}
                         </div>
@@ -263,6 +264,7 @@ export default function CreateEventForm() {
                         </div>
                     </div>
                 </div>
+
                     <div className='product-shipping-div'>
                         <div className='public-q-div'>
                             <label className='product-label q-text' >
@@ -279,7 +281,6 @@ export default function CreateEventForm() {
                         }
                         </div>                    
                     </div>
-
                 <div className='product-shipping-div'>
                     <div className='online-div'>
                         <label className='product-label q-text' >
@@ -296,8 +297,9 @@ export default function CreateEventForm() {
                         </div>        
 
                     </div>
-   
                 </div>
+
+
             </form>
             <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Schedule event" />
         </div>

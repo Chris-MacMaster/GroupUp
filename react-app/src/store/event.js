@@ -103,12 +103,13 @@ export const makeEvent = (eventBody) => async dispatch => {
 
     if (response.ok) {
         const event = await response.json()
+        // console.log("event", event)
         return event
     }
 }
 
 export const editEvent = (eventBody, eventId) => async dispatch => {
-    const { name, details, num_going, group_limit, host, format, description, date, strangers, online, saved, group_id } = eventBody
+    const { name, details, num_going, group_limit, host, format, description, date, strangers, online, saved } = eventBody
     const method = "PUT"
     const headers = { "Content-Type": "application/json" }
     const body = JSON.stringify({
@@ -123,7 +124,6 @@ export const editEvent = (eventBody, eventId) => async dispatch => {
         strangers,
         online,
         saved,
-        group_id
     })
     const options = { method, headers, body }
     const response = await fetch(`/api/all-events/${eventId}/`, options)

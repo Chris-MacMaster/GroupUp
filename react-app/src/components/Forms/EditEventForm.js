@@ -4,7 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
-import { editEvent, fetchOneEvent } from '../../store/event';
+import { editEvent, fetchOneEvent, fetchUserEvents } from '../../store/event';
+import { fetchUserGroups } from '../../store/group';
 
 export default function EditEventForm() {
     const history = useHistory();
@@ -29,8 +30,8 @@ export default function EditEventForm() {
     const [format, setFormat] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
-    const [strangers, setStrangers] = useState(true)
-    const [online, setOnline] = useState(true)
+    const [strangers, setStrangers] = useState('false')
+    const [online, setOnline] = useState('false')
 
     //validation
     const [errors, setErrors] = useState({})
@@ -40,6 +41,7 @@ export default function EditEventForm() {
         let e = {}
         setErrors(e)
         if (!name) e.name = "Must submit a name"
+        if (name.length > 50) e.nameLength = "Name cannot be greater than 50 characters"
         if (!details) e.details = "Must submit details"
         if (!format) e.format = "Must submit a format"
         if (!description) e.description = "Must submit a description"
@@ -60,8 +62,8 @@ export default function EditEventForm() {
         setFormat(eventState?.format || "")
         setDescription(eventState?.description || "")
         setDate(eventState?.date || "")
-        setStrangers(eventState?.strangers || false)
-        setOnline(eventState?.online || false)
+        setStrangers(eventState?.strangers || 'false')
+        setOnline(eventState?.online || 'false')
         
         setGroupLimit(eventState?.groupLimit || 0)
         setNumGoing(eventState?.numGoing || 0)
@@ -75,6 +77,7 @@ export default function EditEventForm() {
         if (Object.values(errors).length) {
             return
         }
+        console.log("EVENT STATE GROUP ID", eventState.group_id)
         const editedEvent = {
             name,
             details,
@@ -84,26 +87,31 @@ export default function EditEventForm() {
             format,
             description,
             date,
-            strangers: strangers === true ? true : false,
-            online: online === true ? true : false,
-            group_id: 1,
-            saved: false
+            strangers: strangers === 'true' ? 'true' : 'false',
+            online: online === 'true' ? 'true' : 'false',
+            saved: 'false',
         }
         const eventResponse = dispatch(editEvent(editedEvent, eventId))
         const eventData = await Promise.resolve(eventResponse)
         if (eventData) {
-            history.push(`/event-details/${eventId}`)
+            fetchUserEvents()
+            history.push(`/user-events`)
         }
 
     };
 
 
     const handleCheckStrangers = (e) => {
-        strangers === true ? setStrangers(false) : setStrangers(true)
+        e.preventDefault()
+        e.stopPropagation()
+        strangers === 'true' ? setStrangers('false') : setStrangers('true')
     }
 
+
     const handleCheckOnline = (e) => {
-        online === true ? setOnline(false) : setOnline(true)
+        e.preventDefault()
+        e.stopPropagation()
+        online === 'true' ? setOnline('false') : setOnline('true')
     }
 
 
@@ -136,6 +144,11 @@ export default function EditEventForm() {
                             {hasSubmitted && errors.name && (
                                 <div className='error'>
                                     * {errors.name}
+                                </div>
+                            )}
+                            {hasSubmitted && errors.nameLength && (
+                                <div className='error'>
+                                    * {errors.nameLength}
                                 </div>
                             )}
                         </div>
@@ -263,19 +276,13 @@ export default function EditEventForm() {
                             Check the box to indicate whether or not your event is open to anyone or just group members.
                         </p>
                     </div>
-                    <div className='cp-field-div public-check-div'>
-                        <input className='product-input input-field check-box' type="checkbox"
-                            value={strangers}
-                            onChange={handleCheckStrangers}
-                            placeholder='Description' />
-                        {hasSubmitted && errors.strangers && (
-                            <div className='error'>
-                                * {errors.strangers}
-                            </div>
-                        )}
+                    <div className='input-div '>
+                        <button onClick={handleCheckStrangers} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Public</button>
+                        {strangers === 'true' &&
+                            <i className="fas fa-check" />
+                        }
                     </div>
                 </div>
-
                 <div className='product-shipping-div'>
                     <div className='online-div'>
                         <label className='product-label q-text' >
@@ -284,24 +291,15 @@ export default function EditEventForm() {
                         <p className='cp-form-label sub-q-text create-shop-grey check-box-text'>
                             Check the box to indicate whether or not your event is online or in person.
                         </p>
+                        <div className='input-div '>
+                            <button onClick={handleCheckOnline} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Online</button>
+                            {online === 'true' &&
+                                <i className="fas fa-check" />
+                            }
+                        </div>
 
-                    </div>
-                    {/* <p className='cp-grey-text'>Either true or false</p> */}
-                    <div className='cp-field-div'>
-                        <input className='product-input input-field check-box public-check' type="checkbox"
-                            value={online}
-                            onChange={handleCheckOnline}
-                            placeholder='Description' />
-                        {hasSubmitted && errors.online && (
-                            <div className='error'>
-                                * {errors.online}
-                            </div>
-                        )}
                     </div>
                 </div>
-
-
-
 
 
 
