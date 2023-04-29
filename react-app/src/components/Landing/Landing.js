@@ -9,7 +9,6 @@ const Landing = () => {
     const history = useHistory()
     // const dispatch = useDispatch()
 
-   
 
     return (
         <div className='Landing'>
