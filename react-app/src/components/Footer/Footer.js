@@ -18,14 +18,14 @@ export default function Footer() {
                         key={`footerperson${i}`}>
                         <p className='dev-name'
                             key={`footerpersonname${i}`}>{devs[i][0]}</p>
-                        <Link to={{ pathname: `${d[1]}` }}
+                        <Link className='footer-link' to={{ pathname: `${d[1]}` }}
                             target='_blank'>
                             <img src='https://i.imgur.com/RqO5mlh.png'
                                 alt='linkedinlogo'
                                 className='linkedin-icon icon'
                                 key={`linkedin${i}`}></img>
                         </Link>
-                        <Link to={{ pathname: `${d[2]}` }}
+                        <Link className='footer-link' to={{ pathname: `${d[2]}` }}
                             target='_blank'>
                             <img src='https://i.imgur.com/KTjeA0w.png'
                                 alt='githubicon'

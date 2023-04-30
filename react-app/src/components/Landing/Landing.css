@@ -1,8 +1,45 @@
 .how-g-works {
     font-size: 3em;
+    text-align: center;
 }
 
 .tiles-index {
     display: flex;
     flex-wrap: normal;
+    justify-content: center;
+}
+
+.footer-link {
+    padding-top: 12px;
+}
+
+.intro-img-div {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.g-detail-img {
+    object-fit: cover;
+}
+
+.intro-text-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.g-name-div {
+    margin: 0px;
+}
+
+.meet-text {
+    text-align: center;
+}
+
+.user-landing, .landing {
+    /* display: flex; */
+    margin-left: 30px;
+    font-size: 1.5em;
 }

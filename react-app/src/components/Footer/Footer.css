@@ -2,21 +2,27 @@
     margin-top: 10rem;
     /* margin-left: 2rem; */
     /* margin-right: 2rem; */
-    background-color: darkgrey;
+    background-color: rgb(220, 94, 28);
 }
 
 .footer-title {
     text-align: center;
+    margin-top: 0px;
+    padding-top: 16px;
+    font-size: 1.5em;
+    color: black;
 }
 
 .about-creators {
     display: flex;
     flex-direction: row;
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     justify-content: center;
     align-items: space-between;
     /* margin-bottom: 10rem; */
-    color: white
+    color: black;
+    font-weight: bold;
+    
 }
 
 .dev-name {

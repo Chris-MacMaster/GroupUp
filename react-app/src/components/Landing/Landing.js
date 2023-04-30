@@ -18,14 +18,14 @@ const Landing = () => {
             <div className='group-info-div' >
                 <div className='group-info-title'>
                     <p className='how-g-works'>
-                        How Groupup works
+                        How Group Up Works
                     </p>
                     <div className='tiles-index'>
                         {Object.values(tiles).map(tile => (
                             <IntroTile tile={tile} key={tile.id} />
                         ))}
                     </div>
-                    <p >
+                    <p className='meet-text'>
                         Meet new people who share your interests through online and in-person events.
                          It's free to create an account.
                     </p>

@@ -77,15 +77,21 @@ const GroupIndexItem = ({ group, buttons }) => {
 
             <div className='group-card-div' >
                 <div className='top'>
-                    <div className='group-name-div'>
-                        {group.name}
+                    <div className='name-description-organizer'>
+                        <div className='group-name-div'>
+                            {group.name}
+                        </div>
+                        <div className='group-description-div'>
+                            {group.description}
+                        </div>
+                        <div className='group-description-div group-organizer-div'>
+                            {user?.username === group.organizer && "*You are Organizer"}
+                        </div>
                     </div>
-                    <div className='group-description-div'>
-                        {group.description}
+                    <div className='img-group-div'>
+                        <img className='img-card' src='https://w7.pngwing.com/pngs/1/769/png-transparent-stick-people-high-five-teamwork-people-friendship-together-success-celebration-celebrating.png' alt='alt' />
                     </div>
-                    <div className='group-description-div group-organizer-div'>
-                        {user?.username === group.organizer && "*You are Organizer"}
-                    </div>
+                    
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
@@ -102,7 +108,9 @@ const GroupIndexItem = ({ group, buttons }) => {
                     } 
                     {showButton && user?.id && buttons !== true && <button id='join-gr-button' onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
                 </div>
-                
+            </div>
+
+            <div className='group-card-img'>
             </div>
 
         </div>

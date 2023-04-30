@@ -58,15 +58,22 @@ const EventIndexItem = ({ event, buttons }) => {
 
             <div className='group-card-div' >
                 <div className='top'>
-                    <div className='group-name-div'>
-                        {event.name}
+                    <div className='name-description-organizer'>
+                        <div className='group-name-div'>
+                            {event.name}
+                        </div>
+                        <div className='group-description-div'>
+                            {event.description}
+                        </div>
+                        <div className='group-description-div group-organizer-div'>
+                            {user?.username === event.host && "*You are Host"}
+                        </div>
                     </div>
-                    <div className='group-description-div'>
-                        {event.description}
+
+                    <div className='img-group-div'>
+                        <img className='img-card' src='https://cutewallpaper.org/24x/ybdxp5ckz/1808411912.jpg' alt='alt' />
                     </div>
-                    <div className='group-description-div group-organizer-div'>
-                        {user?.username === event.host && "*You are Host"}
-                    </div>
+
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>

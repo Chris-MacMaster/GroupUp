@@ -19,10 +19,13 @@ const UserLanding = () => {
 
         <div className='Landing user-landing'>
             <div className='welcome-div'>
-                Hello {user.username} 👋
+                Hello, {user.username} 👋
             </div>
             <div >
-                First time logged in? Click on the top right icon and select "Create a Group" to get started. 
+                First time logged in? Click on the top right icon to open the navigation menu and select "Create a Group" to get started. 
+            </div>
+            <div >
+                Using the menu, click on your groups or your events in order to manage them.
             </div>
             {/* <div className='active-groups'>
                 You are in {Object.values(userGroups.length)} groups

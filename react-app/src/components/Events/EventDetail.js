@@ -28,9 +28,9 @@ const EventDetail = () => {
         <div className='group-detail-div'>
             <div className='g-detail-img-div g-name-div e-top-div'>
                 <div className='e-header-info g-num-members'>
-                    <div className='e-name e-title'>
+                    {/* <div className='e-name e-title'>
                        Event Details
-                    </div>
+                    </div> */}
                     <div className='e-name'>
                         {event.name}
                     </div>

@@ -20,6 +20,7 @@ import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
 import Landing from "./components/Landing/Landing";
 import UserLanding from "./components/Landing/UserLanding";
 import LoggedOut from "./components/Landing/LoggedOut";
+import GroupUp from "./components/Landing/GroupUp";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
 
 
           <Route path="/" exact={true} >
+            <GroupUp />
             <LoggedOut />
             <UserLanding />
             <GroupsIndex />
@@ -51,14 +53,17 @@ function App() {
           </Route>
 
           <Route path="/user-groups" exact={true} >
+            <GroupUp subtitle="User Groups" />
             <CurrentGroupsIndex />
           </Route>
 
           <Route path="/user-events" exact={true} >
+            <GroupUp subtitle="User Events" />
             <CurrentEventsIndex />
           </Route>
 
           <Route path="/user-details" exact={true} >
+            <GroupUp subtitle="User Details" />
             <CurrentGroupsIndex />
             <CurrentEventsIndex />
             <CurrentInterestIndex />
@@ -66,27 +71,33 @@ function App() {
 
           
           <Route path="/group-details/:groupId" exact={true} >
+            <GroupUp subtitle="Group Details" />
             <GroupDetail />
           </Route>
 
           <Route path="/event-details/:eventId" exact={true} >
+            <GroupUp subtitle="Event Details" />
             <EventDetail />
           </Route>
 
           <Route path='/forms/create-group' exact={true} >
+            <GroupUp />
             <CreateGroupForm />
           </Route>
 
           <Route path='/forms/create-event/:groupId' >
+            <GroupUp />
             <CreateEventForm />
           </Route>
 
           <Route path='/forms/edit-group/:groupId' exact={true} >
+            <GroupUp />
             <EditGroupForm />
           </Route>
 
 
           <Route path='/forms/edit-event/:eventId' exact={true} >
+            <GroupUp />
             <EditEventForm />
           </Route>
 

@@ -6,10 +6,13 @@
 .groupIndexItem {
     display: block;
     width: fit-content;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
 }
 
 .group-card-div {
-    width: 645px;
+    width: 640px;
     height: 180px;
     display: flex;
     flex-direction: column;
@@ -58,4 +61,15 @@
 
 .joined {
     background-color: green;
+}
+
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-card {
+    width: 140px;
+    height: 140px;
 }
