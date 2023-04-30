@@ -18,7 +18,8 @@ import EventDetail from "./components/Events/EventDetail";
 import Footer from "./components/Footer/Footer";
 import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
 import Landing from "./components/Landing/Landing";
-
+import UserLanding from "./components/Landing/UserLanding";
+import LoggedOut from "./components/Landing/LoggedOut";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ function App() {
 
 
           <Route path="/" exact={true} >
+            <LoggedOut />
+            <UserLanding />
             <GroupsIndex />
             <EventsIndex />
             <Landing />

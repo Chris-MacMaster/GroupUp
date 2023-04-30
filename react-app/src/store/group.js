@@ -4,6 +4,8 @@ const LOAD_USER_GROUPS = "groups/USERS/LOAD"
 const LOAD_GROUP = "group/LOAD"
 const POST_GROUP = "groups/POST"
 const DELETE_GROUP = "groups/DELETE"
+const LEAVE_GROUP = "groups/LEAVE"
+const JOIN_GROUP = "groups/JOIN"
 
 //**Actions */
 export const actionLoadGroups = (groups) => {
@@ -37,6 +39,13 @@ export const actionPostGroup = (group) => {
 export const actionDeleteGroup = (id) => {
     return {
         type: DELETE_GROUP,
+        payload: id
+    }
+}
+
+export const actionLeaveGroup = (id) => {
+    return {
+        type: LEAVE_GROUP,
         payload: id
     }
 }
@@ -163,7 +172,7 @@ export const leaveGroup = (id) => async dispatch => {
     const response = await fetch(`/api/all-groups/current/user-groups/remove/${id}/`, options)
     if (response.ok) {
         const group = await response.json()
-        dispatch(actionLoadGroup(group))
+        dispatch(actionLeaveGroup(id))
         return group
     }
 }
@@ -179,7 +188,7 @@ export default function groupReducer(state = initialState, action) {
 
     switch (action.type) {
         case LOAD_GROUPS: {
-            const newState = { ...state }
+            const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             newState.allGroups = action.payload
             // resets group details when going to allProducts page
             newState.singleGroup = {}
@@ -187,25 +196,31 @@ export default function groupReducer(state = initialState, action) {
         }
 
         case LOAD_USER_GROUPS: {
-            const newState = { ...state }
+            const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             newState.userGroups = action.payload
             // resets other state
             // newState.allGroups = {}
             return newState
         }
         case LOAD_GROUP: {
-            let newState = { ...state, singleGroup: { ...state.singleGroup } }
+            const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             newState.singleGroup = { ...action.payload }
             return newState
         }
 
         case POST_GROUP: {
-            const newState = { ...state }
+            const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             newState.allGroups[action.payload.id] = action.payload
             return newState
         }
 
         case DELETE_GROUP: {
+            const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
+            delete newState.userGroups[action.payload]
+            return newState
+        }
+
+        case LEAVE_GROUP: {
             const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             delete newState.userGroups[action.payload]
             return newState

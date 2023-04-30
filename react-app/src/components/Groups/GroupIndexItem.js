@@ -1,44 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./GroupIndexItem.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
-import { deleteGroup, fetchOneGroup, joinGroup, leaveGroup } from '../../store/group';
+import { deleteGroup, fetchOneGroup, fetchUserGroups, joinGroup, leaveGroup } from '../../store/group';
 
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-
+    const [showButton, setShowButton] = useState(true)
+    // const [userData, setUserData] = useState()
 
     const user = useSelector(state => state.session.user)
-    const userGroupState = useSelector(state => state.groups?.userGroups)
-    const userGroups = Object.values(userGroupState).length && Object.values(userGroupState)
-    const checkIsUserGroup = (userGroups, group) => {
-        for (let i = 0; i < userGroups.length; i++) {
-            let userGroup = userGroups[i]
-            if (group.id === userGroup.id) {
-                return true
-            }
-        }
-        return false
-    }
-    let isUserGroup = checkIsUserGroup(userGroups, group)
-
-    useEffect(() => {
-        if (userGroups) {
-            checkIsUserGroup(userGroups, group)
-        }
-    }, [userGroups, group, isUserGroup])
 
 
-    const handleJoin = async (e) => {
-        e.preventDefault()
-        e.stopPropagation()
+    // useEffect(() => {
+    //     const runFetch = async () => {
+    //         await dispatch(fetchUserGroups());
+    //         setUserData(true);
+    //     }
+    //     runFetch()
+    // }, [dispatch])
 
-        dispatch(joinGroup(group.id))
-        history.push(`/user-groups`)
-    }
-   
+    // useEffect(() => {
+    //     if (userData )
+    // })
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -67,21 +54,23 @@ const GroupIndexItem = ({ group, buttons }) => {
     }
 
 
+    const handleJoin = async (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        dispatch(joinGroup(group.id))
+        setShowButton(false)
+        // history.push(`/user-groups`)
+    }
 
 
     const handleLeave = (e) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(leaveGroup(group.id))
-        history.push(`/`)
+        // history.push(`/`)
     }
 
-
-    // const joinButton = document.getElementById('join-gr-button')
-    // joinButton.addEventListener('click', () => {
-    //     joinButton.classList.add('joined')
-    //     joinButton.innerText = "Joined!"
-    // })
 
     return (
         <div onClick={handleClick} className='groupIndexItem'>
@@ -111,7 +100,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 
-                    {buttons !== true && <button id='join-gr-button' onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
+                    {showButton && user?.id && buttons !== true && <button id='join-gr-button' onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Group</button>}
                 </div>
                 
             </div>
@@ -121,3 +110,14 @@ const GroupIndexItem = ({ group, buttons }) => {
 };
 
 export default GroupIndexItem;
+
+
+// const checkIsUserGroup = (group, userGroups) => {
+//     for (let i = 0; i < userGroups.length; i++) {
+//         let userGroup = userGroups[i]
+//         if (group.id === userGroup.id) {
+//             return true
+//         }
+//     }
+//     return false
+// }

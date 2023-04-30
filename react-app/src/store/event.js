@@ -3,6 +3,7 @@ const LOAD_USER_EVENTS = "events/USERS/LOAD"
 const LOAD_EVENT = "event/LOAD"
 const POST_EVENT = "events/POST"
 const DELETE_EVENT = "events/DELETE"
+const LEAVE_EVENT = "events/LEAVE"
 
 
 //**Actions */
@@ -41,6 +42,12 @@ export const actionDeleteEvent = (id) => {
     }
 }
 
+export const actionLeaveEvent = (id) => {
+    return {
+        type: LEAVE_EVENT,
+        payload: id
+    }
+}
 
 // export const userProducts = products => ({
 //     type: LOAD_USER_PRODUCTS,
@@ -171,7 +178,7 @@ export const leaveEvent = (id) => async dispatch => {
     const response = await fetch(`/api/all-events/current/user-events/remove/${id}/`, options)
     if (response.ok) {
         const event = await response.json()
-        dispatch(actionLoadEvent(event))
+        dispatch(actionLeaveEvent(id))
         return event
     }
 }
@@ -213,6 +220,12 @@ export default function eventReducer(state = initialState, action) {
         }
 
         case DELETE_EVENT: {
+            const newState = { allEvents: { ...state.allEvents }, singleEvent: { ...state.singleEvent }, userEvents: { ...state.userEvents } }
+            delete newState.userEvents[action.payload]
+            return newState
+        }
+
+        case LEAVE_EVENT: {
             const newState = { allEvents: { ...state.allEvents }, singleEvent: { ...state.singleEvent }, userEvents: { ...state.userEvents } }
             delete newState.userEvents[action.payload]
             return newState

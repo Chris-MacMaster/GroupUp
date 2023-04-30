@@ -13,15 +13,18 @@ function GroupsIndex() {
     const groups = Object.values(groupState)
 
     // const userGroupState = useSelector(state => state.groups.userGroups)
+    // const userGroups = Object.values(userGroupState)
+
+    // const userGroupState = useSelector(state => state.groups.userGroups)
 
     useEffect(() => {
         dispatch(fetchGroups())
         dispatch(fetchUserGroups())
     }, [dispatch])
 
-    if (!groups.length) {
-        return null
-    }
+    if (!groups.length) return null
+    // if (!userGroups.length) return null
+
 
 
     return (

@@ -26,9 +26,6 @@ const GroupDetail = () => {
     const group = useSelector(state => state.groups.singleGroup)
     const groupEvents = group.Events
 
-    console.log("GROUP", group)
-
-
     if (!group.id) return null
     if (!groupEvents) return null
 

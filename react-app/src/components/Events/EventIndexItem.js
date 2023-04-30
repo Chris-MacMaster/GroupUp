@@ -2,11 +2,16 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { deleteEvent, joinEvent, leaveEvent } from '../../store/event';
+import { useState } from 'react';
 
 
 const EventIndexItem = ({ event, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
+
+
+    const [showButton, setShowButton] = useState(true)
+
 
 
     const user = useSelector(state => state.session.user)
@@ -35,14 +40,15 @@ const EventIndexItem = ({ event, buttons }) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(joinEvent(event.id))
-        history.push(`/user-events`)
+        setShowButton(false)
+        // history.push(`/user-events`)
     }
 
     const handleLeave = (e) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(leaveEvent(event.id))
-        history.push(`/`)
+        // history.push(`/`)
     }
 
 
@@ -73,7 +79,7 @@ const EventIndexItem = ({ event, buttons }) => {
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Event</button>
                         </div>
                     } 
-                    {buttons !== true && <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Event</button>}
+                    {showButton && user?.id && buttons !== true && <button onClick={handleJoin} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Join Event</button>}
                 </div>
                 
             </div>
