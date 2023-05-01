@@ -77,7 +77,7 @@ const EventIndexItem = ({ event, buttons }) => {
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
-                        Date: {event.date} 
+                        Host: {event.host}, Date: {event.date} 
                     </div>
                     {buttons === true && 
                         <div className='buttons-div'>

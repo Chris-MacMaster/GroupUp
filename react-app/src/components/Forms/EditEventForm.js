@@ -13,7 +13,7 @@ export default function EditEventForm() {
 
     const user = useSelector(state => state.session.user)
     const eventState = useSelector(state => state.events.singleEvent)
-    const host = user?.username
+    const host = eventState?.host
 
     const event = eventState
 
