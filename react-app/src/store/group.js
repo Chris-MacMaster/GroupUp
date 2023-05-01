@@ -116,15 +116,15 @@ export const makeGroup = (groupBody) => async dispatch => {
 }
 
 export const editGroup = (groupBody, groupId) => async dispatch => {
-    const { name, description, img_url, organizer, num_members } = groupBody
+    const { name, description, img_url, num_members, organizer } = groupBody
     const method = "PUT"
     const headers = { "Content-Type": "application/json" }
     const body = JSON.stringify({
         name,
         description,
         img_url,
-        organizer,
         num_members,
+        organizer
     })
     const options = { method, headers, body }
     const response = await fetch(`/api/all-groups/${groupId}/`, options)

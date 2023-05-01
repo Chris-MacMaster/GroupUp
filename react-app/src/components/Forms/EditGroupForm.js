@@ -27,6 +27,7 @@ export default function EditGroupForm() {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [num_members, setNumMembers] = useState(0)
+    const [organizer, setOrganizer] = useState("")
     // const [img_url, setImgUrl] = useState("")
 
 
@@ -54,6 +55,7 @@ export default function EditGroupForm() {
         setName(groupState?.name || "")
         setDescription(groupState?.description || "")
         setNumMembers(groupState?.num_members || 1)
+        setOrganizer(groupState?.organizer || "")
     }, [groupState])
 
     const handleSubmit = (e) => {
@@ -66,7 +68,7 @@ export default function EditGroupForm() {
             name,
             description,
             img_url: "edit",
-            organizer: user.username,
+            organizer,
             num_members: 1
         }
         dispatch(editGroup(editedGroup, groupId))

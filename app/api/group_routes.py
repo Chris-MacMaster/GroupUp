@@ -61,8 +61,8 @@ def get_one_group(group_id):
                 group.name = form.data['name']
                 group.description = form.data['description']
                 group.img_url = form.data['img_url']
-                group.organizer = form.data['organizer']
                 group.num_members = form.data['num_members']
+                group.organizer = form.data['organizer']
 
                 db.session.commit()
                 return group.to_dict(), 201
