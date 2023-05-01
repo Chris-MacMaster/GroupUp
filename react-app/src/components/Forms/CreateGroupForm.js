@@ -117,7 +117,7 @@ export default function CreateGroupForm() {
                     </div>
                 </div>
 
-                <div className='product-price-div'>
+                {/* <div className='product-price-div'>
                     <div >
                         <label className='cp-form-label cp-price q-text' >
                             Number of members
@@ -132,7 +132,7 @@ export default function CreateGroupForm() {
                             onChange={(e) => setNumMembers(e.target.value)}
                             placeholder='Number of members' />
                     </div>
-                </div>
+                </div> */}
             </form>
             <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
         </div>

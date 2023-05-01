@@ -36,7 +36,7 @@ const EventDetail = () => {
                     </div>
                     <div>
                         <div className='g-subinfo-div e-hosted-div'>
-                            Hosted by {event.host} (should be username of event creator)
+                            Hosted by {event.host}
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@ const EventDetail = () => {
                             <div className='g-num-members format-title'>
                                 Group: {event.Group.name}
                             </div>
-                            <div className='g-organizer e-format-div'>
+                            {/* <div className='g-organizer e-format-div'>
                                 {event.Group.num_members} {event.Group.num_members === 1 ? "member" : "members"}
-                            </div>
+                            </div> */}
 
                             <div className='g-organizer'>
                                 <div className='format-title g-organizer'>

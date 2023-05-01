@@ -21,6 +21,8 @@ import Landing from "./components/Landing/Landing";
 import UserLanding from "./components/Landing/UserLanding";
 import LoggedOut from "./components/Landing/LoggedOut";
 import GroupUp from "./components/Landing/GroupUp";
+import CurrentGroupsMesage from "./components/Groups/CurrentGroupsMessage";
+import CurrentEventsMessage from "./components/Groups/CurrentEventsMessage";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,17 +56,21 @@ function App() {
 
           <Route path="/user-groups" exact={true} >
             <GroupUp subtitle="User Groups" />
+            <CurrentGroupsMesage />
             <CurrentGroupsIndex />
           </Route>
 
           <Route path="/user-events" exact={true} >
             <GroupUp subtitle="User Events" />
+            <CurrentEventsMessage />
             <CurrentEventsIndex />
           </Route>
 
           <Route path="/user-details" exact={true} >
             <GroupUp subtitle="User Details" />
+            <CurrentGroupsMesage />
             <CurrentGroupsIndex />
+            <CurrentEventsMessage />
             <CurrentEventsIndex />
             <CurrentInterestIndex />
           </Route>

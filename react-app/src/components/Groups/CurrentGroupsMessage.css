@@ -1,0 +1,8 @@
+.groups-message {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    /* width: 300px; */
+    text-align: center;
+}

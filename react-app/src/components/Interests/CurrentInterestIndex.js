@@ -22,7 +22,7 @@ export default function CurrentInterestIndex() {
     return (
         <div className="groups-index">
             <h1 >
-                Your Interests
+                Your Interests (search/suggested groups functionality coming soon!)
             </h1>
             <div className="groupIndex">
                 {Object.values(interests).map(interest => (

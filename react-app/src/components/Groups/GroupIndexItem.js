@@ -95,7 +95,7 @@ const GroupIndexItem = ({ group, buttons }) => {
                 </div>
                 <div className='bottom-row'>
                     <div className='num-members-public-div'>
-                        {group.num_members} members 
+                        Organizer: {group.organizer}  
                         {/* - {group.strangers === true ? "Public" : "Private"} */}
                     </div>
                     {buttons === true && 
