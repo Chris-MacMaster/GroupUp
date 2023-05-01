@@ -34,7 +34,7 @@ const GroupDetail = () => {
     return (
         <div  className='group-detail-div'>
             <div className='g-detail-img-div'>
-                <img className='g-detail-img' src='https://images.pexels.com/photos/35992/gorilla-monkey-ape-zoo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='alt' />
+                <img className='g-detail-img' src='https://w7.pngwing.com/pngs/1/769/png-transparent-stick-people-high-five-teamwork-people-friendship-together-success-celebration-celebrating.png' alt='alt' />
                 <div className='g-info-div e-subinfo-div g-info-2'>
                     <div className='g-name-div'>
                         {group.name}
@@ -47,17 +47,18 @@ const GroupDetail = () => {
                             Organized by {group.organizer}
                         </div>
                     </div>
+                    <div className='g-desc-div'>
+                        <p className='upcoming-events g-description g-desc'>
+                            Description
+                        </p>
+                        {group.description}
+                    </div>
                 </div>
             </div>
 
 
             <div className='description-events-members-div'>
-                <div className='g-description-div'>
-                    <p className='upcoming-events g-description'>
-                        Description
-                    </p>
-                    {group.description}
-                </div>
+
 
                 <div className='g-description-div'>
                     <p className='upcoming-events'>

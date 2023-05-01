@@ -68,17 +68,21 @@ function SignupFormModal() {
 
 
 	return (
-		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+		<>	<div className="signup-div">
+				<h1>Sign Up</h1>
+			</div>
+			<form className="login-form" onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
-					Email
+				<label className="email-container">
+					<div className="email-div q-text">
+						Email
+					</div>
 					<input
+						className="email-input input-field"
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
@@ -95,9 +99,12 @@ function SignupFormModal() {
 						* {objErrors.emailCheck}
 					</div>
 				)}
-				<label>
-					Username
+				<label className="password-container">
+					<div className="password-div q-text">
+						Username
+					</div>
 					<input
+						className="password-input input-field"
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
@@ -109,17 +116,25 @@ function SignupFormModal() {
 						* {objErrors.username}
 					</div>
 				)}
-				<label>
-					Password
+				<label className="password-container">
+					<div className="password-icon-div">
+						<div className="password-div q-text">
+							Password
+						</div>
+						<div className="toggle-password-div">
+							<i onClick={togglePassword} className="fas fa-eye" />
+						</div>
+					</div>
 					<input
+						className="password-input input-field"
 						type={showPassword === false ? "password" : "text"}
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						// required
 					/>
-					<div className="toggle-password-div">
+					{/* <div className="toggle-password-div">
 						<i onClick={togglePassword} className="fas fa-eye" />
-					</div>
+					</div> */}
 				</label>
 				{hasSubmitted && objErrors.password && (
 					<div className='error'>
@@ -131,9 +146,12 @@ function SignupFormModal() {
 						* {objErrors.passwordLength}
 					</div>
 				)}
-				<label>
-					Confirm Password
+				<label className="password-container">
+					<div className="password-div q-text">
+						Confirm Password
+					</div>
 					<input
+						className="email-input input-field"
 						type={showPassword === false ? "password" : "text"}
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
@@ -145,7 +163,7 @@ function SignupFormModal() {
 						* {objErrors.confirmPassword}
 					</div>
 				)}
-				<button type="submit">Sign Up</button>
+				<button className="login-button" type="submit">Sign Up</button>
 			</form>
 		</>
 	);

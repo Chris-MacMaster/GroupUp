@@ -2,3 +2,23 @@
     display: flex;
     flex-direction: column;
 }
+
+#modal-background {
+    /* background-color: darkgrey; */
+}
+
+.torb-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lets-getin-there {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.login-text {
+    font-size: 3em;
+    font-weight: bold;
+}

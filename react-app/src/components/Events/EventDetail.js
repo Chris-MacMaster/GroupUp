@@ -25,7 +25,7 @@ const EventDetail = () => {
     if (!eventGroup) return null
     
     return (
-        <div className='group-detail-div'>
+        <div className='group-detail-div g-detail-div'>
             <div className='g-detail-img-div g-name-div e-top-div'>
                 <div className='e-header-info g-num-members'>
                     {/* <div className='e-name e-title'>
@@ -41,7 +41,7 @@ const EventDetail = () => {
                     </div>
                 </div>
                 <div className='img-e-info-div'>
-                    <img className='g-detail-img e-detail-img' src='https://img0.etsystatic.com/163/0/13555616/il_570xN.1112156364_cruz.jpg' alt='alt' />
+                    <img className='g-detail-img e-detail-img' src='https://cutewallpaper.org/24x/ybdxp5ckz/1808411912.jpg' alt='alt' />
                     <div className='g-info-div'>
                         <div className='g-subinfo-div e-subinfo-div'>
                             <div className='g-num-members format-title'>

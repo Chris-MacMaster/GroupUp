@@ -73,9 +73,9 @@ const GroupIndexItem = ({ group, buttons }) => {
 
 
     return (
-        <div onClick={handleClick} className='groupIndexItem'>
+        <div className='groupIndexItem'>
 
-            <div className='group-card-div' >
+            <div onClick={handleClick} className='group-card-div' >
                 <div className='top'>
                     <div className='name-description-organizer'>
                         <div className='group-name-div'>

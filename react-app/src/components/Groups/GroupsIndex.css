@@ -55,6 +55,9 @@
     margin-bottom: 50px;
 }
 
+.groupIndexItem {
+    height: fit-content;
+}
 
 /* https://d15f34w2p8l1cc.cloudfront.net/overwatch/4edf5ea6d58c449a2aeb619a3fda9fff36a069dfbe4da8bc5d8ec1c758ddb8dc.png" */
 
