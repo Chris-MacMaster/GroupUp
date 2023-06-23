@@ -9,33 +9,15 @@ const GroupIndexItem = ({ group, buttons }) => {
     const dispatch = useDispatch()
 
     const [showButton, setShowButton] = useState(true)
-    // const [userData, setUserData] = useState()
 
     const user = useSelector(state => state.session.user)
 
-
-    // useEffect(() => {
-    //     const runFetch = async () => {
-    //         await dispatch(fetchUserGroups());
-    //         setUserData(true);
-    //     }
-    //     runFetch()
-    // }, [dispatch])
-
-    // useEffect(() => {
-    //     if (userData )
-    // })
-
-
     const handleClick = (e) => {
         e.preventDefault()
-        // console.log("group ID", group.id)
-        // fetchOneGroup(group.id)
         history.push(`/group-details/${group.id}`)
     }
 
     const handleUpdate = (e) => {
-        // e.preventDefault()
         e.stopPropagation()
         history.push(`/forms/edit-group/${group.id}`)
     }
@@ -44,7 +26,6 @@ const GroupIndexItem = ({ group, buttons }) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(deleteGroup(group.id))
-        // .then(dispatch(fetchGroups()))
     }
 
     const handleCreateEvent = (e) => {
@@ -57,10 +38,8 @@ const GroupIndexItem = ({ group, buttons }) => {
     const handleJoin = async (e) => {
         e.preventDefault()
         e.stopPropagation()
-
         dispatch(joinGroup(group.id))
         setShowButton(false)
-        // history.push(`/user-groups`)
     }
 
 
@@ -118,14 +97,3 @@ const GroupIndexItem = ({ group, buttons }) => {
 };
 
 export default GroupIndexItem;
-
-
-// const checkIsUserGroup = (group, userGroups) => {
-//     for (let i = 0; i < userGroups.length; i++) {
-//         let userGroup = userGroups[i]
-//         if (group.id === userGroup.id) {
-//             return true
-//         }
-//     }
-//     return false
-// }
