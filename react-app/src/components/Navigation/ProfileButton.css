@@ -17,3 +17,8 @@
     margin-bottom: 10px;
     font-weight: bolder;
 }
+
+.your-links:hover {
+    color: white;
+}
+

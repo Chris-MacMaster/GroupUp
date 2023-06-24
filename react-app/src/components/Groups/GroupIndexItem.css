@@ -24,6 +24,7 @@
     padding-right: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
+    overflow: auto;
     /* background-color: darkgray; */
 }
 
@@ -79,4 +80,9 @@
 .name-description-organizer {
     max-width: 75%;
     overflow-wrap: break-word;
+}
+
+.buttons-div {
+    display: flex;
+    column-gap: 10px;
 }
