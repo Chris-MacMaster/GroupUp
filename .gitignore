@@ -4,4 +4,5 @@ __pycache__/
 .venv
 .DS_Store
 .vscode/
-instance/dev.db
+# dev.db here so the live site doesnt need to delete/reset the db each time 
+instance/dev.db 
