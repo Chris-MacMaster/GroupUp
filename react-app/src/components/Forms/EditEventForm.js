@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
 import { editEvent, fetchOneEvent, fetchUserEvents } from '../../store/event';
-import { fetchUserGroups } from '../../store/group';
+// import { fetchUserGroups } from '../../store/group';
 
 export default function EditEventForm() {
     const history = useHistory();
@@ -15,7 +15,7 @@ export default function EditEventForm() {
     const eventState = useSelector(state => state.events.singleEvent)
     const host = user?.username
 
-    const event = eventState
+    // const event = eventState
 
     const { eventId } = useParams()
 
@@ -25,8 +25,8 @@ export default function EditEventForm() {
 
     const [name, setName] = useState("")
     const [details, setDetails] = useState("")
-    const [groupLimit, setGroupLimit] = useState(0)
-    const [numGoing, setNumGoing] = useState(0)
+    const [groupLimit, setGroupLimit] = useState("")
+    const [numGoing, setNumGoing] = useState("")
     const [format, setFormat] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
@@ -65,8 +65,20 @@ export default function EditEventForm() {
         setStrangers(eventState?.strangers || 'false')
         setOnline(eventState?.online || 'false')
         
-        setGroupLimit(eventState?.groupLimit || 0)
-        setNumGoing(eventState?.numGoing || 0)
+
+        if (eventState?.groupLimit === 88888) {
+            setGroupLimit("")
+        } else {
+            setGroupLimit(eventState?.groupLimit || "")
+        }
+
+        if (eventState?.numGoing === 88888) {
+            setNumGoing("")
+        } else {
+            setNumGoing(eventState?.numGoing || "")
+        }
+
+        
 
     }, [eventState])
     // console.log("GROUP ID", event?.Group.id)
@@ -80,8 +92,8 @@ export default function EditEventForm() {
         const editedEvent = {
             name,
             details,
-            num_going: numGoing,
-            group_limit: groupLimit,
+            num_going: numGoing || numGoing === 0 ? numGoing : 88888,
+            group_limit: groupLimit || groupLimit === 0 ? groupLimit : 88888,
             host,
             format,
             description,

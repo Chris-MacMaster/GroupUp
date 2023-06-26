@@ -6,8 +6,8 @@ from wtforms.validators import DataRequired
 class CreateEventForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     details = StringField('details', validators=[DataRequired()])
-    num_going = IntegerField('num_going', validators=[DataRequired()])
-    group_limit = IntegerField('group_limit', validators=[DataRequired()])
+    num_going = IntegerField('num_going')
+    group_limit = IntegerField('group_limit')
     host = StringField('host', validators=[DataRequired()])
     format = StringField('format', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])

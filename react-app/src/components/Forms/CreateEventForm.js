@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 
-import { makeGroup } from '../../store/group';
+// import { makeGroup } from '../../store/group';
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
 import { joinEvent, makeEvent } from '../../store/event';
@@ -29,8 +29,8 @@ export default function CreateEventForm() {
 
     const [name, setName] = useState("")
     const [details, setDetails] = useState("")
-    const [group_limit, setGroupLimit] = useState(0)
-    const [num_going, setNumGoing] = useState(0)
+    const [group_limit, setGroupLimit] = useState("")
+    const [num_going, setNumGoing] = useState("")
     const [format, setFormat] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
@@ -52,6 +52,7 @@ export default function CreateEventForm() {
 
         if (!date) e.date = "Must submit a date"
         if (date.length !== 10) e.dateLength = "Date must be written in following format, 'mm/dd/yyyy'"
+        if (!futureDateCheck(date)) e.dateFuture = "Date must be set in the future."
     }, [name, details, format, description, strangers, date])
 
     const handleSubmit = async (e) => {
@@ -60,11 +61,15 @@ export default function CreateEventForm() {
         if (Object.values(errors).length) {
             return
         }
+        console.log("NUM GOING", num_going)
+        
         const newEvent = {
             name,
             details,
-            num_going,
-            group_limit,
+            // 88888 is recorded and used as code for blank if user leaves field blank
+            // 0 is still recorded as 0
+            num_going: num_going || num_going === 0 ? num_going : 88888,
+            group_limit: group_limit || group_limit === 0 ? group_limit : 88888,
             host,
             format,
             description,
@@ -72,10 +77,12 @@ export default function CreateEventForm() {
             strangers: strangers === 'true' ? 'true' : 'false',
             online: online === 'true' ? 'true' : 'false',
             saved: 'false',
-            group_id: groupId,
+            group_id: parseInt(groupId),
         }
+        console.log("NEW EVENT", newEvent)
         const eventResponse = dispatch(makeEvent(newEvent))
         const eventData = await Promise.resolve(eventResponse)
+        console.log("EVENT DATA", eventData)
         if (eventData) {
             dispatch(joinEvent(eventData.id))
             history.push(`/`)
@@ -205,7 +212,7 @@ export default function CreateEventForm() {
                             Number of Members
                         </label>
                         <p className='cp-form-label sub-q-text create-shop-grey'>
-                            Please enter how many members have indicated they will attend the event so far. If you don't know how many exactly, feel free to provide an estimate or leave the input 0.
+                            Please enter how many members have indicated they will attend the event so far, including yourself. If you don't know how many exactly, feel free to provide an estimate or leave the input blank.
                         </p>
                     </div>
                     <div className='cp-form-field'>
@@ -223,7 +230,7 @@ export default function CreateEventForm() {
                             Group Limit
                         </label>
                         <p className='cp-form-label sub-q-text create-shop-grey'>
-                            Please enter the maximum number of attendees allowed at the event. If you don't know or have no limit, feel free to leave the input 0.
+                            Please enter the maximum number of attendees allowed at the event. If you don't know or have no limit, feel free to leave the input blank.
                         </p>
                     </div>
                     <div className='cp-form-field'>
@@ -259,6 +266,11 @@ export default function CreateEventForm() {
                             {hasSubmitted && errors.dateLength && (
                                 <div className='error'>
                                     * {errors.dateLength}
+                                </div>
+                            )}
+                            {hasSubmitted && errors.dateFuture && (
+                                <div className='error'>
+                                    * {errors.dateFuture}
                                 </div>
                             )}
                         </div>
@@ -315,3 +327,11 @@ export const urlCheck = (url) => {
         url.endsWith('gif') ||
         url.endsWith("bmp")
 }
+
+export const futureDateCheck = (str) => {
+    let currentDate = new Date()
+    let strDate = new Date(str)
+    return strDate > currentDate
+}
+
+

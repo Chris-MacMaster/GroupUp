@@ -116,6 +116,7 @@ def get_all_events():
             db.session.commit()
 
             return new_event.to_dict(), 201
+        
         return {'errors': 'Not authenticated'}
 
 
