@@ -75,7 +75,8 @@ function App() {
             <CurrentGroupsIndex />
             <CurrentEventsMessage />
             <CurrentEventsIndex />
-            <CurrentInterestIndex />
+            {/* Can implement after search and suggested groups are coded in*/}
+            {/* <CurrentInterestIndex /> */}
           </Route>
 
           
