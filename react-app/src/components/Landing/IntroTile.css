@@ -1,14 +1,14 @@
 .introTile {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     width: 33%;
 }
 
 .title-intro-div {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     margin-left: none;
 }
 
@@ -17,6 +17,8 @@
 }
 
 #text-intro-tile {
-    padding-left: 10%;
+    /* padding-left: 10%; */
     padding-right: 10%;
+    display: flex;
+    justify-content: flex-start;
 }

@@ -13,7 +13,7 @@
 
 .group-card-div {
     width: 640px;
-    height: 180px;
+    height: 218px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,7 +24,8 @@
     padding-right: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
-    overflow: auto;
+    /* overflow: auto; */
+    word-wrap: break-word;
     /* background-color: darkgray; */
 }
 
@@ -79,10 +80,20 @@
 
 .name-description-organizer {
     max-width: 75%;
-    overflow-wrap: break-word;
+    /* overflow-wrap: break-word; */
+    word-wrap: break-word;
 }
 
 .buttons-div {
     display: flex;
     column-gap: 10px;
+}
+
+
+.create-event-button {
+    background-color: green;
+}
+
+.delete-gr-button {
+    background-color: red;
 }

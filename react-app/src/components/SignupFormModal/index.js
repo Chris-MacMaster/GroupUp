@@ -164,6 +164,13 @@ function SignupFormModal() {
 					</div>
 				)}
 				<button className="login-button" type="submit">Sign Up</button>
+
+				<div className="torb-div">
+					<p className="lets-getin-there">
+						Buckle up!
+					</p>
+					<img src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/6cfb48b5597b657c2eafb1277dc5eef4a07eae90c265fcd37ed798189619f0a5.png" alt="alt" />
+				</div>
 			</form>
 		</>
 	);

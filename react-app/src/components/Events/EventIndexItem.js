@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { deleteEvent, joinEvent, leaveEvent } from '../../store/event';
 import { useState } from 'react';
 
+import './EventIndexItem.css'
+
 
 const EventIndexItem = ({ event, buttons }) => {
     const history = useHistory()
@@ -82,7 +84,7 @@ const EventIndexItem = ({ event, buttons }) => {
                     {buttons === true && 
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
-                            {user?.username === event.host && <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Event</button>}
+                            {user?.username === event.host && <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button delete-event-button' type='button' >Delete Event</button>}
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Event</button>
                         </div>
                     } 

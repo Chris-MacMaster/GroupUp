@@ -26,10 +26,11 @@
 }
 
 .subtitle {
+    /* margin-top: 20px; */
     display: block;
     font-size: 4em;
     text-align: center;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
 }
 
 
@@ -58,3 +59,4 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+

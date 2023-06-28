@@ -18,6 +18,7 @@ export default function Footer() {
                         key={`footerperson${i}`}>
                         <p className='dev-name'
                             key={`footerpersonname${i}`}>{devs[i][0]}</p>
+                        
                         <Link className='footer-link' to={{ pathname: `${d[1]}` }}
                             target='_blank'>
                             <img src='https://i.imgur.com/RqO5mlh.png'
@@ -32,12 +33,14 @@ export default function Footer() {
                                 className='github-icon icon'
                                 key={`github${i}`}></img>
                         </Link>
+
+
                     </div>
 
                 ))}
+                {/* <div className='footer-person'></div>
                 <div className='footer-person'></div>
-                <div className='footer-person'></div>
-                <div className='footer-person'></div>
+                <div className='footer-person'></div> */}
             </div>
             <p></p>
         </div>

@@ -7,6 +7,9 @@
     display: flex;
     flex-wrap: normal;
     justify-content: center;
+    margin-left: 12%;
+    /* margin-right: 12%; */
+    /* width: 100%; */
 }
 
 .footer-link {
@@ -17,7 +20,7 @@
     width: 100%;
     height: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .g-detail-img {
@@ -27,7 +30,7 @@
 .intro-text-div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .g-name-div {
@@ -44,3 +47,4 @@
     font-size: 1.5em;
     margin-bottom: 20px;
 }
+

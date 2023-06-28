@@ -80,8 +80,8 @@ const GroupIndexItem = ({ group, buttons }) => {
                     {buttons === true && 
                         <div className='buttons-div'>
                             <button onClick={handleUpdate} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button update-group-button' type='button' >Update</button>
-                            <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Create Event</button>
-                            {user?.username === group.organizer && <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Delete Group</button>}
+                            <button onClick={handleCreateEvent} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button create-event-button' type='button' >Create Event</button>
+                            {user?.username === group.organizer && <button onClick={handleDelete} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button delete-gr-button' type='button' >Delete Group</button>}
                             <button onClick={handleLeave} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button delete-group-button' type='button' >Leave Group</button>
                         </div>
                     } 

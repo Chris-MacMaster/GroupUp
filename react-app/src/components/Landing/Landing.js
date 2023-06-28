@@ -2,13 +2,8 @@ import React from 'react';
 import "./Landing.css"
 import  IntroTile  from "./IntroTile"
 
-// import { useDispatch } from "react-redux"
-import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
 const Landing = () => {
-    const history = useHistory()
-    // const dispatch = useDispatch()
+
 
 
 

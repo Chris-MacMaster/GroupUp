@@ -75,9 +75,14 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button className="fa-user-button" onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
+    {/* <div className="user-button-div"> */}
+        {/* <p className="fa-user-button">
+
+        </p> */}
+        <button className="fa-user-button" onClick={openMenu}>
+          <i className="fas fa-user-circle" />
+        </button>
+    {/* </div> */}
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="prof-button-div">
@@ -106,7 +111,7 @@ function ProfileButton({ user }) {
               modalComponent={<SignupFormModal />}
             />
 
-            <div onClick={handleDemoLogin} className='button'>
+            <div onClick={handleDemoLogin} className='button demo-user-button'>
               Demo User
             </div>
           </div>

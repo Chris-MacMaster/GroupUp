@@ -11,10 +11,7 @@
 .nav-div {
   display: flex;
   justify-content: space-between;
-}
-
-.fa-gamepad {
-  color: rgb(220,94,28);
+  align-items: center;
 }
 
 .fa-user-button {
