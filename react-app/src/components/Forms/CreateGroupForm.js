@@ -1,6 +1,6 @@
 //src/components/SpotForm/CreateSpot.js
 import { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 
@@ -12,7 +12,6 @@ export default function CreateGroupForm() {
     const dispatch = useDispatch()
     
     const user = useSelector(state => state.session.user)
-    const { groupId } = useParams()
 
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")

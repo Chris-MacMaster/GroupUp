@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { fetchOneEvent } from '../../store/event';
 import UserIndexItem from '../UserDetails/UserIndexItem';
 import './EventDetail.css'
@@ -10,7 +10,7 @@ import './EventDetail.css'
 
 const EventDetail = () => {
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
 
     let { eventId } = useParams()
 

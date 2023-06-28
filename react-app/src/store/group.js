@@ -5,7 +5,7 @@ const LOAD_GROUP = "group/LOAD"
 const POST_GROUP = "groups/POST"
 const DELETE_GROUP = "groups/DELETE"
 const LEAVE_GROUP = "groups/LEAVE"
-const JOIN_GROUP = "groups/JOIN"
+// const JOIN_GROUP = "groups/JOIN"
 
 //**Actions */
 export const actionLoadGroups = (groups) => {

@@ -17,7 +17,7 @@ export default function CreateEventForm() {
     const eventState = useSelector(state => state.events.singleEvent)
     const host = user?.username
 
-    const event = eventState
+    // const event = eventState
 
 
 

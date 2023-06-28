@@ -16,7 +16,7 @@ import CurrentEventsIndex from "./components/Events/CurrentEventsIndex";
 import EditEventForm from "./components/Forms/EditEventForm";
 import EventDetail from "./components/Events/EventDetail";
 import Footer from "./components/Footer/Footer";
-import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
+// import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
 import Landing from "./components/Landing/Landing";
 import UserLanding from "./components/Landing/UserLanding";
 import LoggedOut from "./components/Landing/LoggedOut";

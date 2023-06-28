@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import GroupIndexItem from "./GroupIndexItem";
+import { useEffect } from "react";
+// import GroupIndexItem from "./GroupIndexItem";
 import { fetchUserGroups } from "../../store/group";
 import "./CurrentGroupsMessage.css"
 

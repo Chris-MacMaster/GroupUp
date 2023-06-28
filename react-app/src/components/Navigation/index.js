@@ -1,33 +1,17 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
 
-import * as sessionActions from "../../store/session"
+// import * as sessionActions from "../../store/session"
 // import {useDispatch} from "react-redux"
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 	const history = useHistory()
-
-	const demoLogin = (e) => {
-		
-
-		// return dispatch(sessionActions.login({
-		// 	credential: "demo@aa.io",
-		// 	password: "password"
-		// }))
-		// 	.then(closeModal)
-		// 	.catch(
-		// 		async (res) => {
-		// 			const data = await res.json();
-		// 			if (data && data.errors) setErrors(data.errors);
-		// 		}
-		// 	);
-	}
 
 	const handleHomeRedirect = (e) => {
 		e.preventDefault()
@@ -40,10 +24,6 @@ function Navigation({ isLoaded }){
 		<div className='nav-div'>
 			<div>
 				<img onClick={handleHomeRedirect} className='redirect-gr-img' src='https://img0.etsystatic.com/163/0/13555616/il_570xN.1112156364_cruz.jpg' alt='alt' />
-				{/* <video src="Xbox_Trailer_03.mp4" autoPlay loop width="400" height="300" controls muted></video> */}
-				{/* <video src={require("./Xbox_Trailer_03.mp4")} autoPlay loop width="400" height="300" controls muted /> */}
-				{/* <video src={process.env.PUBLIC_URL + "/Xbox_Trailer_03.mp4"} autoPlay loop width="400" height="300" controls muted /> */}
-
 
 			</div>
 			{isLoaded && (

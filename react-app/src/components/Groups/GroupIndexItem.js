@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import "./GroupIndexItem.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
-import { deleteGroup, fetchOneGroup, fetchUserGroups, joinGroup, leaveGroup } from '../../store/group';
+import { deleteGroup, joinGroup, leaveGroup } from '../../store/group';
 
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
