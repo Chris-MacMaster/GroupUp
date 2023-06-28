@@ -26,6 +26,12 @@ const GroupUp = ( {subtitle} ) => {
                     </div>
                 {/* </div> */}
             </div>
+            {!subtitle &&
+                <div className='landing-background-img-div'>
+                    <img className='user-background-img' src='https://bnetcmsus-a.akamaihd.net/cms/blog_header/a5/A54ZNOI0UDS41686104831926.png' alt='alt' />
+                </div>
+            }
+
             {subtitle &&
             <div className='subtitle'>
                 {subtitle}

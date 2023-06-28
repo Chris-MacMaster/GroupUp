@@ -39,7 +39,8 @@ function Navigation({ isLoaded }){
 	return (
 		<div className='nav-div'>
 			<div>
-				<i onClick={handleHomeRedirect} className="fas fa-gamepad nav-gamepad" />
+				{/* <i onClick={handleHomeRedirect} className="fas fa-gamepad nav-gamepad" /> */}
+				<img onClick={handleHomeRedirect} className='redirect-gr-img' src='https://img0.etsystatic.com/163/0/13555616/il_570xN.1112156364_cruz.jpg' alt='alt' />
 				{/* <NavLink exact to="/">Home</NavLink> */}
 			</div>
 			{isLoaded && (

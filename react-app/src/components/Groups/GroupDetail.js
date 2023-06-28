@@ -11,6 +11,9 @@ import UserIndexItem from '../UserDetails/UserIndexItem';
 import './GroupDetail.css'
 
 
+
+
+
 const GroupDetail = () => {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -81,6 +84,10 @@ const GroupDetail = () => {
                         <UserIndexItem title={user.username} user={user} key={user.id} />
                     ))}
                 </div>
+
+
+    
+
 
               
               

@@ -35,6 +35,26 @@
 
 .user-landing-wrapper {
     border-top: 2px solid rgb(220, 94, 28);
-    border-bottom: 2px solid rgb(220, 94, 28);
+    /* border-bottom: 2px solid rgb(220, 94, 28); */
     margin-bottom: 20px;
+
+}
+
+
+.landing-background-img-div  {
+    display: flex;
+    justify-content: center;
+}
+
+.user-background-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-div {
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

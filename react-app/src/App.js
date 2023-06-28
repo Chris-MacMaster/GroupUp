@@ -24,6 +24,9 @@ import GroupUp from "./components/Landing/GroupUp";
 import CurrentGroupsMesage from "./components/Groups/CurrentGroupsMessage";
 import CurrentEventsMessage from "./components/Groups/CurrentEventsMessage";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
