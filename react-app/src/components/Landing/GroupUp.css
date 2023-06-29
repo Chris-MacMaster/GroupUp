@@ -35,7 +35,7 @@
 
 
 .user-landing-wrapper {
-    border-top: 2px solid rgb(220, 94, 28);
+    /* border-top: 2px solid rgb(220, 94, 28); */
     /* border-bottom: 2px solid rgb(220, 94, 28); */
     margin-bottom: 20px;
 
@@ -62,4 +62,21 @@
 
 .gr-background-img {
     height: 500px;
+}
+
+.user-vod {
+    height: 900px;
+    position: absolute;
+    top: 0px;
+    z-index: -1
+}
+
+
+.under-vod-spacing {
+    display: block;
+    margin-bottom: 600px;
+}
+
+.vod-ow-img {
+    width: fit-content;
 }

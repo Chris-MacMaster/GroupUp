@@ -12,6 +12,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  /* padding-left: 5%; */
+  /* padding: 0px; */
 }
 
 .fa-user-button {
@@ -111,4 +116,27 @@
   cursor: pointer;
   width: 40px;
   height: 40px;
+}
+
+.inner-nav-div {
+  width: 100%;
+  height: 70px;
+  background-color: #C3C5D2;
+  /* background-color: blue; */
+  /* color: blue; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  /* position: sticky;
+  top: 0;
+  z-index: 5; */
+}
+
+.home-redirect-div {
+  padding-left: 7%;
+}
+
+.account-text {
+  color: black;
 }

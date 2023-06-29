@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
+// import { ReactComponent as ow_logo } from './ow_logo.jsx';
 
-// import * as sessionActions from "../../store/session"
-// import {useDispatch} from "react-redux"
+import OwLogo from './OwLogo'
+
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
@@ -22,15 +23,19 @@ function Navigation({ isLoaded }){
 
 	return (
 		<div className='nav-div'>
-			<div>
-				<img onClick={handleHomeRedirect} className='redirect-gr-img' src='https://img0.etsystatic.com/163/0/13555616/il_570xN.1112156364_cruz.jpg' alt='alt' />
-
-			</div>
-			{isLoaded && (
-				<div>
-					<ProfileButton className="profile-button" user={sessionUser} />
+			<div className='inner-nav-div'>
+				<div className='home-redirect-div'>
+					<OwLogo onClick={handleHomeRedirect} />
+					{/* <img onClick={handleHomeRedirect} className='redirect-gr-img' src='https://img0.etsystatic.com/163/0/13555616/il_570xN.1112156364_cruz.jpg' alt='alt' /> */}
 				</div>
-			)}
+				{isLoaded && (
+					<div>
+						<ProfileButton className="profile-button" user={sessionUser} />
+					</div>
+				)}
+			</div>
+			{/* <nav class="navbar bg-body-tertiary nav-bar-container"> */}
+			{/* </nav> */}
 		</div>
 	);
 }

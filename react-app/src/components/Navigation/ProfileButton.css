@@ -26,3 +26,17 @@
 .demo-user-button {
     cursor: pointer;
 }
+
+.fa-user-button {
+    display: flex;
+    align-items: center;
+
+}
+
+.fa-user-button:hover {
+    background-color: #c6c7d6;
+}
+
+.account-text {
+    margin: 0px;
+}

@@ -81,6 +81,9 @@ function ProfileButton({ user }) {
         </p> */}
         <button className="fa-user-button" onClick={openMenu}>
           <i className="fas fa-user-circle" />
+          <p className='account-text'>
+            Account
+          </p>
         </button>
     {/* </div> */}
       <ul className={ulClassName} ref={ulRef}>

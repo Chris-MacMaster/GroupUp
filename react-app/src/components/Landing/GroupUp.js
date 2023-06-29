@@ -29,7 +29,19 @@ const GroupUp = ( {subtitle} ) => {
             {!subtitle &&
                 <div className='landing-background-img-div'>
                     {/* <img className='user-background-img' src='https://bnetcmsus-a.akamaihd.net/cms/blog_header/a5/A54ZNOI0UDS41686104831926.png' alt='alt' /> */}
-                    <video className='user-background-img' src={process.env.PUBLIC_URL + "/Xbox_Trailer_03.mp4"} autoPlay loop width="400" height="300" muted />
+                    <video className='user-background-img user-vod' src={process.env.PUBLIC_URL + "/Xbox_Trailer_03.mp4"} autoPlay loop width="400" height="300" muted />
+                    <div className='vod-text-content'> 
+                        {/* <p >
+                            OVERWATCH 2
+                        </p> */}
+                        <img className='gr-up-img vod-ow-img' src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltbcf2689c29fa39eb/622906a991f4232f0085d3cc/Masthead_Overwatch2_Logo.png?format=webply&quality=90' alt='alt' />
+                        {/* <p >
+                            OVERWATCH 2: INVASION
+                        </p>
+                        <a className='learn-more' href="https://overwatch.blizzard.com/en-us/news/23964186/">Learn More</a> */}
+                    
+                    </div>
+                    <div className='under-vod-spacing'> </div>
                 </div>
             }
 
