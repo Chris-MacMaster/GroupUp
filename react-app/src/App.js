@@ -18,6 +18,7 @@ import EventDetail from "./components/Events/EventDetail";
 import Footer from "./components/Footer/Footer";
 // import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
 import Landing from "./components/Landing/Landing";
+import OwLanding from "./components/Landing/OwLanding";
 import UserLanding from "./components/Landing/UserLanding";
 import LoggedOut from "./components/Landing/LoggedOut";
 import GroupUp from "./components/Landing/GroupUp";
@@ -54,6 +55,8 @@ function App() {
             <GroupsIndex />
             <EventsIndex />
             <Landing />
+            {/* test and insert here */}
+            {/* <OwLanding /> */}
             <Footer />
           </Route>
 
