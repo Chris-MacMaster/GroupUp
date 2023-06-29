@@ -79,7 +79,7 @@ function ProfileButton({ user }) {
         {/* <p className="fa-user-button">
 
         </p> */}
-        <button className="fa-user-button" onClick={openMenu}>
+        <button className="fa-user-button user-nav-button" onClick={openMenu}>
           <i className="fas fa-user-circle" />
           <p className='account-text'>
             Account

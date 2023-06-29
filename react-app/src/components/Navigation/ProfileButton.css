@@ -29,12 +29,24 @@
 
 .fa-user-button {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-
+    width: 120px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #C3C5D2;
+    /* background-color: blue; */
+    
 }
 
+/* .user-nav-button {
+    background-color: #C5CBD9;
+} */
+
 .fa-user-button:hover {
-    background-color: #c6c7d6;
+    /* background-color: #c6c7d6; */
+    background-color: darkgrey;
 }
 
 .account-text {
