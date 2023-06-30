@@ -3,7 +3,7 @@ import './UserIndexItem.css'
 
 const UserIndexItem = ({user}) => {
     return (
-        <div  className='groupIndexItem userIndexItem'>
+        <div  className='userIndexItem'>
 
             <div className='group-card-div user-card-div'>
                 <div className='user-card-name'>

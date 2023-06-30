@@ -42,25 +42,24 @@ const GroupDetail = () => {
                     <div className='g-name-div'>
                         {group.name}
                     </div>
+                    </div>
+                </div>
+
+
                     <div className='g-subinfo-div'>
                         {Object.values(group.Users).length &&
-
-
                         <div className='g-num-members'>
                                 {Object.values(group.Users).length} {Object.values(group.Users).length === 1 ? "member" : "members"}
                         </div>}
                         <div className='g-organizer'>
                             Organized by {group.organizer}
                         </div>
-
-                    </div>
                     <div className='g-desc-div'>
                         <p className='upcoming-events g-description g-desc'>
                             Description
                         </p>
                         {group.description}
                     </div>
-                </div>
             </div>
 
 
@@ -76,10 +75,12 @@ const GroupDetail = () => {
                     ))}
                 </div>
 
-                <div className='g-description-div'>
                     <p className='upcoming-events associated-users'>
                        Members
                     </p>
+
+                    
+                <div className='g-description-div'>
                     {Object.values(group.Users).length && Object.values(group?.Users).map(user => (
                         <UserIndexItem title={user.username} user={user} key={user.id} />
                     ))}
