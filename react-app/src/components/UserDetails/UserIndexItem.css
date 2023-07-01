@@ -6,6 +6,8 @@
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
+    border-color: black;
+    color: white;
 }
 
 .user-card-div:hover {

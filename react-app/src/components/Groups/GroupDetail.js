@@ -36,9 +36,12 @@ const GroupDetail = () => {
     // const usersLength = group.Users.length
     return (
         <div  className='group-detail-div'>
+            <div className='g-detail-top-background'>
+                "
+            </div>
             <div className='g-detail-img-div'>
-                <img className='g-detail-img' src='https://w7.pngwing.com/pngs/1/769/png-transparent-stick-people-high-five-teamwork-people-friendship-together-success-celebration-celebrating.png' alt='alt' />
-                <div className='g-info-div e-subinfo-div g-info-2'>
+                <img className='g-detail-img g-img-icon' src='https://d15f34w2p8l1cc.cloudfront.net/overwatch/c3090e3a1dccc58f143ff53801bc0cecb139f0eb1278f157d0b5e29db9104bed.png' alt='alt' />
+                <div className='g-info-div g-info-2'>
                     <div className='g-name-div'>
                         {group.name}
                     </div>
@@ -66,26 +69,29 @@ const GroupDetail = () => {
             <div className='description-events-members-div'>
 
 
-                <div className='g-description-div'>
-                    <p className='upcoming-events'>
-                        Upcoming Events
-                    </p>        
+                <div className='g-description-div g-detail-events-div'>
+                    <p className='upcoming-events g-detail-title-text up-events-text'>
+                        UPCOMING EVENTS
+                    </p>  
+                </div>
+
+                <div className='upcoming-events-index g-detail-events-div'>
                     {Object.values(group?.Events).length && Object.values(group?.Events).map(event => (
                         <EventIndexItem title={event.name} event={event} key={event.id} />
                     ))}
-                </div>
+                </div>      
 
-                    <p className='upcoming-events associated-users'>
-                       Members
+                <div className='g-detail-members-div'>
+                    <p className='upcoming-events associated-users g-detail-title-text members-text'>
+                        MEMBERS
                     </p>
-
-                    
-                <div className='g-description-div'>
-                    {Object.values(group.Users).length && Object.values(group?.Users).map(user => (
-                        <UserIndexItem title={user.username} user={user} key={user.id} />
-                    ))}
+                        
+                    <div className='g-description-div'>
+                        {Object.values(group.Users).length && Object.values(group?.Users).map(user => (
+                            <UserIndexItem title={user.username} user={user} key={user.id} />
+                        ))}
+                    </div>              
                 </div>
-
 
     
 

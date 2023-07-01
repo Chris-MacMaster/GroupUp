@@ -49,6 +49,7 @@
 
 }
 
+
 .g-desc-div {
     justify-content: flex-start;
 }
@@ -74,9 +75,71 @@
 .g-detail-img-div {
     display: flex;
     justify-content: flex-start;
+    background-color: #1D263A;
 }
 
 .group-detail-div {
-    margin-left: 65px;
-    margin-right: 312px;
+    /* margin-left: 65px;
+    margin-right: 312px; */
+}
+
+.g-subinfo-div {
+    background-color: #1D263A;
+    padding-left: 8%;
+    
+}
+
+.g-detail-events-div {
+    background-color: #95ABCA;
+    padding-left: 8%;
+}
+
+.g-detail-members-div  {
+    background-color: #166CD0;
+    padding-left: 8%;
+}
+
+.g-img-icon {
+    width: 130px;
+    height: 130px;
+    margin-left: 8%;
+    border: 2px solid white;
+}
+
+.g-info-2 {
+    font-style: italic;
+    margin-left: 2%;
+}
+
+.g-detail-top-background {
+    height: 350px;
+    width: 100%;
+    background-color: #1D263A;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    color: #1D263A;
+}
+
+.g-desc-div {
+    padding-bottom: 30px
+}
+
+.g-name-div,.g-subinfo-div, .g-desc-div, .members-text {
+    color: white;
+}
+
+.g-detail-title-text {
+    font-weight: bold;
+}
+
+.upcoming-events-index {
+    padding-bottom: 8px;
+}
+
+
+
+.upcoming-events-index {
+    display: flex;
+    flex-wrap: wrap;
 }

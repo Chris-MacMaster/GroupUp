@@ -25,8 +25,9 @@ function Navigation({ isLoaded }){
 		<div className='nav-div'>
 			<div className='inner-nav-div'>
 				<div className='home-redirect-div'>
-					<OwLogo onClick={handleHomeRedirect} />
-					{/* <img onClick={handleHomeRedirect} className='redirect-gr-img' src='https://img0.etsystatic.com/163/0/13555616/il_570xN.1112156364_cruz.jpg' alt='alt' /> */}
+					{/* <OwLogo onClick={handleHomeRedirect} /> */}
+
+					<img onClick={handleHomeRedirect} className='redirect-gr-img' src={process.env.PUBLIC_URL + "/ow-nav-pic.png"}  alt='alt' />
 				</div>
 				{isLoaded && (
 					<div>
