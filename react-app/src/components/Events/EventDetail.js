@@ -26,23 +26,33 @@ const EventDetail = () => {
     
     return (
         <div className='group-detail-div g-detail-div'>
+            <div className='g-detail-top-background'>
+                "
+            </div>
             <div className='g-detail-img-div g-name-div e-top-div'>
+                <img className='g-detail-img g-img-icon' src='https://d15f34w2p8l1cc.cloudfront.net/overwatch/c3090e3a1dccc58f143ff53801bc0cecb139f0eb1278f157d0b5e29db9104bed.png' alt='alt' />
                 <div className='e-header-info g-num-members'>
-                    {/* <div className='e-name e-title'>
-                       Event Details
-                    </div> */}
-                    <div className='e-name'>
+                    <div className='e-name g-info-2'>
                         {event.name}
                     </div>
-                    <div>
-                        <div className='g-subinfo-div e-hosted-div'>
-                            Hosted by {event.host}
-                        </div>
-                    </div>
                 </div>
+            </div>
+            <div className='g-subinfo-div e-hosted-div'>
+                Hosted by {event.host}
+            </div>
+            <div className='g-description-div e-details-div'>
+                {event.details}
+            </div>
+            <div className='g-description-div g-detail-events-div'>
+                <p className='upcoming-events g-detail-title-text up-events-text'>
+                    GROUP
+                </p>
+            </div>
+            
+            
                 <div className='img-e-info-div'>
-                    <img className='g-detail-img e-detail-img' src='https://cutewallpaper.org/24x/ybdxp5ckz/1808411912.jpg' alt='alt' />
-                    <div className='g-info-div'>
+                    
+                    <div className='g-info-div e-group-div'>
                         <div className='g-subinfo-div e-subinfo-div'>
                             <div className='g-num-members format-title'>
                                 Group: {event.Group.name}
@@ -72,7 +82,6 @@ const EventDetail = () => {
                                 </div>
                             </div>
 
-
                             <div className='g-organizer'>
                                 <div className='format-title g-organizer'>
                                     Permissions
@@ -84,31 +93,32 @@ const EventDetail = () => {
                         </div>
                     </div>
                 </div>
-            </div>
 
 
             <div className='description-events-members-div'>
-                <div className='g-description-div'>
-                    <p className='upcoming-events g-description'>
-                        Details
-                    </p>
-                    {event.details}
-                </div>
 
-                <div className='g-description-div'>
+                <div className='g-description-div e-attendees-div'>
                     <p className='upcoming-events associated-users'>
-                        Attendees ({Object.values(event.Users).length && Object.values(event.Users).length})
+                        ATTENDEES ({Object.values(event.Users).length && Object.values(event.Users).length})
                     </p>
+                </div>
+                <div className='upcoming-events-index e-detail-events-div'>
                     {Object.values(event.Users).length && Object.values(event.Users).map(user => (
                         <UserIndexItem title={user.username} user={user} key={user.id} />
                     ))}
+
                 </div>
 
 
 
+            </div>
+            <div className='e-detail-bottom-background'>
+                "
             </div>
         </div>
     );
 };
 
 export default EventDetail;
+
+
