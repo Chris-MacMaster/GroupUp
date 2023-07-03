@@ -35,7 +35,7 @@ const GroupUp = ( {subtitle} ) => {
 
             {subtitle &&
             <div className='subtitle'>
-                {/* {subtitle} */}
+                {subtitle}
                 {/* <img className='user-background-img gr-background-img' src='https://bnetcmsus-a.akamaihd.net/cms/blog_header/a5/A54ZNOI0UDS41686104831926.png' alt='alt' /> */}
             </div>
                 }

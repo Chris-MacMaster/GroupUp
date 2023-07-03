@@ -1,10 +1,12 @@
 .e-hosted-div {
-    font-size: .6em;
+    font-size: 1em;
     margin-left: 0px;
 }
 
 .e-top-div {
     display: flex;
+    /* align-items: flex-end; */
+    /* justify-content: space-around; */
 }
 
 .img-e-info-div {
@@ -29,7 +31,7 @@
 
 .e-format-div {
     color: white;
-    font-size: .5em;
+    font-size: .7em;
 }
 
 .format-title {
@@ -43,6 +45,9 @@
 .e-details-div {
     background-color: #1D263A;
     padding-left: 8%;
+    font-size: 1em;
+    color: white;
+    padding-bottom: 30px;
 }
 
 .e-attendees-div {
@@ -67,6 +72,8 @@
 
 .e-detail-events-div {
     padding-left: 8%;
+    background-color: #166CD0;
+
 }
 
 .e-attendees-div {
@@ -75,9 +82,52 @@
 
 .e-detail-g-div {
     color: white;
-    font-size: xx-large;
+    font-size: 2.5em;
 }
 
 .up-events-text {
     color: white;
+}
+
+.up-events-text {
+    margin-bottom: 0px;
+}
+
+.e-name-div {
+    display: flex;
+    align-items: flex-start;
+}
+
+.e-name-div {
+    align-self: flex-start;
+}
+
+
+
+
+.e-g-name-size {
+    font-size: 2em;
+}
+
+.e-g-under-size {
+    font-size: 1.5em;
+}
+
+.under-g-padding {
+    padding-bottom: 30px;
+}
+
+.format {
+    font-size: .7em;
+}
+
+.under-details-wrapper {
+    background-color: #1D263A;
+    font-size: 2em;
+    padding-left: 8%;
+    color: white;
+}
+
+.associated-users {
+    font-weight: bold;
 }

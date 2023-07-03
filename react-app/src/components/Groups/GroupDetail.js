@@ -41,7 +41,7 @@ const GroupDetail = () => {
             </div>
             <div className='g-detail-img-div'>
                 <img className='g-detail-img g-img-icon' src='https://d15f34w2p8l1cc.cloudfront.net/overwatch/c3090e3a1dccc58f143ff53801bc0cecb139f0eb1278f157d0b5e29db9104bed.png' alt='alt' />
-                <div className='g-info-div g-info-2'>
+                <div className='g-info-div g-info-2 e-g-name-size'>
                     <div className='g-name-div'>
                         {group.name}
                     </div>
@@ -49,7 +49,7 @@ const GroupDetail = () => {
                 </div>
 
 
-                    <div className='g-subinfo-div'>
+            <div className='g-subinfo-div e-g-under-size'>
                         {Object.values(group.Users).length &&
                         <div className='g-num-members'>
                                 {Object.values(group.Users).length} {Object.values(group.Users).length === 1 ? "member" : "members"}
@@ -58,9 +58,6 @@ const GroupDetail = () => {
                             Organized by {group.organizer}
                         </div>
                     <div className='g-desc-div'>
-                        <p className='upcoming-events g-description g-desc'>
-                            Description
-                        </p>
                         {group.description}
                     </div>
             </div>
@@ -83,7 +80,7 @@ const GroupDetail = () => {
 
                 <div className='g-detail-members-div'>
                     <p className='upcoming-events associated-users g-detail-title-text members-text'>
-                        MEMBERS
+                        MEMBERS ({Object.values(group.Users).length && Object.values(group.Users).length})
                     </p>
                         
                     <div className='g-description-div'>

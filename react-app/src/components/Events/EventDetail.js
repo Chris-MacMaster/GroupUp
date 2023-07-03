@@ -29,19 +29,34 @@ const EventDetail = () => {
             <div className='g-detail-top-background'>
                 "
             </div>
-            <div className='g-detail-img-div g-name-div e-top-div'>
+            <div className='g-detail-img-div g-name-div e-top-div e-under-img'>
                 <img className='g-detail-img g-img-icon' src='https://d15f34w2p8l1cc.cloudfront.net/overwatch/c3090e3a1dccc58f143ff53801bc0cecb139f0eb1278f157d0b5e29db9104bed.png' alt='alt' />
-                <div className='e-header-info g-num-members'>
-                    <div className='e-name g-info-2'>
-                        {event.name}
-                    </div>
+                <div className='g-info-2 e-name-div e-g-name-size'>
+                    {event.name}
                 </div>
             </div>
-            <div className='g-subinfo-div e-hosted-div'>
+            <div className='g-subinfo-div e-hosted-div e-g-under-size'>
                 Hosted by {event.host}
             </div>
-            <div className='g-description-div e-details-div'>
+            <div className='g-subinfo-div e-hosted-div e-g-under-size'>
+                {event.date}
+            </div>
+            <div className='g-description-div e-details-div e-g-under-size'>
                 {event.details}
+            </div>
+            <div className='under-details-wrapper'>
+                <div className='format'>
+                    FORMAT
+                </div>
+                <div className='g-organizer'>
+                    <div className='e-format-div'>
+                        {event.strangers === 'true' ? "Public" : "Private"} event - {event.online === 'true' ? "Online" : "In Person"}
+                    </div>
+                </div>
+                <div className='e-format-div under-g-padding'>
+                    {event.format}
+                </div>
+
             </div>
             <div className='g-description-div g-detail-events-div'>
                 <p className='upcoming-events g-detail-title-text up-events-text'>
@@ -62,25 +77,13 @@ const EventDetail = () => {
                             </div> */}
 
                             <div className='g-organizer'>
-                                <div className='e-format-div'>
-                                    {event.date}
-                                </div>
+                              
                             </div>
 
                             <div className='g-organizer'>
                             </div>
 
-                            <div className='g-organizer'>
-                                <div className='e-format-div'>
-                                    {event.strangers === 'true' ? "Public" : "Private"} event - {event.online === 'true' ? "Online" : "In Person"}
-                                </div>
-                            </div>
-                            <div className='format-title g-organizer'>
-                                Format 
-                            </div>
-                            <div className='e-format-div'>
-                                {event.format}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

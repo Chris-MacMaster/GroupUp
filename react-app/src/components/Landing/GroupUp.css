@@ -80,3 +80,8 @@
 .vod-ow-img {
     width: fit-content;
 }
+
+.subtitle {
+    background-color: #1D263A;
+    color: white;
+}
