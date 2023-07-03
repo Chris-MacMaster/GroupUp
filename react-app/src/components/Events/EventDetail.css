@@ -19,7 +19,6 @@
 
 .e-subinfo-div {
     /* border: 2px solid white; */
-    padding: 10px;
     /* border-radius: 25px; */
     max-width: 380px;
     width: fit-content;
@@ -71,5 +70,14 @@
 }
 
 .e-attendees-div {
+    color: white;
+}
+
+.e-detail-g-div {
+    color: white;
+    font-size: xx-large;
+}
+
+.up-events-text {
     color: white;
 }

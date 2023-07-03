@@ -53,42 +53,33 @@ const EventDetail = () => {
                 <div className='img-e-info-div'>
                     
                     <div className='g-info-div e-group-div'>
-                        <div className='g-subinfo-div e-subinfo-div'>
+                        <div className='e-detail-g-div'>
                             <div className='g-num-members format-title'>
-                                Group: {event.Group.name}
+                                {event.Group.name}
                             </div>
                             {/* <div className='g-organizer e-format-div'>
                                 {event.Group.num_members} {event.Group.num_members === 1 ? "member" : "members"}
                             </div> */}
 
                             <div className='g-organizer'>
-                                <div className='format-title g-organizer'>
-                                    Date
-                                </div>
                                 <div className='e-format-div'>
                                     {event.date}
                                 </div>
                             </div>
 
                             <div className='g-organizer'>
-                                <div className='format-title g-organizer'>
-                                    Format 
-                                </div>
-                                <div className='e-format-div'>
-                                    {event.format}
-                                </div>
-                                <div className='e-format-div'>
-                                    {event.strangers === 'true' ? "public" : "private"} event
-                                </div>
                             </div>
 
                             <div className='g-organizer'>
-                                <div className='format-title g-organizer'>
-                                    Permissions
-                                </div>
                                 <div className='e-format-div'>
                                     {event.strangers === 'true' ? "Public" : "Private"} event - {event.online === 'true' ? "Online" : "In Person"}
                                 </div>
+                            </div>
+                            <div className='format-title g-organizer'>
+                                Format 
+                            </div>
+                            <div className='e-format-div'>
+                                {event.format}
                             </div>
                         </div>
                     </div>
