@@ -4,12 +4,14 @@ import session from './session'
 import groupReducer from './group';
 import eventReducer from './event';
 import interestReducer from './interest';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session,
   groups: groupReducer,
   events: eventReducer,
-  interests: interestReducer
+  interests: interestReducer,
+  searchResults: searchReducer
 });
 
 
