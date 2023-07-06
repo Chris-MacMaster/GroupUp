@@ -57,8 +57,9 @@ function LoginFormModal() {
     </div>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="gamepad-login-div">
-          <i className="fas fa-gamepad login-gamepad" />
-          <div className="login-text login-text">Log In</div>
+          {/* <i className="fas fa-gamepad login-gamepad" /> */}
+          <h1 >Log In</h1>
+          {/* <div className="login-text login-text">Log In</div> */}
         </div>
         <ul>
           {errors.map((error, idx) => (
@@ -101,12 +102,12 @@ function LoginFormModal() {
 
         </div>
         <button className="login-button" type="submit">Log In</button>
-        <div className="torb-div">
+        {/* <div className="torb-div">
           <p className="lets-getin-there">
             Let's get in there!
           </p>
           <img src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/1309ab1add1cc19189a2c8bc7b1471f88efa1073e9705d2397fdb37d45707d01.png" alt="alt" />
-        </div>
+        </div> */}
       </form>
     </>
   );

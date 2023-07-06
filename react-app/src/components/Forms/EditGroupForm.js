@@ -86,7 +86,10 @@ export default function EditGroupForm() {
 
     return (
         <div className='cp-container'>
-            <h1 className='cp-title form-title'>Edit a Group</h1>
+            <div className='g-detail-top-background'>
+                "
+            </div>
+            <h1 className='cp-title form-title'></h1>
             {/* <p className='cp-grey-text sub-q-text form-sub'>Tell the world all about your item and why they'll love it</p> */}
             <form className='sp-form' onSubmit={handleSubmit} >
 

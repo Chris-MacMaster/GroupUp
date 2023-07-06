@@ -21,12 +21,15 @@
 
 
 #modal-content {
-  color: black;
+  color: white;
   max-width: 500px;
   width: 500px;
-  height: 100%;
-  padding-left: 75px;
-  padding-right: 75px;
+  height: fit-content;
+  padding-left: 65px;
+  padding-right: 65px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 25px;
 }
 
 .x-div {

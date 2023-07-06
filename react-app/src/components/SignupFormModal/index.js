@@ -64,11 +64,22 @@ function SignupFormModal() {
 		}
 	}
 
+	const handleClose = (e) => {
+		e.preventDefault()
+		closeModal()
+	}
+
 
 
 
 	return (
-		<>	<div className="signup-div">
+		<>	
+			<div onClick={handleClose} className="x-div">
+				<p id="x">
+					X
+				</p>
+			</div>
+		<div className="signup-div">
 				<h1>Sign Up</h1>
 			</div>
 			<form className="login-form" onSubmit={handleSubmit}>
@@ -165,12 +176,12 @@ function SignupFormModal() {
 				)}
 				<button className="login-button" type="submit">Sign Up</button>
 
-				<div className="torb-div">
+				{/* <div className="torb-div">
 					<p className="lets-getin-there">
 						Buckle up!
 					</p>
 					<img src="https://d15f34w2p8l1cc.cloudfront.net/overwatch/6cfb48b5597b657c2eafb1277dc5eef4a07eae90c265fcd37ed798189619f0a5.png" alt="alt" />
-				</div>
+				</div> */}
 			</form>
 		</>
 	);

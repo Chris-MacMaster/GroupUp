@@ -101,23 +101,23 @@ function App() {
 
 
           <Route path='/forms/create-group' exact={true} >
-            <GroupUp />
+            <GroupUp subtitle="Create a Group"/>
             <CreateGroupForm />
           </Route>
 
           <Route path='/forms/create-event/:groupId' >
-            <GroupUp />
+            <GroupUp subtitle="Create an Event"/>
             <CreateEventForm />
           </Route>
 
           <Route path='/forms/edit-group/:groupId' exact={true} >
-            <GroupUp />
+            <GroupUp subtitle="Edit Group"/>
             <EditGroupForm />
           </Route>
 
 
           <Route path='/forms/edit-event/:eventId' exact={true} >
-            <GroupUp />
+            <GroupUp subtitle="Edit Event"/>
             <EditEventForm />
           </Route>
 
