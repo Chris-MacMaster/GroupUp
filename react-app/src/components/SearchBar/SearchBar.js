@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { fetchSearchResults } from '../../store/search';
+import { fetchEventsSearch, fetchGroupsSearch, fetchSearchResults } from '../../store/search';
 
 
 const SearchBar = () => {
@@ -15,7 +15,8 @@ const SearchBar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         // load results into state
-        await dispatch(fetchSearchResults(parameters))
+        dispatch(fetchGroupsSearch())
+        dispatch(fetchEventsSearch())
         history.push(`/search/${parameters}`)
     }
 

@@ -24,6 +24,7 @@ import LoggedOut from "./components/Landing/LoggedOut";
 import GroupUp from "./components/Landing/GroupUp";
 import CurrentGroupsMesage from "./components/Groups/CurrentGroupsMessage";
 import CurrentEventsMessage from "./components/Groups/CurrentEventsMessage";
+import SearchResults from "./components/SearchBar/SearchResults";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -92,6 +93,12 @@ function App() {
             <GroupUp subtitle="Event Details" />
             <EventDetail />
           </Route>
+
+          <Route path="/search/:parameters" exact={true} >
+            <GroupUp subtitle="Search Results" />
+            <SearchResults />
+          </Route>
+
 
           <Route path='/forms/create-group' exact={true} >
             <GroupUp />

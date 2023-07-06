@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-
 import { fetchGroupsSearch, fetchEventsSearch } from '../../store/search';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 // import { ReactComponent as ow_logo } from './ow_logo.jsx';
@@ -24,11 +24,12 @@ function Navigation({ isLoaded }){
 	}
 
 	// test successful! the fetches work and load into state correctly
-	// const handleTestSearch = (e) => {
-	// 	e.preventDefault()
-	// 	dispatch(fetchGroupsSearch())
-	// 	dispatch(fetchEventsSearch())
-	// }
+	const handleTestSearch = (e) => {
+		e.preventDefault()
+		dispatch(fetchGroupsSearch())
+		dispatch(fetchEventsSearch())
+		history.push('/search/test')
+	}
 
 
 
@@ -40,19 +41,22 @@ function Navigation({ isLoaded }){
 
 					<img onClick={handleHomeRedirect} className='redirect-gr-img' src={process.env.PUBLIC_URL + "/ow-nav-pic.png"}  alt='alt' />
 				</div>
-				<div className='home-redirect-div'>
-					{/* <OwLogo onClick={handleHomeRedirect} /> */}
+				{/* test div for search */}
+				{/* <div className='home-redirect-div'>
+					<img onClick={handleTestSearch} className='redirect-gr-img' src={process.env.PUBLIC_URL + "/ow-nav-pic.png"} alt='alt' />
+				</div> */}
 
-					{/* <img onClick={handleTestSearch} className='redirect-gr-img' src={process.env.PUBLIC_URL + "/ow-nav-pic.png"} alt='alt' /> */}
+				{/* test div for search bar */}
+				<div className='home-redirect-div'>
+					<SearchBar />
 				</div>
+
 				{isLoaded && (
 					<div>
 						<ProfileButton className="profile-button" user={sessionUser} />
 					</div>
 				)}
 			</div>
-			{/* <nav class="navbar bg-body-tertiary nav-bar-container"> */}
-			{/* </nav> */}
 		</div>
 	);
 }
