@@ -1,8 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+
+import { fetchGroupsSearch, fetchEventsSearch } from '../../store/search';
+
 
 // import { ReactComponent as ow_logo } from './ow_logo.jsx';
 
@@ -13,11 +16,19 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 	// const dispatch = useDispatch()
 	const history = useHistory()
+	const dispatch = useDispatch()
 
 	const handleHomeRedirect = (e) => {
 		e.preventDefault()
 		history.push('/')
 	}
+
+	// test successful! the fetches work and load into state correctly
+	// const handleTestSearch = (e) => {
+	// 	e.preventDefault()
+	// 	dispatch(fetchGroupsSearch())
+	// 	dispatch(fetchEventsSearch())
+	// }
 
 
 
@@ -28,6 +39,11 @@ function Navigation({ isLoaded }){
 					{/* <OwLogo onClick={handleHomeRedirect} /> */}
 
 					<img onClick={handleHomeRedirect} className='redirect-gr-img' src={process.env.PUBLIC_URL + "/ow-nav-pic.png"}  alt='alt' />
+				</div>
+				<div className='home-redirect-div'>
+					{/* <OwLogo onClick={handleHomeRedirect} /> */}
+
+					{/* <img onClick={handleTestSearch} className='redirect-gr-img' src={process.env.PUBLIC_URL + "/ow-nav-pic.png"} alt='alt' /> */}
 				</div>
 				{isLoaded && (
 					<div>

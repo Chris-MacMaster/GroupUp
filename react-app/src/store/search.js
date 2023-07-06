@@ -18,17 +18,24 @@ export const actionLoadEventResults = (searchResults) => {
 
 //**Thunks */
 
-export const fetchSearchResults = () => async dispatch => {
+export const fetchGroupsSearch = () => async dispatch => {
     // perhaps will need parameters
-    // one db connection, then dispatch two actions into state, one for groups and one for events
-    const response = await fetch('/api/search/')
+    const response = await fetch('/api/all-search/groups')
 
     if (response.ok) {
         const searchResults = await response.json()
-        // get back an object with groups, events as arrays of objects for mapping purposes
-        // two keys. 1 is groups and 2 is events
-        dispatch(actionLoadGroupResults(searchResults[1]))
-        dispatch(actionLoadEventResults(searchResults[2]))
+        dispatch(actionLoadGroupResults(searchResults))
+        return searchResults
+    }
+}
+
+
+export const fetchEventsSearch = () => async dispatch => {
+    const response = await fetch('/api/all-search/events')
+
+    if (response.ok) {
+        const searchResults = await response.json()
+        dispatch(actionLoadEventResults(searchResults))
         return searchResults
     }
 }
