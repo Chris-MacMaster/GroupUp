@@ -1,0 +1,104 @@
+.groupIndexItem:hover {
+    cursor: pointer;
+}
+
+/* adjust width and continue styling */
+.groupIndexItem {
+    display: block;
+    width: fit-content;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.group-card-div {
+    width: 640px;
+    height: 218px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid white;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* overflow: auto; */
+    word-wrap: break-word;
+    /* background-color: darkgray; */
+}
+
+.group-card-div:hover {
+    border-color: rgb(220, 94, 28);
+    /* box-shadow: 10px 5px 5px red; */
+}
+
+.group-name-div {
+    font-size: x-large;
+}
+
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-group-button:hover,
+.delete-group-button:hover {
+    border: 2px solid white;
+}
+
+.update-group-button {
+    background-color: rgb(220, 94, 28);
+    /* background-color: #878787 */
+}
+
+.delete-group-button {
+    background-color: #878787
+        /* background-color: rgb(220, 94, 28); */
+}
+
+.group-organizer-div {
+    color: green;
+}
+
+
+.joined {
+    background-color: green;
+}
+
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-card {
+    width: 140px;
+    height: 140px;
+}
+
+
+.name-description-organizer {
+    max-width: 75%;
+    /* overflow-wrap: break-word; */
+    word-wrap: break-word;
+}
+
+.buttons-div {
+    display: flex;
+    column-gap: 10px;
+}
+
+
+.create-event-button {
+    background-color: green;
+}
+
+.delete-gr-button {
+    background-color: red;
+}
+
+.search-group-card-div {
+    margin-right: 20px;
+}

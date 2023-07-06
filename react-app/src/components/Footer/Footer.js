@@ -38,11 +38,7 @@ export default function Footer() {
                     </div>
 
                 ))}
-                {/* <div className='footer-person'></div>
-                <div className='footer-person'></div>
-                <div className='footer-person'></div> */}
             </div>
-            <p></p>
         </div>
     )
 }

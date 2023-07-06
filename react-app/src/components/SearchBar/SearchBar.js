@@ -26,10 +26,10 @@ const SearchBar = () => {
                 <form onSubmit={handleSubmit} className='search-bar-form'>
                     <input className='header-search' id='header-search' type='text' value={parameters}
                         onChange={(e) => setParameters(e.target.value)}
-                        placeholder='Search for anything in the universe'></input>
-                    <div className='telescope-search'>
+                        placeholder='Search for groups and events'></input>
+                    {/* <div className='telescope-search'>
                         <i className="fa-solid fa-magnifying-glass" onClick={handleSubmit}></i>
-                    </div>
+                    </div> */}
                 </form>
             </div> 
 

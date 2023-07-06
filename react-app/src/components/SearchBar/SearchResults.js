@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useSelector } from "react-redux";
 import GroupIndexItem from '../Groups/GroupIndexItem';
 import EventIndexItem from '../Events/EventIndexItem';
+import SearchGroupIndexItem from './SearchGroupIndexItem';
+import './SearchResults.css'
 
 
 
@@ -30,14 +32,24 @@ const SearchResults = () => {
 
 
     return (
-        <div className='groups-index'>
-            <div className="groupIndex">
+        <div className='groups-index search-component'>
+            <div className='g-detail-top-background search-top'>
+                "
+            </div>
+            
+            {/* <h1 className="groups-h1 search-groups-h1">
+                Groups
+            </h1> */}
+            <div className="groupIndex search-groups-div">
                 {Object.values(groups).filter(group => group.name.toLowerCase().includes(parameters.toLowerCase())).map(group => (
-                    <GroupIndexItem className="group-index-item" title={group.name} group={group} key={group.id} buttons={false} />
+                    <SearchGroupIndexItem title={group.name} group={group} key={group.id} buttons={false} />
                 ))}
             </div>
 
-            <div className="groupIndex">
+            {/* <h1 className="groups-h1 search-events-h1">
+                Events
+            </h1> */}
+            <div className="groupIndex search-events-div">
                 {Object.values(events).filter(event => event.name.toLowerCase().includes(parameters.toLowerCase())).map(event => (
                     <EventIndexItem title={event.name} event={event} key={event.id} buttons={false} />
                 ))}

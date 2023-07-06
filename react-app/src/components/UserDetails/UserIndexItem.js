@@ -5,7 +5,7 @@ const UserIndexItem = ({user}) => {
     return (
         <div  className='userIndexItem'>
 
-            <div className='group-card-div user-card-div'>
+            <div className='user-card-div'>
                 <div className='user-card-name'>
                     {user.username}
                 </div>

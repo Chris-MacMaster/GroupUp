@@ -68,7 +68,7 @@ const GroupDetail = () => {
 
                 <div className='g-description-div g-detail-events-div'>
                     <p className='upcoming-events g-detail-title-text up-events-text'>
-                        UPCOMING EVENTS
+                        UPCOMING EVENTS ({Object.values(group.Events).length && Object.values(group.Events).length})
                     </p>  
                 </div>
 
@@ -89,12 +89,6 @@ const GroupDetail = () => {
                         ))}
                     </div>              
                 </div>
-
-    
-
-
-              
-              
             </div>
         </div>
     );
