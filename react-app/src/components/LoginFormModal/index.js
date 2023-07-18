@@ -23,15 +23,6 @@ function LoginFormModal() {
     }
   };
 
-  const handleDemoSubmit = async (e) => {
-    e.preventDefault()
-    const data = await dispatch(login("demo@aa.io", "password"))
-    if (data) {
-      setErrors(data)
-    } else {
-      closeModal()
-    }
-  }
 
   const handleClose = (e) => {
     e.preventDefault()
@@ -45,6 +36,12 @@ function LoginFormModal() {
     } else {
       setShowPassword(false)
     }
+  }
+
+  const handleDemoLogin = (e) => {
+    e.preventDefault()
+    dispatch(login("demo@aa.io", "password"))
+    closeModal()
   }
 
   return (
@@ -102,6 +99,9 @@ function LoginFormModal() {
 
         </div>
         <button className="login-button" type="submit">Log In</button>
+        <div onClick={handleDemoLogin} className='button demo-button'>
+          Demo User
+        </div>
         {/* <div className="torb-div">
           <p className="lets-getin-there">
             Let's get in there!

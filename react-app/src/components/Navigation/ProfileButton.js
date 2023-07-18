@@ -114,9 +114,9 @@ function ProfileButton({ user }) {
               modalComponent={<SignupFormModal />}
             />
 
-            <div onClick={handleDemoLogin} className='button demo-user-button'>
+            {/* <div onClick={handleDemoLogin} className='button demo-user-button'>
               Demo User
-            </div>
+            </div> */}
           </div>
         )}
       </ul>

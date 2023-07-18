@@ -3,9 +3,7 @@
     flex-direction: column;
 }
 
-#modal-background {
-    /* background-color: darkgrey; */
-}
+
 
 .torb-div {
     display: flex;
@@ -21,4 +19,19 @@
 .login-text {
     font-size: 3em;
     font-weight: bold;
+}
+
+.demo-button {
+    background-color: #DDE7F1;
+    color: black;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-button {
+    margin-bottom: 10px;
+    cursor: pointer;
 }
