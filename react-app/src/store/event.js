@@ -110,7 +110,6 @@ export const makeEvent = (eventBody) => async dispatch => {
 
     if (response.ok) {
         const event = await response.json()
-        // console.log("event", event)
         return event
     }
 }
