@@ -24,7 +24,7 @@ Crud:
 -Delete
 -Edit(Future)
 
-4)Followers (Not sure what good alternatives there are)
+4)Followers 
 Users can follow other users.
 Crud:
 -Get
@@ -33,4 +33,4 @@ Crud:
 
 Bonus Features
 1)Search 
-2)Theme Color
+2)AWS Image Upload (incoming)
