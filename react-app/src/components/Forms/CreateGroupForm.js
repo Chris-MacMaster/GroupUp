@@ -1,4 +1,3 @@
-//src/components/SpotForm/CreateSpot.js
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
@@ -60,7 +59,6 @@ export default function CreateGroupForm() {
                 "
             </div>
             <h1 className='cp-title form-title'></h1>
-            {/* <p className='cp-grey-text sub-q-text form-sub'>Tell the world all about your item and why they'll love it</p> */}
             <form className='sp-form' onSubmit={handleSubmit} >
 
                 <div className='product-name-div'>
@@ -71,7 +69,6 @@ export default function CreateGroupForm() {
                         <p className='create-shop-grey'>
                             Choose a name for your group
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text'>Incldue keywords that buyer would use to search for your item</p> */}
                     </div>
                     <div className='input-div'>
                         <div className='cp-field-div'>
@@ -102,9 +99,6 @@ export default function CreateGroupForm() {
                         <p className='cp-grey-text sub-q-text create-shop-grey'>
                             Start with a brief overview of your group. Feel free to mention details such as membership requirements or ground rules!
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text create-shop-grey'>
-                            Not sure what else to say? Shoppers also like hearing about your process, and the story behind the item!
-                        </p> */}
                     </div>
                     <div className='cp-field-div description-text'>
                         <textarea className='product-input input-field description-input' type="text-area"
@@ -119,34 +113,9 @@ export default function CreateGroupForm() {
                     </div>
                 </div>
 
-                {/* <div className='product-price-div'>
-                    <div >
-                        <label className='cp-form-label cp-price q-text' >
-                            Number of members
-                        </label>
-                        <p className='cp-form-label sub-q-text create-shop-grey'>
-                            Please enter how many other members are in the group.
-                        </p>
-                    </div>
-                    <div className='cp-form-field'>
-                        <input className='product-input input-field' type="number"
-                            value={num_members}
-                            onChange={(e) => setNumMembers(e.target.value)}
-                            placeholder='Number of members' />
-                    </div>
-                </div> */}
             </form>
             <input onClick={handleSubmit} className='submit-button form-create-button favorite-shop submit-create-shop create-product-button' type="submit" value="Create group" />
         </div>
     );
 }
 
-
-// export const urlCheck = (url) => {
-//     return url.endsWith("jpeg") ||
-//         url.endsWith("jpg") ||
-//         url.endsWith("svg") ||
-//         url.endsWith("png") ||
-//         url.endsWith('gif') ||
-//         url.endsWith("bmp")
-// }
