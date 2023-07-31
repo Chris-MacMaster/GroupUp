@@ -1,11 +1,9 @@
-// import { csrfFetch } from './csrf'
 const LOAD_GROUPS = "groups/LOAD"
 const LOAD_USER_GROUPS = "groups/USERS/LOAD"
 const LOAD_GROUP = "group/LOAD"
 const POST_GROUP = "groups/POST"
 const DELETE_GROUP = "groups/DELETE"
 const LEAVE_GROUP = "groups/LEAVE"
-// const JOIN_GROUP = "groups/JOIN"
 
 //**Actions */
 export const actionLoadGroups = (groups) => {
@@ -50,16 +48,10 @@ export const actionLeaveGroup = (id) => {
     }
 }
 
-// export const userProducts = products => ({
-//     type: LOAD_USER_PRODUCTS,
-//     payload: products
-// })
-
 
 
 //**Thunks */
 
-//FOR TESTING ONLY!!! SCRAP WHEN DB SEEDS
 
 //PRODUCTS HOME PAGE
 export const fetchGroups = () => async dispatch => {
@@ -84,7 +76,6 @@ export const fetchUserGroups = () => async dispatch => {
 
 
 export const fetchOneGroup = (id) => async dispatch => {
-    //**Code For Backend */
     const response = await fetch(`/api/all-groups/${id}/`)
     if (response.ok) {
         const group = await response.json()
@@ -190,7 +181,6 @@ export default function groupReducer(state = initialState, action) {
         case LOAD_GROUPS: {
             const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             newState.allGroups = action.payload
-            // resets group details when going to allProducts page
             newState.singleGroup = {}
             return newState
         }
@@ -198,8 +188,6 @@ export default function groupReducer(state = initialState, action) {
         case LOAD_USER_GROUPS: {
             const newState = { allGroups: { ...state.allGroups }, singleGroup: { ...state.singleGroup }, userGroups: { ...state.userGroups } }
             newState.userGroups = action.payload
-            // resets other state
-            // newState.allGroups = {}
             return newState
         }
         case LOAD_GROUP: {
