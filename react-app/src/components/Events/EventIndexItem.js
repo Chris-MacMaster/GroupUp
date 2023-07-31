@@ -13,16 +13,10 @@ const EventIndexItem = ({ event, buttons }) => {
 
 
     const [showButton, setShowButton] = useState(true)
-
-
-
     const user = useSelector(state => state.session.user)
-
-
 
     const handleClick = (e) => {
         e.preventDefault()
-        // console.log("group ID", group.id)
         history.push(`/event-details/${event.id}`)
     }
 
@@ -43,14 +37,12 @@ const EventIndexItem = ({ event, buttons }) => {
         e.stopPropagation()
         dispatch(joinEvent(event.id))
         setShowButton(false)
-        // history.push(`/user-events`)
     }
 
     const handleLeave = (e) => {
         e.preventDefault()
         e.stopPropagation()
         dispatch(leaveEvent(event.id))
-        // history.push(`/`)
     }
 
 
