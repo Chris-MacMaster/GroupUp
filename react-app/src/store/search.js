@@ -19,7 +19,6 @@ export const actionLoadEventResults = (searchResults) => {
 //**Thunks */
 
 export const fetchGroupsSearch = () => async dispatch => {
-    // perhaps will need parameters
     const response = await fetch('/api/all-search/groups')
 
     if (response.ok) {
@@ -49,7 +48,6 @@ const initialState = {
 export default function searchReducer(state = initialState, action) {
 
     switch (action.type) {
-        // perhaps split into groups and events
         case LOAD_GROUP_SEARCH: {
             const newState = { allGroups: {...state.allGroups}, allEvents: {...state.allEvents} }
             newState.allGroups = action.payload
