@@ -1,10 +1,8 @@
-//src/components/SpotForm/CreateSpot.js
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 
-// import { makeGroup } from '../../store/group';
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
 import { joinEvent, makeEvent } from '../../store/event';
@@ -17,14 +15,7 @@ export default function CreateEventForm() {
     const eventState = useSelector(state => state.events.singleEvent)
     const host = user?.username
 
-    // const event = eventState
-
-
-
     const { groupId } = useParams()
-
-
-    // const { closeModal } = useModal()
 
 
     const [name, setName] = useState("")
@@ -110,7 +101,6 @@ export default function CreateEventForm() {
                 "
             </div>
             <h1 className='cp-title form-title'></h1>
-            {/* <p className='cp-grey-text sub-q-text form-sub'>Tell the world all about your item and why they'll love it</p> */}
             <form className='sp-form' onSubmit={handleSubmit} >
 
                 <div className='product-name-div'>
@@ -121,7 +111,6 @@ export default function CreateEventForm() {
                         <p className='create-shop-grey'>
                             Choose a name for your event
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text'>Incldue keywords that buyer would use to search for your item</p> */}
                     </div>
                     <div className='input-div'>
                         <div className='cp-field-div'>
@@ -253,7 +242,6 @@ export default function CreateEventForm() {
                         <p className='create-shop-grey'>
                             Choose a date for your event
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text'>Incldue keywords that buyer would use to search for your item</p> */}
                     </div>
                     <div className='input-div'>
                         <div className='cp-field-div'>
