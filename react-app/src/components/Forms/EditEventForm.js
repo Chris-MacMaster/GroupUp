@@ -1,11 +1,9 @@
-//src/components/SpotForm/CreateSpot.js
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import "./CreateGroupForm.css"
 import "./CreateEventForm.css"
 import { editEvent, fetchOneEvent, fetchUserEvents } from '../../store/event';
-// import { fetchUserGroups } from '../../store/group';
 
 export default function EditEventForm() {
     const history = useHistory();
@@ -15,12 +13,8 @@ export default function EditEventForm() {
     const eventState = useSelector(state => state.events.singleEvent)
     const host = user?.username
 
-    // const event = eventState
 
     const { eventId } = useParams()
-
-
-    // const { closeModal } = useModal()
 
 
     const [name, setName] = useState("")
@@ -81,7 +75,6 @@ export default function EditEventForm() {
         
 
     }, [eventState])
-    // console.log("GROUP ID", event?.Group.id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -126,7 +119,6 @@ export default function EditEventForm() {
     }
 
 
-    // if (!Object.values(event).length) return null
 
 
 
@@ -136,7 +128,6 @@ export default function EditEventForm() {
                 "
             </div>
             <h1 className='cp-title form-title'></h1>
-            {/* <p className='cp-grey-text sub-q-text form-sub'>Tell the world all about your item and why they'll love it</p> */}
             <form className='sp-form' onSubmit={handleSubmit} >
 
                 <div className='product-name-div'>
@@ -147,7 +138,6 @@ export default function EditEventForm() {
                         <p className='create-shop-grey'>
                             Choose a name for your event
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text'>Incldue keywords that buyer would use to search for your item</p> */}
                     </div>
                     <div className='input-div'>
                         <div className='cp-field-div'>
@@ -177,9 +167,6 @@ export default function EditEventForm() {
                         <p className='cp-grey-text sub-q-text create-shop-grey'>
                             Start with a brief overview of your event. Feel free to mention details such as membership requirements or ground rules!
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text create-shop-grey'>
-                            Not sure what else to say? Shoppers also like hearing about your process, and the story behind the item!
-                        </p> */}
                     </div>
                     <div className='cp-field-div description-text'>
                         <textarea className='product-input input-field description-input' type="text-area"
@@ -282,7 +269,6 @@ export default function EditEventForm() {
                         <p className='create-shop-grey'>
                             Choose a date for your event
                         </p>
-                        {/* <p className='cp-grey-text sub-q-text'>Incldue keywords that buyer would use to search for your item</p> */}
                     </div>
                     <div className='input-div'>
                         <div className='cp-field-div'>
