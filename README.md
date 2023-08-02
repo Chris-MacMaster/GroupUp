@@ -19,6 +19,9 @@ git add .: add changes
 git commit -m "[name of commit]": commit changes
 git push: push committed change to github. If you're on a new branch that hasn't pushed to github yet, push, then copy and enter the modified push command git gives you so you can simply use git push from then on.
 
+# To Shut Down Locally:
+ctrl + c in both the backend and frontend terminals
+
 # Resetting the Database
 Delete dev.db, located in the instance folder.
 While in the "CAP" directory, run the following commands:
