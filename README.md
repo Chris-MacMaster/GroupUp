@@ -1,4 +1,4 @@
-# Website Name: GroupUp
+# Website Name: [GroupUp](https://groupup-project.onrender.com/)
 
 # Overview
 GroupUp is a social media website that functions similar to meetup, but designed specifically for Overwatch players looking to make connections both in game and in real life. Users can search and browse a selection of groups and events, as well as make profiles in order to make and join groups/events. 
