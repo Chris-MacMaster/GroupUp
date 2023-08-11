@@ -1,5 +1,5 @@
 # Groups
-Users can create/join groups, which are sets of users defined by a common theme, such as "New York New Fathers Meetup Group". See UserStories.md for more.
+Users can create/edit/delete/join groups, which are sets of users defined by a common theme, such as "New York New Fathers Meetup Group". See UserStories.md for more.
 ### CRUD:
 * Get
 * Post
@@ -7,7 +7,7 @@ Users can create/join groups, which are sets of users defined by a common theme,
 * Delete
 
 # Events
-Users, through groups, can create/join events, as well as host them. In future events will be searchable.
+Users, through groups, can create/edit/delete/join events, as well as host them.
 ### CRUD:
 * Get
 * Post
