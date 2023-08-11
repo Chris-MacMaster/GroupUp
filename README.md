@@ -42,7 +42,7 @@ To get started, new users can click on the icon in the top right of their screen
  * See UserStories.md or wiki
 
 # Schema
-* https://dbdiagram.io/d/643e24406b31947051c3b277 or see GroupUp-Schema.png
+* [Here](https://dbdiagram.io/d/643e24406b31947051c3b277) or see GroupUp-Schema.png
 * Note: Interests/Categories/Themes feature incoming, will allow users to select their interests, then be shown recommended groups/events that have matching categories and themes.
 * The Specific Interests/Categories/Themes are all the same, interests simply apply to users, categories apply to groups, and themes apply to events.
 Examples: Casual, Competitive, Support, DPS, Tank, etc.
@@ -50,9 +50,9 @@ Examples: Casual, Competitive, Support, DPS, Tank, etc.
 # Wireframes
  * See Chris-MacMaster-Wireframe-GroupUp.pdf 
 
-# Target Website
- * Meetup: https://www.meetup.com/
- * Overwatch Page of Blizzard (for visual design): https://overwatch.blizzard.com/en-us/
+# Target Websites
+ * [Meetup](https://www.meetup.com/)
+ * (Visual Design) [Blizzard](https://overwatch.blizzard.com/en-us/)
 
 # Core Features
  * See CoreFeatures.md or wiki
