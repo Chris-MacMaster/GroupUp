@@ -1,4 +1,6 @@
 # [GroupUp](https://groupup-project.onrender.com/) - About
+![GroupUp Image](https://github.com/Chris-MacMaster/GroupUp/blob/main/react-app/public/gr.png)
+
 GroupUp is a social media website that functions similar to meetup, but designed specifically for Overwatch players looking to make connections both in game and in real life. Users can search and browse a selection of groups and events, as well as make profiles in order to make and join groups/events. 
 To get started, new users can click on the icon in the top right of their screen and sign up for free, then utilize the drop down menu in the top right by clicking on the icon again. The drop down menu provides a general roadmap for how to navigate and use the site, although many groups and events are both clickable and contain buttons to help users execute more specific tasks such as joining groups.
 
