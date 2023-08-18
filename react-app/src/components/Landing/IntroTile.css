@@ -24,4 +24,9 @@
     justify-content: flex-start;
 }
 
-
+#intro-img {
+    height: 390px;
+    max-height: 390px;
+    width: 385px;
+    min-width: 385px;
+}

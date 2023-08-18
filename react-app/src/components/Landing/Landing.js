@@ -50,7 +50,7 @@ const tiles = {
     },
     3: {
         id: 3,
-        url: `${process.env.PUBLIC_URL + "/lucio-icon.webp"}`,
+        url: `${process.env.PUBLIC_URL + "/ow-player-icons.jpeg"}`,
         title: "Start a Group",
         text: "You don't have to be top 500 to gather teammates together and play."
     }

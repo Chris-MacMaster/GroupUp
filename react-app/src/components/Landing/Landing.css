@@ -5,7 +5,8 @@
 
 .tiles-index {
     display: flex;
-    flex-wrap: normal;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     margin-left: 12%;
     /* margin-right: 12%; */
