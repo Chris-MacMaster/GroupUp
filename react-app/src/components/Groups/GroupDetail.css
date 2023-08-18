@@ -7,7 +7,6 @@
     margin-left: 15px;
 }
 
-
 .g-detail-img {
     object-fit: cover;
     max-height: 340px;
@@ -42,11 +41,8 @@
 
 .g-description-div {
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: center; */
     flex-wrap: wrap;
     justify-content: flex-start;
-
 }
 
 
@@ -78,11 +74,6 @@
     background-color: #1D263A;
 }
 
-.group-detail-div {
-    /* margin-left: 65px;
-    margin-right: 312px; */
-}
-
 .g-subinfo-div {
     background-color: #1D263A;
     padding-left: 8%;
@@ -97,7 +88,6 @@
 .g-detail-members-div  {
     background-color: #166CD0;
     padding-left: 8%;
-    /* padding-bottom: 300px; */
 }
 
 .g-img-icon {
@@ -137,8 +127,6 @@
 .upcoming-events-index {
     padding-bottom: 8px;
 }
-
-
 
 .upcoming-events-index {
     display: flex;

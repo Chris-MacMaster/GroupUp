@@ -1,11 +1,7 @@
 .groupIndex {
     display: flex;
-    /* justify-content: space-around; */
     justify-content: center;
     flex-wrap: wrap;
-
-    /* width: 70px; */
-    /* flex-basis: 1; */
 }
 
 .groups-h1 {
@@ -26,7 +22,6 @@
 
 .group-card-div {
     margin-right: 0px;
-    /* margin: 0px; */
 }
 
 .img-top-div {
@@ -40,14 +35,6 @@
     justify-content: space-around;
 }
 
-.img-only {
-    /* margin-left: 30px; */
-}
-
-.img-bottom-div {
-    /* margin-right: 30px; */
-}
-
 .groupIndex {
     width: 700px;
 }
@@ -59,18 +46,3 @@
 .groupIndexItem {
     height: fit-content;
 }
-
-/* https://d15f34w2p8l1cc.cloudfront.net/overwatch/4edf5ea6d58c449a2aeb619a3fda9fff36a069dfbe4da8bc5d8ec1c758ddb8dc.png" */
-
-
-/* "https: //d15f34w2p8l1cc.cloudfront.net/overwatch/a66413200e934da19540afac965cfe8a2de4ada593d9a52d53108bb28e8bbc9c.png" */
-
-
-/* https://d15f34w2p8l1cc.cloudfront.net/overwatch/bd9c8e634d89488459dfc1aeb21b602fa5c39aa05601a4167682f3a3fed4e0ee.png" */
-
-/* img {
-    width: 10px;
-    height: 10px;
-} */
-
-/* "https://d15f34w2p8l1cc.cloudfront.net/overwatch/bca8532688f01b071806063b9472f1c0f9fc9c7948e6b59e210006e69cec9022.png" */

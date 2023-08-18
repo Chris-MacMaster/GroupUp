@@ -24,14 +24,11 @@
     padding-right: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
-    /* overflow: auto; */
     word-wrap: break-word;
-    /* background-color: darkgray; */
 }
 
 .group-card-div:hover {
     border-color:rgb(220, 94, 28);
-    /* box-shadow: 10px 5px 5px red; */
 }
 
 .group-name-div {
@@ -49,12 +46,10 @@
 
 .update-group-button {
     background-color: rgb(220, 94, 28);
-    /* background-color: #878787 */
 }
 
 .delete-group-button {
     background-color: #878787
-    /* background-color: rgb(220, 94, 28); */
 }
 
 .group-organizer-div {
@@ -77,10 +72,8 @@
     height: 140px;
 }
 
-
 .name-description-organizer {
     max-width: 75%;
-    /* overflow-wrap: break-word; */
     word-wrap: break-word;
 }
 
@@ -88,7 +81,6 @@
     display: flex;
     column-gap: 10px;
 }
-
 
 .create-event-button {
     background-color: green;

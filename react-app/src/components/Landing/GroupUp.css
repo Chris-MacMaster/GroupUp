@@ -2,7 +2,6 @@
     display: flex;
 }
 
-
 .gr-up-img {
     width: 100px;
     height: 100px;
@@ -11,7 +10,6 @@
 .group-up-div-a {
     font-size: 5.6em;
     color: rgb(250, 156, 30);
-    /* padding-bottom: 15px; */
 }
 
 .gr-img-div {
@@ -26,19 +24,14 @@
 }
 
 .subtitle {
-    /* margin-top: 20px; */
     display: block;
     font-size: 4em;
     text-align: center;
-    /* padding-bottom: 15px; */
 }
 
 
 .user-landing-wrapper {
-    /* border-top: 2px solid rgb(220, 94, 28); */
-    /* border-bottom: 2px solid rgb(220, 94, 28); */
     margin-bottom: 20px;
-
 }
 
 
