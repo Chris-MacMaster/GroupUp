@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { deleteGroup, joinGroup, leaveGroup } from '../../store/group';
 
+// import OWSVG from "./ow-logo-svg.svg"
+
 const GroupIndexItem = ({ group, buttons }) => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -68,7 +70,8 @@ const GroupIndexItem = ({ group, buttons }) => {
                         </div>
                     </div>
                     <div className='img-group-div'>
-                        <img className='img-card' src='https://w7.pngwing.com/pngs/1/769/png-transparent-stick-people-high-five-teamwork-people-friendship-together-success-celebration-celebrating.png' alt='alt' />
+                        {/* <img className='img-card' src='https://w7.pngwing.com/pngs/1/769/png-transparent-stick-people-high-five-teamwork-people-friendship-together-success-celebration-celebrating.png' alt='alt' /> */}
+                        <img  className='img-card' src={process.env.PUBLIC_URL + "/ow-logo-gr-item.png"} alt='alt' />
                     </div>
                     
                 </div>

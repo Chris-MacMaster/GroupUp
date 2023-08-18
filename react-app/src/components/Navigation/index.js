@@ -9,7 +9,7 @@ import SearchBar from '../SearchBar/SearchBar';
 
 // import { ReactComponent as ow_logo } from './ow_logo.jsx';
 
-import OwLogo from './OwLogo'
+// import OwLogo from './OwLogo'
 
 
 function Navigation({ isLoaded }){

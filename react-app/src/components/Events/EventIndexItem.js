@@ -65,7 +65,8 @@ const EventIndexItem = ({ event, buttons }) => {
                     </div>
 
                     <div className='img-group-div'>
-                        <img className='img-card' src='https://cutewallpaper.org/24x/ybdxp5ckz/1808411912.jpg' alt='alt' />
+                        {/* <img className='img-card' src='https://cutewallpaper.org/24x/ybdxp5ckz/1808411912.jpg' alt='alt' /> */}
+                        <img className='img-card' src={process.env.PUBLIC_URL + "/top-500.png"} alt='alt' />
                     </div>
 
                 </div>

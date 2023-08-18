@@ -38,19 +38,19 @@ export default Landing;
 const tiles = {
     1: {
         id: 1,
-        url: "https://w7.pngwing.com/pngs/1/769/png-transparent-stick-people-high-five-teamwork-people-friendship-together-success-celebration-celebrating.png",
+        url: `${process.env.PUBLIC_URL + "/ow-logo-gr-item.png"}`,
         title: "Group Up!",
         text: "Play what you want, find teammates who love it. The world could always use more heroes."
     },
     2: {
         id: 2,
-        url: "https://cutewallpaper.org/24x/ybdxp5ckz/1808411912.jpg",
+        url: `${process.env.PUBLIC_URL + "/top-500.png"}`,
         title: "Find an Event",
         text: "Events are happening on all levels of play. From casual to competitive, beginner to veteran."
     },
     3: {
         id: 3,
-        url: "https://www.shutterstock.com/image-vector/people-vector-icon-600w-378571234.jpg",
+        url: `${process.env.PUBLIC_URL + "/lucio-icon.webp"}`,
         title: "Start a Group",
         text: "You don't have to be top 500 to gather teammates together and play."
     }
