@@ -1,4 +1,15 @@
 .interests-index {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-interests-index {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.interests-h1 {
+    width: 100%;
 }

@@ -28,6 +28,7 @@ import CurrentEventsMessage from "./components/Groups/CurrentEventsMessage";
 import SearchResults from "./components/SearchBar/SearchResults";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CurrentInterestMessage from "./components/Interests/CurrentInterestMessage";
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
             <CurrentGroupsIndex />
             <CurrentEventsMessage />
             <CurrentEventsIndex />
+            <CurrentInterestMessage />
             <CurrentInterestIndex />
             {/* Can implement after search and suggested groups are coded in*/}
             {/* <CurrentInterestIndex /> */}

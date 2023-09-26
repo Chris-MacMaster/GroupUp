@@ -22,7 +22,10 @@ export default function CurrentInterestIndex() {
 
     return (
         <div className="groups-index interests-index">
-            <div className="groupIndex">
+            <h1 className="groups-h1 interests-h1">
+                Your Interests
+            </h1>
+            <div className="groupIndex sub-interests-index">
                 {Object.values(interests).map(interest => (
                     <CurrentInterestItem interest={interest} key={interest.id} />
                 ))}
