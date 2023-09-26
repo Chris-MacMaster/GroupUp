@@ -1,19 +1,17 @@
 import React from 'react';
+import "./CurrentInterestItem.css"
 
 
 const CurrentInterestItem = ({ interest, buttons }) => {
     // const dispatch = useDispatch(
 
     return (
-        <div className='groupIndexItem'>
-            <div className='group-card-div' >
-                <div className='top'>
-                    <div className='group-name-div'>
-                        {interest.interest}
-                    </div>
+        <div className='userIndexItem'>
+            <div className='user-card-div' >
+                <div className='user-card-name interest-name'>
+                    {interest.interest}
                 </div>
             </div>
-
         </div>
     );
 };

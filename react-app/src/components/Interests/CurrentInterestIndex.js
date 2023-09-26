@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchInterests } from "../../store/interest";
 import CurrentInterestItem from "./CurrentInterestItem";
+import "./CurrentInterestIndex.css"
 
 
 
@@ -20,10 +21,7 @@ export default function CurrentInterestIndex() {
     }
 
     return (
-        <div className="groups-index">
-            <h1 >
-                Your Interests (search/suggested groups functionality coming soon!)
-            </h1>
+        <div className="groups-index interests-index">
             <div className="groupIndex">
                 {Object.values(interests).map(interest => (
                     <CurrentInterestItem interest={interest} key={interest.id} />
