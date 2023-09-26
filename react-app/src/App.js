@@ -13,6 +13,7 @@ import CreateEventForm from "./components/Forms/CreateEventForm";
 import EditGroupForm from "./components/Forms/EditGroupForm";
 import EventsIndex from "./components/Events/EventsIndex";
 import CurrentEventsIndex from "./components/Events/CurrentEventsIndex";
+import CurrentInterestIndex from "./components/Interests/CurrentInterestIndex";
 import EditEventForm from "./components/Forms/EditEventForm";
 import EventDetail from "./components/Events/EventDetail";
 import Footer from "./components/Footer/Footer";
@@ -79,6 +80,7 @@ function App() {
             <CurrentGroupsIndex />
             <CurrentEventsMessage />
             <CurrentEventsIndex />
+            <CurrentInterestIndex />
             {/* Can implement after search and suggested groups are coded in*/}
             {/* <CurrentInterestIndex /> */}
           </Route>
